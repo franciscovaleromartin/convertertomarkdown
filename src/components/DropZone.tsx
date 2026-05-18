@@ -1,4 +1,5 @@
-import { useRef, useState, DragEvent, ChangeEvent } from 'react'
+import { useRef, useState } from 'react'
+import type { DragEvent, ChangeEvent } from 'react'
 
 const ACCEPTED_EXT = ['.docx','.pdf','.xlsx','.xls','.html','.htm','.txt','.md','.csv','.json','.xml']
 const ACCEPT_ATTR = ACCEPTED_EXT.join(',')
