@@ -6,30 +6,59 @@ function isNumeric(s: string): boolean {
   return s !== '' && !isNaN(Number(s))
 }
 
-function detectFormStyle(data: string[][]): boolean {
-  if (data.length === 0) return false
-  const numCols = data[0]?.length ?? 0
-  if (numCols === 0 || numCols > 3) return false
+function detectFormStyle(rows: string[][], colCount: number): boolean {
+  if (colCount < 3) return false
 
-  const firstCol = data.map(row => row[0] ?? '').filter(c => c !== '')
-  if (firstCol.length === 0) return false
+  // Col 0 must be empty in ALL rows
+  if (!rows.every(row => (row[0] ?? '') === '')) return false
 
-  const nonNumericCount = firstCol.filter(c => !isNumeric(c)).length
-  return nonNumericCount / firstCol.length > 0.6
+  // Col 1 must have non-numeric text in >60% of its non-empty cells
+  const col1NonEmpty = rows.map(row => row[1] ?? '').filter(c => c !== '')
+  if (col1NonEmpty.length === 0) return false
+  const nonNumericRatio = col1NonEmpty.filter(c => !isNumeric(c)).length / col1NonEmpty.length
+  if (nonNumericRatio <= 0.6) return false
+
+  // Cols 3+ must have <10% data
+  const totalRows = rows.length
+  for (let c = 3; c < colCount; c++) {
+    const filled = rows.filter(row => (row[c] ?? '') !== '').length
+    if (filled / totalRows >= 0.1) return false
+  }
+
+  return true
 }
 
-function renderForm(data: string[][]): string {
-  const lines: string[] = []
+function countGhostCols(rows: string[][], colCount: number): number {
+  const totalRows = rows.length
+  let count = 0
+  for (let c = 0; c < colCount; c++) {
+    if (c === 1 || c === 2) continue // label and value cols — used
+    const filled = rows.filter(row => (row[c] ?? '') !== '').length
+    if (filled / totalRows < 0.1) count++
+  }
+  return count
+}
 
-  for (const row of data) {
-    const label = row[0] ?? ''
-    const value = row[1] ?? ''
+function renderForm(rows: string[][]): string {
+  const lines: string[] = []
+  let labelOnlyCount = 0
+
+  for (const row of rows) {
+    const label = (row[1] ?? '').trim()
+    const value = (row[2] ?? '').trim()
 
     if (!label && !value) continue
 
     if (label && !value) {
+      labelOnlyCount++
       if (lines.length > 0) lines.push('')
-      lines.push(`## ${label}`)
+      if (labelOnlyCount === 1) {
+        lines.push(`# ${label}`)
+      } else if (labelOnlyCount === 2) {
+        lines.push(label)
+      } else {
+        lines.push(`## ${label}`)
+      }
     } else if (label && value) {
       lines.push(`**${label}:** ${value}`)
     }
@@ -47,35 +76,37 @@ function renderTable(data: string[][]): string {
 
 export async function convertCsv(file: File): Promise<string> {
   const raw = await file.text()
-
   const allRows = raw.split(/\r?\n/).map(line => line.split(',').map(cell => cell.trim()))
 
-  // Strip empty rows (all cells blank)
+  // Strip empty rows
   const nonEmptyRows = allRows.filter(row => row.some(c => c !== ''))
   const strippedRows = allRows.length - nonEmptyRows.length
 
   if (nonEmptyRows.length === 0) return ''
 
-  // Identify non-empty column indices
   const colCount = Math.max(...nonEmptyRows.map(r => r.length))
-  const activeColIndices: number[] = []
-  for (let c = 0; c < colCount; c++) {
-    if (nonEmptyRows.some(row => (row[c] ?? '') !== '')) {
-      activeColIndices.push(c)
+
+  let body: string
+  let strippedCols: number
+
+  if (detectFormStyle(nonEmptyRows, colCount)) {
+    strippedCols = countGhostCols(nonEmptyRows, colCount)
+    body = renderForm(nonEmptyRows)
+  } else {
+    // Strip all-empty columns for table rendering
+    const activeColIndices: number[] = []
+    for (let c = 0; c < colCount; c++) {
+      if (nonEmptyRows.some(row => (row[c] ?? '') !== '')) activeColIndices.push(c)
     }
+    strippedCols = colCount - activeColIndices.length
+    const data = nonEmptyRows.map(row => activeColIndices.map(c => row[c] ?? ''))
+    body = renderTable(data)
   }
-  const strippedCols = colCount - activeColIndices.length
 
-  // Build normalized data (active columns only, uniform width)
-  const data = nonEmptyRows.map(row => activeColIndices.map(c => row[c] ?? ''))
-
-  // Footer — only when >10 rows OR >5 cols stripped
   const footer =
     strippedRows > 10 || strippedCols > 5
       ? `_(${strippedRows} empty rows and ${strippedCols} empty columns removed)_`
       : ''
-
-  const body = detectFormStyle(data) ? renderForm(data) : renderTable(data)
 
   return footer ? `${body}\n\n${footer}` : body
 }
