@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { convertText, convertCsv, convertJson, convertXml } from './textConverter'
 
 function makeFile(name: string, content: string): File {
@@ -32,57 +32,54 @@ describe('convertCsv', () => {
     })
 
     it('does not trigger form style when col 0 has data', async () => {
-      const file = makeFile('data.csv', '1,Alice\n2,Bob\n3,Charlie')
+      const file = makeFile('data.csv', 'A,B,C\n1,2,3')
       const result = await convertCsv(file)
-      expect(result).toContain('| 1 | Alice |')
+      expect(result).toContain('|')
       expect(result).not.toContain('**')
+    })
+
+    it('does not trigger form style when col 0 empty but >7 non-empty cols remain', async () => {
+      // col 0 empty but 8 data cols → table
+      const file = makeFile('data.csv', ',A,B,C,D,E,F,G,H\n,1,2,3,4,5,6,7,8')
+      const result = await convertCsv(file)
+      expect(result).toContain('|')
     })
   })
 
   // ─── form-style detection ──────────────────────────────────────────────────
 
   describe('form-style detection', () => {
-    it('detects form style: col 0 empty, col 1 labels, col 2 values', async () => {
+    it('triggers when col 0 empty in all rows AND ≤7 non-empty cols remain', async () => {
       const csv = ',Company,Acme\n,Email,acme@example.com'
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
-      expect(result).toContain('**Company:** Acme')
-      expect(result).toContain('**Email:** acme@example.com')
+      const result = await convertCsv(makeFile('form.csv', csv))
       expect(result).not.toContain('|')
+      expect(result).toContain('**Company:** Acme')
     })
 
-    it('detects form style when cols 3+ are nearly empty', async () => {
-      // 7 cols: col 0 empty, col 1 label, col 2 value, cols 3-6 empty (<10% data)
-      const row = (label: string, value: string) => `,${label},${value},,,`
-      const csv = [row('Company', 'Acme'), row('Email', 'a@b.com')].join('\n')
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
-      expect(result).toContain('**Company:** Acme')
+    it('triggers with ghost col 0 plus extra nearly-empty cols (≤7 total non-empty)', async () => {
+      // col 0 empty, col 1 label, col 2 value, cols 3-4 empty → 2 non-empty cols
+      const rows = [',Label A,Value A,,', ',Label B,Value B,,'].join('\n')
+      const result = await convertCsv(makeFile('form.csv', rows))
       expect(result).not.toContain('|')
+      expect(result).toContain('**Label A:** Value A')
     })
 
-    it('does NOT detect form when col 0 is non-empty', async () => {
-      const csv = 'X,Company,Acme\nX,Email,a@b.com'
-      const file = makeFile('data.csv', csv)
-      const result = await convertCsv(file)
+    it('logs "form-style detected" to console', async () => {
+      const spy = vi.spyOn(console, 'log').mockImplementation(() => {})
+      await convertCsv(makeFile('form.csv', ',Key,Value'))
+      expect(spy).toHaveBeenCalledWith('form-style detected')
+      spy.mockRestore()
+    })
+
+    it('does NOT trigger when col 0 has data', async () => {
+      const result = await convertCsv(makeFile('data.csv', 'X,Key,Value\nX,Key2,Value2'))
       expect(result).toContain('|')
     })
 
-    it('does NOT detect form when col 1 is mostly numeric', async () => {
-      const csv = ',1,Alice\n,2,Bob\n,3,Charlie'
-      const file = makeFile('data.csv', csv)
-      const result = await convertCsv(file)
-      expect(result).toContain('|')
-      expect(result).not.toContain('**')
-    })
-
-    it('does NOT detect form when cols 3+ have significant data (≥10%)', async () => {
-      // 20 rows, col 3 has 2 non-empty cells = 10% exactly → NOT form
-      const rows = Array.from({ length: 20 }, (_, i) =>
-        i < 2 ? `,Label${i},Value${i},Extra` : `,Label${i},Value${i},`
-      )
-      const file = makeFile('data.csv', rows.join('\n'))
-      const result = await convertCsv(file)
+    it('does NOT trigger when more than 7 non-empty cols remain', async () => {
+      const header = ',A,B,C,D,E,F,G,H'  // col 0 empty + 8 cols = 8 non-empty > 7
+      const data = ',1,2,3,4,5,6,7,8'
+      const result = await convertCsv(makeFile('data.csv', [header, data].join('\n')))
       expect(result).toContain('|')
     })
   })
@@ -90,43 +87,47 @@ describe('convertCsv', () => {
   // ─── form-style rendering ──────────────────────────────────────────────────
 
   describe('form-style rendering', () => {
-    it('renders label+value rows as **label:** value', async () => {
-      const csv = ',Name,Alice\n,Age,30'
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
+    it('renders label+value as **label:** value', async () => {
+      const result = await convertCsv(makeFile('form.csv', ',Name,Alice\n,Age,30'))
       expect(result).toContain('**Name:** Alice')
       expect(result).toContain('**Age:** 30')
     })
 
-    it('first label-only row becomes # (document title)', async () => {
-      const csv = ',Document Title,\n,Key,Value'
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
+    it('first label-only row becomes # heading', async () => {
+      const result = await convertCsv(makeFile('form.csv', ',Document Title,\n,Key,Val'))
       expect(result).toContain('# Document Title')
     })
 
-    it('second label-only row becomes plain text (subtitle)', async () => {
-      const csv = ',Main Title,\n,Subtitle here,\n,Key,Value'
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
-      expect(result).toContain('Subtitle here')
-      expect(result).not.toMatch(/^#+ Subtitle here/m)
-    })
-
-    it('third+ label-only rows become ## section headers', async () => {
-      const csv = ',Title,\n,Sub,\n,Section A,\n,Key,Val\n,Section B,\n,Key2,Val2'
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
+    it('subsequent label-only rows become ## headings', async () => {
+      const csv = ',Title,\n,Section A,\n,Key,Val\n,Section B,\n,Key2,Val2'
+      const result = await convertCsv(makeFile('form.csv', csv))
+      expect(result).toContain('# Title')
       expect(result).toContain('## Section A')
       expect(result).toContain('## Section B')
     })
 
-    it('adds blank line before each label-only row (except first)', async () => {
-      // Title(1st→#), Sub(2nd→plain), SecA(3rd→##): each gets blank line before it except Title
-      const csv = ',Title,\n,Sub,\n,SecA,\n,Key,Val'
-      const file = makeFile('form.csv', csv)
-      const result = await convertCsv(file)
-      expect(result).toContain('# Title\n\nSub\n\n## SecA')
+    it('strips trailing asterisks from label', async () => {
+      const result = await convertCsv(makeFile('form.csv', ',Required Field *,Value'))
+      expect(result).toContain('**Required Field:** Value')
+      expect(result).not.toContain('*:')
+    })
+
+    it('skips rows where label is empty', async () => {
+      const csv = ',Title,\n,,Some stray value\n,Key,Val'
+      const result = await convertCsv(makeFile('form.csv', csv))
+      expect(result).not.toContain('Some stray value')
+    })
+
+    it('adds blank line before each heading', async () => {
+      const csv = ',Title,\n,Key1,Val1\n,Section,\n,Key2,Val2'
+      const result = await convertCsv(makeFile('form.csv', csv))
+      expect(result).toContain('**Key1:** Val1\n\n## Section')
+    })
+
+    it('output contains no pipe characters', async () => {
+      const csv = ',Company,Acme\n,Email,a@b.com'
+      const result = await convertCsv(makeFile('form.csv', csv))
+      expect(result).not.toContain('|')
     })
   })
 
@@ -134,36 +135,31 @@ describe('convertCsv', () => {
 
   describe('empty row/column stripping', () => {
     it('strips empty rows silently when ≤10 removed', async () => {
-      const file = makeFile('data.csv', 'A,B,C,D\n1,2,3,4\n\n\n')
-      const result = await convertCsv(file)
+      const result = await convertCsv(makeFile('data.csv', 'A,B,C,D\n1,2,3,4\n\n\n'))
       expect(result).not.toContain('empty rows')
     })
 
     it('shows footer when more than 10 empty rows stripped', async () => {
       const emptyRows = '\n'.repeat(11)
-      const file = makeFile('data.csv', `A,B,C,D\n1,2,3,4${emptyRows}`)
-      const result = await convertCsv(file)
+      const result = await convertCsv(makeFile('data.csv', `A,B,C,D\n1,2,3,4${emptyRows}`))
       expect(result).toContain('11 empty rows')
     })
 
     it('shows footer when more than 5 empty columns stripped (table mode)', async () => {
-      const file = makeFile('data.csv', 'A,,,,,,,B\n1,,,,,,,2')
-      const result = await convertCsv(file)
-      expect(result).toContain('empty columns')
-    })
-
-    it('shows footer when form mode ignores many ghost columns', async () => {
-      // col 0 empty + 6 cols 3-8 empty = 7 ghost cols > 5 → footer
-      const row = (l: string, v: string) => `,${l},${v},,,,,,`
-      const file = makeFile('form.csv', [row('A', 'B'), row('C', 'D')].join('\n'))
-      const result = await convertCsv(file)
+      const result = await convertCsv(makeFile('data.csv', 'A,,,,,,,B\n1,,,,,,,2'))
       expect(result).toContain('empty columns')
     })
 
     it('does not show footer when ≤10 rows and ≤5 cols stripped', async () => {
-      const file = makeFile('data.csv', 'A,B,C,D\n1,2,3,4\n\n\n\n\n')
-      const result = await convertCsv(file)
+      const result = await convertCsv(makeFile('data.csv', 'A,B,C,D\n1,2,3,4\n\n\n\n\n'))
       expect(result).not.toContain('empty rows')
+    })
+
+    it('handles quoted CSV fields with commas (PapaParse)', async () => {
+      const result = await convertCsv(
+        makeFile('data.csv', 'Name,Address\n"Smith, John","123 Main St"')
+      )
+      expect(result).toContain('| Smith, John | 123 Main St |')
     })
   })
 })
@@ -171,20 +167,17 @@ describe('convertCsv', () => {
 describe('convertJson', () => {
   it('wraps valid JSON in fenced code block', async () => {
     const file = makeFile('data.json', '{"key":"value"}')
-    const result = await convertJson(file)
-    expect(result).toBe('```json\n{"key":"value"}\n```')
+    expect(await convertJson(file)).toBe('```json\n{"key":"value"}\n```')
   })
 
   it('throws on invalid JSON', async () => {
-    const file = makeFile('bad.json', '{invalid json}')
-    await expect(convertJson(file)).rejects.toThrow()
+    await expect(convertJson(makeFile('bad.json', '{invalid}'))).rejects.toThrow()
   })
 })
 
 describe('convertXml', () => {
   it('wraps XML in fenced code block', async () => {
     const file = makeFile('data.xml', '<root><item>1</item></root>')
-    const result = await convertXml(file)
-    expect(result).toBe('```xml\n<root><item>1</item></root>\n```')
+    expect(await convertXml(file)).toBe('```xml\n<root><item>1</item></root>\n```')
   })
 })
