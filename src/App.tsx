@@ -137,6 +137,16 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
           </div>
         </header>
 
+        {/* ── Demo video ── */}
+        <div className="mb-8">
+          <video
+            src="/demo.mp4"
+            controls
+            playsInline
+            className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
+          />
+        </div>
+
         {/* ── Selector modo ── */}
         {!file && (
           <div className="flex mb-5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl w-full gap-1">
@@ -166,17 +176,6 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         {markdown && !isLoading && (
           <OutputPanel markdown={markdown} fileName={file?.name ?? 'output'} onClear={handleClear} />
         )}
-
-        {/* ── Demo video ── */}
-        <div className="mt-12 mb-4">
-          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-widest text-center mb-4">Demo</h2>
-          <video
-            src="/demo.mp4"
-            controls
-            playsInline
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
-          />
-        </div>
 
         {/* ── Tarjetas informativas ── */}
         <LandingCards />
