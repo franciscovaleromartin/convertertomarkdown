@@ -1,0 +1,21 @@
+# ConverterToMarkdown
+
+> Free browser-based tool to convert DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, and XML files to Markdown. No upload, no server — 100% client-side processing.
+
+## Tool
+
+- [Converter](https://convertertomarkdown.vercel.app/): Upload or paste a URL. Get clean Markdown output instantly.
+
+## Documentation
+
+- [How it works](https://convertertomarkdown.vercel.app/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, SheetJS, Turndown, PapaParse).
+- [Use cases](https://convertertomarkdown.vercel.app/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
+
+## Legal
+
+- [Privacy Policy](https://convertertomarkdown.vercel.app/privacidad): No data collected. Files never leave the browser.
+- [License](https://convertertomarkdown.vercel.app/licencia): MIT License. Free to use, modify and distribute.
+
+## Author
+
+Francisco Valero — https://francisco-valero.com — https://www.linkedin.com/in/francisco-valero/
