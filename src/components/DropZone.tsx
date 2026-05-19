@@ -39,8 +39,8 @@ export default function DropZone({ onFile }: Props) {
       className={[
         'cursor-pointer rounded-xl border-2 p-10 text-center transition-all duration-200 select-none',
         isDragOver
-          ? 'border-indigo-500 bg-indigo-50'
-          : 'border-dashed border-indigo-300 bg-white hover:bg-indigo-50 hover:border-indigo-400',
+          ? 'border-sky-500 bg-sky-950/30'
+          : 'border-dashed border-zinc-800 bg-zinc-900/30 hover:bg-zinc-900/60 hover:border-zinc-700',
       ].join(' ')}
     >
       <input
@@ -51,17 +51,17 @@ export default function DropZone({ onFile }: Props) {
         onChange={handleChange}
       />
       <div className="text-4xl mb-3 pointer-events-none">☁️</div>
-      <p className="text-gray-700 font-medium pointer-events-none">
+      <p className="text-zinc-200 font-medium pointer-events-none">
         Arrastra tu archivo aquí
       </p>
-      <p className="text-gray-400 text-sm mt-1 pointer-events-none">
+      <p className="text-zinc-500 text-sm mt-1 pointer-events-none">
         o haz clic para seleccionar
       </p>
-      <div className="mt-4 flex flex-wrap justify-center gap-1.5 pointer-events-none">
+      <div className="mt-5 flex flex-wrap justify-center gap-1.5 pointer-events-none">
         {FORMAT_CHIPS.map(fmt => (
           <span
             key={fmt}
-            className="bg-indigo-100 text-indigo-700 text-xs font-medium px-2 py-0.5 rounded-full"
+            className="bg-zinc-800 text-zinc-400 border border-zinc-700/60 text-xs font-medium px-2.5 py-0.5 rounded-full"
           >
             {fmt}
           </span>

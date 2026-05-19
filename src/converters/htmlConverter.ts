@@ -29,7 +29,7 @@ const td = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced' }
 
 // Skip SVG (handles fragment mode; full-doc mode removes via DOM)
 td.addRule('skipSvg', {
-  filter: 'svg',
+  filter: (node) => node.nodeName.toLowerCase() === 'svg',
   replacement: () => ''
 })
 
