@@ -83,7 +83,8 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
   const handleUrl = async (url: string) => {
     setError(null); setMarkdown(''); setIsLoading(true)
     try {
-      const response = await fetch(url)
+      const proxyUrl = `/api/proxy?url=${encodeURIComponent(url)}`
+      const response = await fetch(proxyUrl)
       if (!response.ok) throw new Error(`${t.errUrl}: ${response.statusText}`)
       const blob = await response.blob()
       const name = new URL(url).pathname.split('/').pop() || 'document.html'
