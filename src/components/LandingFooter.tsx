@@ -35,6 +35,17 @@ export function LandingFooter({ navigate }: Props) {
           {link('/privacidad', t.footerPrivacy)}
           <Dot />
           {link('/licencia', t.footerLicense)}
+          <Dot />
+          <a
+            href="https://github.com/franciscovaleromartin/convertertomarkdown"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#64748b', textDecoration: 'none', transition: 'color 0.15s' }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#94a3b8')}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = '#64748b')}
+          >
+            GitHub
+          </a>
         </div>
         <p style={{ fontSize: '11px', color: '#334155' }}>© 2026 Francisco Valero</p>
       </div>
