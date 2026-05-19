@@ -101,9 +101,9 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
       <Helmet>
         <title>{t.pageHomeTitle}</title>
         <meta name="description" content={t.pageHomeDesc} />
-        <link rel="canonical" href="https://www.convertertomarkdown.com" />
+        <link rel="canonical" href="https://convertertomarkdown.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.convertertomarkdown.com" />
+        <meta property="og:url" content="https://convertertomarkdown.com" />
         <meta property="og:title" content={t.pageHomeTitle} />
         <meta property="og:description" content={t.pageHomeDesc} />
         <meta name="twitter:card" content="summary" />

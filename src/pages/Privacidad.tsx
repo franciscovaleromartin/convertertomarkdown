@@ -30,8 +30,8 @@ export function Privacidad({ navigate }: Props) {
       <Helmet>
         <title>{t.pagePrivacyTitle}</title>
         <meta name="description" content={t.pagePrivacyDesc} />
-        <link rel="canonical" href="https://www.convertertomarkdown.com/privacidad" />
-        <meta property="og:url" content="https://www.convertertomarkdown.com/privacidad" />
+        <link rel="canonical" href="https://convertertomarkdown.com/privacidad" />
+        <meta property="og:url" content="https://convertertomarkdown.com/privacidad" />
         <meta property="og:title" content={t.pagePrivacyTitle} />
         <meta property="og:description" content={t.pagePrivacyDesc} />
       </Helmet>

@@ -4,17 +4,17 @@
 
 ## Tool
 
-- [Converter](https://www.convertertomarkdown.com/): Upload or paste a URL. Get clean Markdown output instantly.
+- [Converter](https://convertertomarkdown.com/): Upload or paste a URL. Get clean Markdown output instantly.
 
 ## Documentation
 
-- [How it works](https://www.convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, SheetJS, Turndown, PapaParse).
-- [Use cases](https://www.convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
+- [How it works](https://convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, SheetJS, Turndown, PapaParse).
+- [Use cases](https://convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
 
 ## Legal
 
-- [Privacy Policy](https://www.convertertomarkdown.com/privacidad): No data collected. Files never leave the browser.
-- [License](https://www.convertertomarkdown.com/licencia): MIT License. Free to use, modify and distribute.
+- [Privacy Policy](https://convertertomarkdown.com/privacidad): No data collected. Files never leave the browser.
+- [License](https://convertertomarkdown.com/licencia): MIT License. Free to use, modify and distribute.
 
 ## Author
 

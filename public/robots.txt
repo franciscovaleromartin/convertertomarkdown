@@ -25,4 +25,4 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-Sitemap: https://www.convertertomarkdown.com/sitemap.xml
+Sitemap: https://convertertomarkdown.com/sitemap.xml
