@@ -1,74 +1,77 @@
-# React + TypeScript + Vite
+# ConverterToMarkdown
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Free browser-based tool to convert documents to Markdown — no upload, no server, no registration.**
 
-Currently, two official plugins are available:
+🔗 **[convertertomarkdown.com](https://convertertomarkdown.com)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## What it does
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Converts files from 10 formats to clean Markdown, entirely in your browser. Your files never leave your device — all processing runs locally using JavaScript.
 
-## Expanding the ESLint configuration
+## Supported formats
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Format | Library | Notes |
+|--------|---------|-------|
+| DOCX | [mammoth.js](https://github.com/mwilliamson/mammoth.js) | Word documents, preserves headings and lists |
+| PDF | [pdf.js](https://github.com/mozilla/pdf.js) | Text-based PDFs (not scanned images) |
+| XLSX / XLS | [SheetJS](https://sheetjs.com) | Excel spreadsheets → Markdown tables |
+| HTML | [Turndown](https://github.com/mixmark-io/turndown) | Web pages and HTML fragments |
+| CSV | [PapaParse](https://www.papaparse.com) | Auto-detects tables and form-style sheets |
+| TXT / MD | Native | Plain text passthrough |
+| JSON | Native | Formatted JSON as code block |
+| XML | Native | Formatted XML as code block |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How it works
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Drop a file or paste a public URL
+2. The conversion runs instantly in your browser using the libraries above
+3. Copy the Markdown to clipboard or download it as a `.md` file
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+No installation. No account. No data sent anywhere. Works offline once the page is loaded.
+
+## Use cases
+
+- **Developers** — convert Word/PDF specs to Markdown for GitHub, Docusaurus, or internal wikis
+- **Writers** — migrate articles to Jekyll, Hugo, Ghost or Astro without rewriting
+- **Students** — convert notes and PDFs to Obsidian or Notion
+- **Data analysts** — turn Excel/CSV reports into Markdown tables
+- **AI & LLMs** — prepare clean Markdown context for ChatGPT, Claude, Gemini
+
+## Tech stack
+
+- React 19 + TypeScript + Vite
+- Tailwind CSS
+- react-helmet-async (SSG per-page meta tags)
+- Static Site Generation via custom `prerender.mjs`
+- Deployed on [Render](https://render.com)
+
+## Run locally
+
+```bash
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Build with SSG pre-rendering:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm build
 ```
-# convertertomarkdown
+
+The build script runs `tsc`, `vite build`, SSR bundle, and `prerender.mjs` to generate static HTML for all routes with correct `<head>` tags.
+
+## Privacy
+
+- No analytics, no tracking cookies, no third-party services
+- Files are processed entirely client-side
+- URL mode fetches files via a serverless proxy to avoid CORS — the file content is never stored
+
+Full policy: [convertertomarkdown.com/privacidad](https://convertertomarkdown.com/privacidad)
+
+## License
+
+MIT — see [LICENSE](https://convertertomarkdown.com/licencia)
+
+Built by [Francisco Valero](https://francisco-valero.com) · [LinkedIn](https://www.linkedin.com/in/francisco-valero/)
