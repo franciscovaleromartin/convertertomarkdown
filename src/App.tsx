@@ -63,20 +63,52 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#09090b] font-inter text-white">
-      <div className="max-w-2xl mx-auto px-4 py-16">
 
-        <header className="mb-12 text-center">
-          <h1 className="text-5xl font-extrabold tracking-tight leading-tight">
+      {/* ── Navbar ── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800/60 bg-[#09090b]/80 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+          <span className="text-sm font-semibold tracking-tight">
             <span className="text-sky-400">Converter</span>
-            <span className="text-purple-400">ToMarkdown</span>
+            <span className="text-zinc-500">To</span>
+            <span className="text-purple-400">Markdown</span>
+            <span className="text-zinc-600 text-xs">.com</span>
+          </span>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/franciscovalero"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-zinc-500 hover:text-zinc-200 transition-colors duration-150"
+            >
+              GitHub
+            </a>
+            <button
+              onClick={() => window.scrollTo({ top: 400, behavior: 'smooth' })}
+              className="text-sm bg-white text-black font-medium px-4 py-1.5 rounded-lg hover:bg-zinc-200 transition-colors duration-150"
+            >
+              Convertir ahora
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* ── Hero + content ── */}
+      <div className="max-w-2xl mx-auto px-4 pt-36 pb-16">
+
+        <header className="mb-14 text-center">
+          <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-extrabold tracking-tight leading-[1.05]">
+            <span className="text-sky-400">Converter</span>
+            <span className="text-zinc-500">To</span>
+            <span className="text-purple-400">Markdown</span>
+            <span className="text-zinc-600 text-[0.55em] align-baseline relative top-[0.05em]">.com</span>
           </h1>
-          <p className="text-zinc-500 text-sm mt-2.5 tracking-widest uppercase font-medium">
+          <p className="text-zinc-600 text-xs mt-3 tracking-widest uppercase font-medium">
             por Francisco Valero
           </p>
-          <p className="text-zinc-300 text-base mt-6 leading-relaxed">
+          <p className="text-zinc-300 text-lg mt-6 leading-relaxed">
             Convierte archivos a Markdown directamente en tu navegador
           </p>
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
             <StatPill value="10" label="formatos compatibles" />
             <StatPill value="20 MB" label="máximo" />
             <StatPill value="0" label="servidores" />
