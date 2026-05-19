@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import { TopBar } from '../components/TopBar'
 import { LandingFooter } from '../components/LandingFooter'
 import { useT } from '../lib/i18n'
@@ -16,6 +17,12 @@ const TECH_ROW = {
   marginBottom: '8px',
 }
 
+const BACK_BTN = {
+  background: 'none', border: 'none', color: '#64748b', fontSize: '13px',
+  cursor: 'pointer', marginBottom: '32px', padding: 0,
+  display: 'flex', alignItems: 'center', gap: '6px',
+}
+
 export function ComoFunciona({ navigate }: Props) {
   const t = useT()
 
@@ -26,27 +33,33 @@ export function ComoFunciona({ navigate }: Props) {
   ]
 
   const techRows = [
-    { fmt: 'DOCX',     lib: 'mammoth.js',          desc: t.techDocx },
-    { fmt: 'PDF',      lib: 'pdf.js',               desc: t.techPdf  },
-    { fmt: 'XLSX / XLS', lib: 'SheetJS',            desc: t.techXlsx },
-    { fmt: 'HTML',     lib: 'DOMParser + Turndown', desc: t.techHtml },
-    { fmt: 'CSV',      lib: 'PapaParse',            desc: t.techCsv  },
-    { fmt: 'TXT / MD', lib: 'Native',               desc: t.techTxt  },
-    { fmt: 'JSON',     lib: 'Native',               desc: t.techJson },
-    { fmt: 'XML',      lib: 'Native',               desc: t.techXml  },
+    { fmt: 'DOCX',      lib: 'mammoth.js',          href: 'https://github.com/mwilliamson/mammoth.js',    desc: t.techDocx },
+    { fmt: 'PDF',       lib: 'pdf.js',               href: 'https://mozilla.github.io/pdf.js/',             desc: t.techPdf  },
+    { fmt: 'XLSX / XLS',lib: 'SheetJS',              href: 'https://sheetjs.com',                           desc: t.techXlsx },
+    { fmt: 'HTML',      lib: 'DOMParser + Turndown', href: 'https://github.com/mixmark-io/turndown',        desc: t.techHtml },
+    { fmt: 'CSV',       lib: 'PapaParse',             href: 'https://www.papaparse.com',                    desc: t.techCsv  },
+    { fmt: 'TXT / MD',  lib: 'Native',               href: null,                                            desc: t.techTxt  },
+    { fmt: 'JSON',      lib: 'Native',               href: null,                                            desc: t.techJson },
+    { fmt: 'XML',       lib: 'Native',               href: null,                                            desc: t.techXml  },
   ]
 
   return (
     <div style={{ minHeight: '100vh', background: '#09090b', color: '#f1f5f9', fontFamily: 'Inter, sans-serif' }}>
+      <Helmet>
+        <title>{t.pageHowTitle}</title>
+        <meta name="description" content={t.pageHowDesc} />
+        <link rel="canonical" href="https://convertertomarkdown.vercel.app/como-funciona" />
+        <meta property="og:url" content="https://convertertomarkdown.vercel.app/como-funciona" />
+        <meta property="og:title" content={t.pageHowTitle} />
+        <meta property="og:description" content={t.pageHowDesc} />
+      </Helmet>
+
       <TopBar />
       <div style={{ maxWidth: '640px', margin: '0 auto', padding: '80px 24px 0' }}>
 
-        <button
-          onClick={() => navigate('/')}
-          style={{ background: 'none', border: 'none', color: '#64748b', fontSize: '13px', cursor: 'pointer', marginBottom: '32px', padding: 0, display: 'flex', alignItems: 'center', gap: '6px' }}
+        <button style={BACK_BTN} onClick={() => navigate('/')}
           onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = '#94a3b8')}
-          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#64748b')}
-        >
+          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#64748b')}>
           {t.back}
         </button>
 
@@ -82,7 +95,14 @@ export function ComoFunciona({ navigate }: Props) {
             <div key={row.fmt} style={TECH_ROW}>
               <code style={{ fontSize: '11px', fontWeight: 700, color: '#38bdf8', minWidth: '90px', flexShrink: 0, paddingTop: '1px' }}>{row.fmt}</code>
               <div>
-                <span style={{ fontSize: '10px', color: '#64748b', letterSpacing: '.05em' }}>{row.lib}</span>
+                {row.href ? (
+                  <a href={row.href} target="_blank" rel="noopener noreferrer"
+                    style={{ fontSize: '10px', color: '#38bdf8', letterSpacing: '.05em', textDecoration: 'none', opacity: 0.7 }}>
+                    {row.lib} ↗
+                  </a>
+                ) : (
+                  <span style={{ fontSize: '10px', color: '#64748b', letterSpacing: '.05em' }}>{row.lib}</span>
+                )}
                 <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.5, marginTop: '2px' }}>{row.desc}</p>
               </div>
             </div>

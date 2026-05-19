@@ -1,12 +1,24 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 import App from './App.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!
+
+const tree = (
   <StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
     <Analytics />
-  </StrictMode>,
+  </StrictMode>
 )
+
+// Use hydrateRoot when pre-rendered SSR content is present, createRoot otherwise
+if (container.innerHTML.trim()) {
+  hydrateRoot(container, tree)
+} else {
+  createRoot(container).render(tree)
+}

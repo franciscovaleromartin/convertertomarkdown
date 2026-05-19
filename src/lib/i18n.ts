@@ -1,9 +1,4 @@
-/**
- * i18n — Internacionalización
- *
- * Detección automática: si el idioma del navegador empieza por "es", se usa español.
- * En cualquier otro caso, inglés.
- */
+import { useState, useEffect } from 'react'
 
 export type Lang = 'es' | 'en'
 
@@ -62,6 +57,18 @@ const translations = {
     // ── Privacy badge ─────────────────────────────────────────────────────
     privacyBadge: 'Procesamiento 100% local · ningún archivo sale de tu navegador',
 
+    // ── Page meta (for Helmet + SSR) ──────────────────────────────────────
+    pageHomeTitle: 'ConverterToMarkdown — Convertidor gratuito de archivos a Markdown',
+    pageHomeDesc: 'Convierte DOCX, PDF, XLSX, HTML, CSV, JSON, XML y más a Markdown en tu navegador. Sin subir archivos. Sin servidores. 100% gratis.',
+    pageHowTitle: 'Cómo funciona — ConverterToMarkdown',
+    pageHowDesc: 'Tres pasos para convertir cualquier archivo a Markdown. Procesamiento local con mammoth, pdf.js, SheetJS, Turndown y PapaParse. Sin subida de archivos.',
+    pageUsecasesTitle: 'Casos de uso — ConverterToMarkdown',
+    pageUsecasesDesc: 'Cómo usan ConverterToMarkdown desarrolladores, escritores, estudiantes, analistas de datos y equipos de IA para preparar contexto.',
+    pagePrivacyTitle: 'Política de privacidad — ConverterToMarkdown',
+    pagePrivacyDesc: 'Sin recopilación de datos. Todo el procesamiento ocurre en tu navegador. Tus archivos nunca salen de tu dispositivo.',
+    pageLicenseTitle: 'Licencia — ConverterToMarkdown',
+    pageLicenseDesc: 'ConverterToMarkdown es de uso libre y código abierto bajo licencia MIT.',
+
     // ── LandingCards ──────────────────────────────────────────────────────
     cardsFormatsTag: 'Formatos',
     cardsFormatsTitle: '10 tipos de archivo compatibles',
@@ -87,14 +94,35 @@ const translations = {
     cardsUrlBody:
       'Pega la URL de cualquier archivo público y lo convierte al instante, sin descargarlo.',
 
+    // ── FAQ ───────────────────────────────────────────────────────────────
+    faqTitle: 'Preguntas frecuentes',
+    faqQ1: '¿Cuántos formatos de archivo son compatibles?',
+    faqA1: '10 formatos: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON y XML. Se añaden más según la demanda de los usuarios.',
+    faqQ2: '¿Se sube mi archivo a algún servidor?',
+    faqA2: 'No. Todo el procesamiento ocurre en tu navegador mediante JavaScript. Tu archivo nunca abandona tu dispositivo y ningún dato se envía a servidores externos.',
+    faqQ3: '¿Es gratuito?',
+    faqA3: 'Sí, completamente gratuito y sin registro. No se requiere cuenta ni tarjeta de crédito.',
+    faqQ4: '¿Cuál es el tamaño máximo de archivo?',
+    faqA4: '20 MB por archivo. Si tu documento es mayor, considera comprimirlo o dividir el contenido antes de convertirlo.',
+    faqQ5: '¿Puedo editar el Markdown generado?',
+    faqA5: 'Sí. El resultado aparece en un editor de texto donde puedes modificarlo directamente. Luego puedes copiarlo al portapapeles o descargarlo como archivo .md.',
+
+    // ── Author section ────────────────────────────────────────────────────
+    authorTitle: 'Sobre el creador',
+    authorName: 'Francisco Valero',
+    authorBio: 'Soy desarrollador independiente. Construí ConverterToMarkdown para resolver un problema recurrente: convertir documentos de distintos formatos a Markdown sin instalar nada ni subir archivos a ningún servidor. Si te resulta útil, también puedes ver mi otro proyecto,',
+    authorOtherProject: 'GraphMyCode — visualiza la arquitectura de tu código',
+
     // ── LandingFooter ─────────────────────────────────────────────────────
     footerHow: 'Cómo funciona',
     footerUseCases: 'Casos de uso',
     footerPrivacy: 'Política de privacidad',
     footerLicense: 'Licencia',
 
-    // ── ComoFunciona page ─────────────────────────────────────────────────
+    // ── Back button ───────────────────────────────────────────────────────
     back: '← Volver',
+
+    // ── ComoFunciona page ─────────────────────────────────────────────────
     howTitle: 'Cómo funciona',
     howSubtitle:
       'En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.',
@@ -212,6 +240,18 @@ const translations = {
     // ── Privacy badge ─────────────────────────────────────────────────────
     privacyBadge: '100% local processing · no file ever leaves your browser',
 
+    // ── Page meta (for Helmet + SSR) ──────────────────────────────────────
+    pageHomeTitle: 'ConverterToMarkdown — Free File to Markdown Converter',
+    pageHomeDesc: 'Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown directly in your browser. No upload, no server, 100% free.',
+    pageHowTitle: 'How it works — ConverterToMarkdown',
+    pageHowDesc: 'Three steps from file to Markdown. Browser-side processing using mammoth, pdf.js, SheetJS, Turndown and PapaParse. No file upload required.',
+    pageUsecasesTitle: 'Use cases — ConverterToMarkdown',
+    pageUsecasesDesc: 'How developers, writers, students, data analysts and AI teams use ConverterToMarkdown to convert documents to Markdown.',
+    pagePrivacyTitle: 'Privacy Policy — ConverterToMarkdown',
+    pagePrivacyDesc: 'No data collected. All file processing happens locally in your browser. Your files never leave your device.',
+    pageLicenseTitle: 'License — ConverterToMarkdown',
+    pageLicenseDesc: 'ConverterToMarkdown is free and open source under the MIT License.',
+
     // ── LandingCards ──────────────────────────────────────────────────────
     cardsFormatsTag: 'Formats',
     cardsFormatsTitle: '10 compatible file types',
@@ -227,7 +267,7 @@ const translations = {
     cardsPrivacyTag: 'Privacy',
     cardsPrivacyTitle: 'Your file never leaves the browser',
     cardsPrivacyBody:
-      'No uploads, no servers, no data sent to third parties. All processing happens locally using your browser\'s APIs. Works offline once the page is loaded.',
+      "No uploads, no servers, no data sent to third parties. All processing happens locally using your browser's APIs. Works offline once the page is loaded.",
     cardsEditTag: 'Editing',
     cardsEditTitle: 'Editable Markdown',
     cardsEditBody:
@@ -237,14 +277,35 @@ const translations = {
     cardsUrlBody:
       'Paste the URL of any public file and convert it instantly, without downloading it first.',
 
+    // ── FAQ ───────────────────────────────────────────────────────────────
+    faqTitle: 'Frequently asked questions',
+    faqQ1: 'How many file formats are supported?',
+    faqA1: '10 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. More formats are added based on user demand.',
+    faqQ2: 'Is my file uploaded to a server?',
+    faqA2: 'No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers.',
+    faqQ3: 'Is it free?',
+    faqA3: 'Yes, completely free with no registration. No account or credit card required.',
+    faqQ4: 'What is the maximum file size?',
+    faqA4: '20 MB per file. If your document is larger, consider compressing it or splitting the content before converting.',
+    faqQ5: 'Can I edit the generated Markdown?',
+    faqA5: 'Yes. The result appears in a text editor where you can modify it directly. You can then copy it to the clipboard or download it as a .md file.',
+
+    // ── Author section ────────────────────────────────────────────────────
+    authorTitle: 'About the creator',
+    authorName: 'Francisco Valero',
+    authorBio: "I'm an independent developer. I built ConverterToMarkdown to solve a recurring problem: converting documents from different formats to Markdown without installing anything or uploading files to any server. If you find it useful, also check out my other project,",
+    authorOtherProject: 'GraphMyCode — visualize your code architecture',
+
     // ── LandingFooter ─────────────────────────────────────────────────────
     footerHow: 'How it works',
     footerUseCases: 'Use cases',
     footerPrivacy: 'Privacy policy',
     footerLicense: 'License',
 
-    // ── ComoFunciona page ─────────────────────────────────────────────────
+    // ── Back button ───────────────────────────────────────────────────────
     back: '← Back',
+
+    // ── ComoFunciona page ─────────────────────────────────────────────────
     howTitle: 'How it works',
     howSubtitle:
       'Three steps from file to Markdown. No installation, no account, no data leaving your browser.',
@@ -321,9 +382,14 @@ const translations = {
 
 export type Translations = typeof translations.es
 
-/** Para componentes React */
+/** Para componentes React — empieza en 'en' para compatibilidad SSR, cambia al idioma del navegador tras el primer render */
 export function useT(): Translations {
-  return translations[detectLang()] as Translations
+  const [lang, setLang] = useState<Lang>('en')
+  useEffect(() => {
+    const detected = detectLang()
+    setLang(detected)
+  }, [])
+  return translations[lang] as Translations
 }
 
 /** Para código fuera de React (converters, utils) */
