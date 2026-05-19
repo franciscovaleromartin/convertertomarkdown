@@ -1,17 +1,58 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { TopBar } from './components/TopBar'
+import { LandingCards } from './components/LandingCards'
+import { LandingFooter } from './components/LandingFooter'
 import DropZone from './components/DropZone'
 import UrlInput from './components/UrlInput'
 import FileInfo from './components/FileInfo'
 import OutputPanel from './components/OutputPanel'
+import { ComoFunciona } from './pages/ComoFunciona'
+import { CasosDeUso } from './pages/CasosDeUso'
+import { Privacidad } from './pages/Privacidad'
+import { Licencia } from './pages/Licencia'
 import { convertFile } from './converters'
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024
 
 type InputMode = 'file' | 'url'
 
+// ── Router mínimo sin dependencias ──────────────────────────────────────────
+
+function useRouter() {
+  const [path, setPath] = useState(window.location.pathname)
+
+  useEffect(() => {
+    const handler = () => setPath(window.location.pathname)
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
+  }, [])
+
+  const navigate = (to: string) => {
+    window.history.pushState({}, '', to)
+    setPath(to)
+    window.scrollTo(0, 0)
+  }
+
+  return { path, navigate }
+}
+
+// ── App ──────────────────────────────────────────────────────────────────────
+
 export default function App() {
+  const { path, navigate } = useRouter()
+
+  if (path === '/como-funciona') return <ComoFunciona navigate={navigate} />
+  if (path === '/casos-de-uso')  return <CasosDeUso navigate={navigate} />
+  if (path === '/privacidad')    return <Privacidad navigate={navigate} />
+  if (path === '/licencia')      return <Licencia navigate={navigate} />
+
+  return <HomePage navigate={navigate} />
+}
+
+// ── HomePage ─────────────────────────────────────────────────────────────────
+
+function HomePage({ navigate }: { navigate: (p: string) => void }) {
   const [inputMode, setInputMode] = useState<InputMode>('file')
   const [file, setFile] = useState<File | null>(null)
   const [markdown, setMarkdown] = useState('')
@@ -64,26 +105,25 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#09090b] font-inter text-white">
-
       <TopBar />
 
-      {/* ── Hero + content ── */}
-      <div className="max-w-2xl mx-auto px-4 pt-36 pb-16">
+      <div className="max-w-2xl mx-auto px-4 pt-24 pb-8">
 
-        <header className="mb-14 text-center">
-          <h1 className="text-[clamp(3rem,8vw,5.5rem)] font-extrabold tracking-tight leading-[1.05]">
+        {/* ── Hero ── */}
+        <header className="mb-12 text-center">
+          <h1 className="text-4xl font-semibold tracking-tight leading-tight">
             <span className="text-sky-400">Converter</span>
             <span className="text-zinc-500">To</span>
             <span className="text-purple-400">Markdown</span>
-            <span className="text-zinc-600 text-[0.55em] align-baseline relative top-[0.05em]">.com</span>
+            <span className="text-zinc-600 text-sm font-normal">.com</span>
           </h1>
-          <p className="text-zinc-600 text-xs mt-3 tracking-widest uppercase font-medium">
+          <p className="text-zinc-600 text-xs mt-2.5 tracking-widest uppercase font-medium">
             por Francisco Valero
           </p>
-          <p className="text-zinc-300 text-lg mt-6 leading-relaxed">
+          <p className="text-zinc-300 text-sm mt-5 leading-relaxed">
             Convierte archivos a Markdown directamente en tu navegador
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
             <StatPill value="10" label="formatos compatibles" />
             <StatPill value="20 MB" label="máximo" />
             <StatPill value="0" label="servidores" />
@@ -91,17 +131,15 @@ export default function App() {
           </div>
         </header>
 
+        {/* ── Selector modo ── */}
         {!file && (
           <div className="flex mb-5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl w-fit mx-auto gap-1">
-            <ModeTab active={inputMode === 'file'} onClick={() => setInputMode('file')}>
-              Archivo
-            </ModeTab>
-            <ModeTab active={inputMode === 'url'} onClick={() => setInputMode('url')}>
-              URL
-            </ModeTab>
+            <ModeTab active={inputMode === 'file'} onClick={() => setInputMode('file')}>Archivo</ModeTab>
+            <ModeTab active={inputMode === 'url'}  onClick={() => setInputMode('url')}>URL</ModeTab>
           </div>
         )}
 
+        {/* ── Input ── */}
         {file ? (
           <FileInfo file={file} isLoading={isLoading} onClear={handleClear} />
         ) : inputMode === 'file' ? (
@@ -110,6 +148,7 @@ export default function App() {
           <UrlInput onUrl={handleUrl} isLoading={isLoading} />
         )}
 
+        {/* ── Error ── */}
         {error && (
           <div className="mt-4 flex items-start gap-2 text-red-400 text-sm bg-red-950/40 border border-red-900/50 rounded-xl p-3.5">
             <span className="flex-shrink-0">⚠️</span>
@@ -117,13 +156,28 @@ export default function App() {
           </div>
         )}
 
+        {/* ── Output ── */}
         {markdown && !isLoading && (
           <OutputPanel markdown={markdown} fileName={file?.name ?? 'output'} onClear={handleClear} />
         )}
+
+        {/* ── Tarjetas informativas ── */}
+        <LandingCards />
+
+        {/* ── Badge privacidad ── */}
+        <p className="mt-6 text-center text-xs text-zinc-600">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 align-middle mr-1.5" />
+          Procesamiento 100% local · ningún archivo sale de tu navegador
+        </p>
+
       </div>
+
+      <LandingFooter navigate={navigate} />
     </div>
   )
 }
+
+// ── Pequeños componentes ──────────────────────────────────────────────────────
 
 function StatPill({ value, label }: { value?: string; label: string }) {
   return (
@@ -140,9 +194,7 @@ function ModeTab({ active, onClick, children }: { active: boolean; onClick: () =
       onClick={onClick}
       className={[
         'px-5 py-1.5 rounded-lg text-sm font-medium transition-all duration-150',
-        active
-          ? 'bg-zinc-700 text-white shadow-sm'
-          : 'text-zinc-500 hover:text-zinc-300',
+        active ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300',
       ].join(' ')}
     >
       {children}
