@@ -42,11 +42,14 @@ function IconLink({ href, title, children }: { href: string; title: string; chil
 export function TopBar() {
   return (
     <div style={BAR}>
-      <span style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '-0.02em', color: '#f1f5f9' }}>
-        <span style={{ color: '#38bdf8' }}>Converter</span>
-        <span style={{ color: '#71717a' }}>To</span>
-        <span style={{ color: '#c084fc' }}>Markdown</span>
-        <span style={{ color: '#52525b', fontSize: '11px' }}>.com</span>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <img src="/logo.png" alt="ConverterToMarkdown" width={24} height={24} style={{ borderRadius: '6px', flexShrink: 0 }} />
+        <span style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '-0.02em', color: '#f1f5f9' }}>
+          <span style={{ color: '#38bdf8' }}>Converter</span>
+          <span style={{ color: '#71717a' }}>To</span>
+          <span style={{ color: '#c084fc' }}>Markdown</span>
+          <span style={{ color: '#52525b', fontSize: '11px' }}>.com</span>
+        </span>
       </span>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

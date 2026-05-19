@@ -31,6 +31,7 @@ export function Licencia({ navigate }: Props) {
         <meta property="og:url" content="https://convertertomarkdown.com/licencia" />
         <meta property="og:title" content={t.pageLicenseTitle} />
         <meta property="og:description" content={t.pageLicenseDesc} />
+        <meta property="og:image" content="https://convertertomarkdown.com/logo.png" />
       </Helmet>
 
       <TopBar />
