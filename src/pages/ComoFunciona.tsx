@@ -48,8 +48,8 @@ export function ComoFunciona({ navigate }: Props) {
       <Helmet>
         <title>{t.pageHowTitle}</title>
         <meta name="description" content={t.pageHowDesc} />
-        <link rel="canonical" href="https://convertertomarkdown.vercel.app/como-funciona" />
-        <meta property="og:url" content="https://convertertomarkdown.vercel.app/como-funciona" />
+        <link rel="canonical" href="https://www.convertertomarkdown.com/como-funciona" />
+        <meta property="og:url" content="https://www.convertertomarkdown.com/como-funciona" />
         <meta property="og:title" content={t.pageHowTitle} />
         <meta property="og:description" content={t.pageHowDesc} />
       </Helmet>

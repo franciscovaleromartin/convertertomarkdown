@@ -47,8 +47,8 @@ export function CasosDeUso({ navigate }: Props) {
       <Helmet>
         <title>{t.pageUsecasesTitle}</title>
         <meta name="description" content={t.pageUsecasesDesc} />
-        <link rel="canonical" href="https://convertertomarkdown.vercel.app/casos-de-uso" />
-        <meta property="og:url" content="https://convertertomarkdown.vercel.app/casos-de-uso" />
+        <link rel="canonical" href="https://www.convertertomarkdown.com/casos-de-uso" />
+        <meta property="og:url" content="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:title" content={t.pageUsecasesTitle} />
         <meta property="og:description" content={t.pageUsecasesDesc} />
       </Helmet>
