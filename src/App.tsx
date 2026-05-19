@@ -139,7 +139,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
 
         {/* ── Selector modo ── */}
         {!file && (
-          <div className="flex mb-5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl w-fit mx-auto gap-1">
+          <div className="flex mb-5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl w-full gap-1">
             <ModeTab active={inputMode === 'file'} onClick={() => setInputMode('file')}>{t.tabFile}</ModeTab>
             <ModeTab active={inputMode === 'url'}  onClick={() => setInputMode('url')}>{t.tabUrl}</ModeTab>
           </div>
@@ -166,6 +166,17 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         {markdown && !isLoading && (
           <OutputPanel markdown={markdown} fileName={file?.name ?? 'output'} onClear={handleClear} />
         )}
+
+        {/* ── Demo video ── */}
+        <div className="mt-12 mb-4">
+          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-widest text-center mb-4">Demo</h2>
+          <video
+            src="/demo.mp4"
+            controls
+            playsInline
+            className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
+          />
+        </div>
 
         {/* ── Tarjetas informativas ── */}
         <LandingCards />
@@ -279,7 +290,7 @@ function ModeTab({ active, onClick, children }: { active: boolean; onClick: () =
     <button
       onClick={onClick}
       className={[
-        'px-5 py-1.5 rounded-lg text-sm font-medium transition-all duration-150',
+        'flex-1 py-1.5 rounded-lg text-sm font-medium transition-all duration-150 text-center',
         active ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300',
       ].join(' ')}
     >
