@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import type { DragEvent, ChangeEvent } from 'react'
+import { useT } from '../lib/i18n'
 
 const ACCEPTED_EXT = ['.docx','.pdf','.xlsx','.xls','.html','.htm','.txt','.md','.csv','.json','.xml']
 const ACCEPT_ATTR = ACCEPTED_EXT.join(',')
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function DropZone({ onFile }: Props) {
+  const t = useT()
   const [isDragOver, setIsDragOver] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -30,7 +32,7 @@ export default function DropZone({ onFile }: Props) {
     <div
       role="button"
       tabIndex={0}
-      aria-label="Zona de carga de archivos"
+      aria-label={t.dropTitle}
       onClick={() => inputRef.current?.click()}
       onKeyDown={e => e.key === 'Enter' && inputRef.current?.click()}
       onDrop={handleDrop}
@@ -51,12 +53,8 @@ export default function DropZone({ onFile }: Props) {
         onChange={handleChange}
       />
       <div className="text-4xl mb-3 pointer-events-none">☁️</div>
-      <p className="text-zinc-200 font-medium pointer-events-none">
-        Arrastra tu archivo aquí
-      </p>
-      <p className="text-zinc-500 text-sm mt-1 pointer-events-none">
-        o haz clic para seleccionar
-      </p>
+      <p className="text-zinc-200 font-medium pointer-events-none">{t.dropTitle}</p>
+      <p className="text-zinc-500 text-sm mt-1 pointer-events-none">{t.dropSubtitle}</p>
       <div className="mt-5 flex flex-wrap justify-center gap-1.5 pointer-events-none">
         {FORMAT_CHIPS.map(fmt => (
           <span

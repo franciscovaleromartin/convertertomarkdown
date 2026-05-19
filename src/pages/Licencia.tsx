@@ -1,9 +1,20 @@
 import { TopBar } from '../components/TopBar'
 import { LandingFooter } from '../components/LandingFooter'
+import { useT } from '../lib/i18n'
 
 interface Props { navigate: (path: string) => void }
 
 export function Licencia({ navigate }: Props) {
+  const t = useT()
+
+  const deps = [
+    { name: 'mammoth',    license: 'MIT',        use: t.licMammoth    },
+    { name: 'pdf.js',     license: 'Apache 2.0', use: t.licPdfjs      },
+    { name: 'xlsx',       license: 'Apache 2.0', use: t.licXlsx       },
+    { name: 'Turndown',   license: 'MIT',        use: t.licTurndown   },
+    { name: 'PapaParse',  license: 'MIT',        use: t.licPapaparse  },
+  ]
+
   return (
     <div style={{ minHeight: '100vh', background: '#09090b', color: '#f1f5f9', fontFamily: 'Inter, sans-serif' }}>
       <TopBar />
@@ -15,17 +26,16 @@ export function Licencia({ navigate }: Props) {
           onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = '#94a3b8')}
           onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#64748b')}
         >
-          ← Volver
+          {t.back}
         </button>
 
         <h1 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '8px' }}>
-          Licencia
+          {t.licTitle}
         </h1>
         <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '40px', lineHeight: 1.6 }}>
-          ConverterToMarkdown.com es una herramienta de uso libre y gratuito.
+          {t.licSubtitle}
         </p>
 
-        {/* MIT block */}
         <div style={{ borderRadius: '14px', border: '1px solid #1e293b', background: '#0c111d', padding: '24px', marginBottom: '10px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
             <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' as const, padding: '3px 9px', borderRadius: '6px', background: 'rgba(52,211,153,.08)', color: '#34d399', border: '1px solid rgba(52,211,153,.2)' }}>
@@ -33,12 +43,12 @@ export function Licencia({ navigate }: Props) {
             </span>
           </div>
           <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '12px' }}>
-            Copyright © 2026 Francisco Alejandro Valero Martín
+            {t.licCopyright}
           </p>
           <pre style={{
             fontSize: '11px', color: '#64748b', lineHeight: 1.7, whiteSpace: 'pre-wrap' as const,
             fontFamily: 'monospace', background: 'rgba(255,255,255,.025)', border: '1px solid rgba(255,255,255,.05)',
-            borderRadius: '8px', padding: '14px',
+            borderRadius: '8px', padding: '14px', margin: 0,
           }}>
 {`Permission is hereby granted, free of charge, to any
 person obtaining a copy of this software and associated
@@ -60,16 +70,9 @@ PARTICULAR PURPOSE AND NONINFRINGEMENT.`}
           </pre>
         </div>
 
-        {/* Dependencias */}
         <div style={{ borderRadius: '14px', border: '1px solid #1e293b', background: '#0c111d', padding: '18px 20px', marginBottom: '48px' }}>
-          <p style={{ fontSize: '12px', fontWeight: 600, color: '#f1f5f9', marginBottom: '12px' }}>Librerías de terceros</p>
-          {[
-            { name: 'mammoth', license: 'MIT', use: 'Conversión DOCX → HTML' },
-            { name: 'pdf.js', license: 'Apache 2.0', use: 'Extracción de texto PDF' },
-            { name: 'SheetJS (xlsx)', license: 'Apache 2.0', use: 'Lectura de XLSX/XLS' },
-            { name: 'Turndown', license: 'MIT', use: 'HTML → Markdown' },
-            { name: 'PapaParse', license: 'MIT', use: 'Parsing de CSV' },
-          ].map(dep => (
+          <p style={{ fontSize: '12px', fontWeight: 600, color: '#f1f5f9', marginBottom: '12px' }}>{t.licDepsTitle}</p>
+          {deps.map(dep => (
             <div key={dep.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,.04)' }}>
               <div>
                 <code style={{ fontSize: '11px', color: '#38bdf8' }}>{dep.name}</code>

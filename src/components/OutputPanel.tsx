@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useT } from '../lib/i18n'
 
 interface Props {
   markdown: string
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export default function OutputPanel({ markdown, fileName, onClear }: Props) {
+  const t = useT()
   const [text, setText] = useState(markdown)
   const [copied, setCopied] = useState(false)
 
@@ -38,25 +40,25 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
     <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
       <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800">
         <span className="text-xs text-zinc-500 font-medium">
-          Output · {chars} chars · {lines} líneas
+          Output · {chars} chars · {lines} {t.outputLines}
         </span>
         <div className="flex gap-2">
           <button
             onClick={handleCopy}
             className="text-xs bg-sky-600 hover:bg-sky-500 text-white px-3 py-1.5 rounded-md transition-colors duration-150 font-medium"
           >
-            {copied ? '¡Copiado!' : 'Copiar'}
+            {copied ? t.outputCopied : t.outputCopy}
           </button>
           <button
             onClick={handleDownload}
             className="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-3 py-1.5 rounded-md transition-colors duration-150 border border-zinc-700/50"
           >
-            ↓ Descargar .md
+            {t.outputDownload}
           </button>
           <button
             onClick={onClear}
             className="text-xs text-zinc-600 hover:text-zinc-300 px-2 py-1.5 transition-colors duration-150"
-            aria-label="Limpiar"
+            aria-label="Clear"
           >
             ✕
           </button>

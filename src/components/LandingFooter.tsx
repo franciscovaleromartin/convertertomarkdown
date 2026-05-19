@@ -1,3 +1,5 @@
+import { useT } from '../lib/i18n'
+
 interface Props {
   navigate: (path: string) => void
 }
@@ -5,6 +7,8 @@ interface Props {
 const Dot = () => <span style={{ color: '#334155', userSelect: 'none' }}>·</span>
 
 export function LandingFooter({ navigate }: Props) {
+  const t = useT()
+
   const link = (path: string, label: string) => (
     <a
       href={path}
@@ -24,13 +28,13 @@ export function LandingFooter({ navigate }: Props) {
     }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '10px', fontSize: '12px' }}>
-          {link('/como-funciona', 'Cómo funciona')}
+          {link('/como-funciona', t.footerHow)}
           <Dot />
-          {link('/casos-de-uso', 'Casos de uso')}
+          {link('/casos-de-uso', t.footerUseCases)}
           <Dot />
-          {link('/privacidad', 'Política de privacidad')}
+          {link('/privacidad', t.footerPrivacy)}
           <Dot />
-          {link('/licencia', 'Licencia')}
+          {link('/licencia', t.footerLicense)}
         </div>
         <p style={{ fontSize: '11px', color: '#334155' }}>© 2026 Francisco Valero</p>
       </div>

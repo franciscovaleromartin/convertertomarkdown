@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
+import { useT } from './lib/i18n'
 import { TopBar } from './components/TopBar'
 import { LandingCards } from './components/LandingCards'
 import { LandingFooter } from './components/LandingFooter'
@@ -53,6 +54,7 @@ export default function App() {
 // ── HomePage ─────────────────────────────────────────────────────────────────
 
 function HomePage({ navigate }: { navigate: (p: string) => void }) {
+  const t = useT()
   const [inputMode, setInputMode] = useState<InputMode>('file')
   const [file, setFile] = useState<File | null>(null)
   const [markdown, setMarkdown] = useState('')
@@ -61,7 +63,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
 
   const processFile = async (f: File) => {
     if (f.size > MAX_FILE_SIZE) {
-      setError('El archivo supera el límite de 20 MB.')
+      setError(t.errFileTooLarge)
       return
     }
     setFile(f)
@@ -72,7 +74,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
       const result = await convertFile(f)
       setMarkdown(result)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error desconocido al convertir el archivo.')
+      setError(err instanceof Error ? err.message : t.errConvert)
     } finally {
       setIsLoading(false)
     }
@@ -84,14 +86,14 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
     setIsLoading(true)
     try {
       const response = await fetch(url)
-      if (!response.ok) throw new Error(`Error al obtener la URL: ${response.statusText}`)
+      if (!response.ok) throw new Error(`${t.errUrl}: ${response.statusText}`)
       const blob = await response.blob()
       const urlPath = new URL(url).pathname
       const name = urlPath.split('/').pop() || 'document.html'
       const f = new File([blob], name, { type: blob.type || 'text/html' })
       await processFile(f)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error al obtener la URL.')
+      setError(err instanceof Error ? err.message : t.errUrl)
       setIsLoading(false)
     }
   }
@@ -118,24 +120,24 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             <span className="text-zinc-600 text-sm font-normal">.com</span>
           </h1>
           <p className="text-zinc-600 text-xs mt-2.5 tracking-widest uppercase font-medium">
-            por Francisco Valero
+            {t.heroBy}
           </p>
           <p className="text-zinc-300 text-sm mt-5 leading-relaxed">
-            Convierte archivos a Markdown directamente en tu navegador
+            {t.heroTagline}
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
-            <StatPill value="10" label="formatos compatibles" />
-            <StatPill value="20 MB" label="máximo" />
-            <StatPill value="0" label="servidores" />
-            <StatPill label="Edita y descarga" />
+            <StatPill value="10" label={t.statFormats} />
+            <StatPill value="20 MB" label={t.statMax} />
+            <StatPill value="0" label={t.statServers} />
+            <StatPill label={t.statEdit} />
           </div>
         </header>
 
         {/* ── Selector modo ── */}
         {!file && (
           <div className="flex mb-5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl w-fit mx-auto gap-1">
-            <ModeTab active={inputMode === 'file'} onClick={() => setInputMode('file')}>Archivo</ModeTab>
-            <ModeTab active={inputMode === 'url'}  onClick={() => setInputMode('url')}>URL</ModeTab>
+            <ModeTab active={inputMode === 'file'} onClick={() => setInputMode('file')}>{t.tabFile}</ModeTab>
+            <ModeTab active={inputMode === 'url'}  onClick={() => setInputMode('url')}>{t.tabUrl}</ModeTab>
           </div>
         )}
 
@@ -167,7 +169,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         {/* ── Badge privacidad ── */}
         <p className="mt-6 text-center text-xs text-zinc-600">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 align-middle mr-1.5" />
-          Procesamiento 100% local · ningún archivo sale de tu navegador
+          {t.privacyBadge}
         </p>
 
       </div>

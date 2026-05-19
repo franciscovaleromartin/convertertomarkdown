@@ -1,4 +1,5 @@
 import TurndownService from 'turndown'
+import { getT } from '../lib/i18n'
 
 function isFullDocument(html: string): boolean {
   return /<!doctype/i.test(html) || /<html[\s>]/i.test(html) || /<head[\s>]/i.test(html)
@@ -76,7 +77,7 @@ export async function convertHtml(file: File): Promise<string> {
   }
 
   if (!result) {
-    throw new Error('El archivo HTML no contiene texto convertible.')
+    throw new Error(getT().errHtmlNoContent)
   }
 
   return result

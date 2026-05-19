@@ -1,5 +1,6 @@
 import { TopBar } from '../components/TopBar'
 import { LandingFooter } from '../components/LandingFooter'
+import { useT } from '../lib/i18n'
 
 interface Props { navigate: (path: string) => void }
 
@@ -8,7 +9,27 @@ const SECTION = {
   background: '#0c111d', padding: '18px 20px', marginBottom: '10px',
 }
 
+const ITEMS = [
+  { icon: '🔒', color: '#2dd4bf' },
+  { icon: '🖥️', color: '#38bdf8' },
+  { icon: '🍪', color: '#f59e0b' },
+  { icon: '🤝', color: '#a78bfa' },
+  { icon: '🌐', color: '#34d399' },
+  { icon: '✉️', color: '#c084fc' },
+]
+
 export function Privacidad({ navigate }: Props) {
+  const t = useT()
+
+  const sections = [
+    { title: t.priv1Title, body: t.priv1Body },
+    { title: t.priv2Title, body: t.priv2Body },
+    { title: t.priv3Title, body: t.priv3Body },
+    { title: t.priv4Title, body: t.priv4Body },
+    { title: t.priv5Title, body: t.priv5Body },
+    { title: t.priv6Title, body: t.priv6Body },
+  ]
+
   return (
     <div style={{ minHeight: '100vh', background: '#09090b', color: '#f1f5f9', fontFamily: 'Inter, sans-serif' }}>
       <TopBar />
@@ -20,52 +41,21 @@ export function Privacidad({ navigate }: Props) {
           onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = '#94a3b8')}
           onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#64748b')}
         >
-          ← Volver
+          {t.back}
         </button>
 
         <h1 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '8px' }}>
-          Política de privacidad
+          {t.privPageTitle}
         </h1>
         <p style={{ fontSize: '12px', color: '#475569', marginBottom: '40px' }}>
-          Última actualización: mayo de 2026
+          {t.privUpdated}
         </p>
 
         <div style={{ marginBottom: '48px' }}>
-          {[
-            {
-              icon: '🔒', color: '#2dd4bf',
-              title: 'Sin recopilación de datos',
-              body: 'ConverterToMarkdown.com no recoge ningún dato personal, de uso ni analítico. No existe ningún formulario de registro, inicio de sesión ni seguimiento de usuario.',
-            },
-            {
-              icon: '🖥️', color: '#38bdf8',
-              title: 'Procesamiento 100% local',
-              body: 'Todos los archivos que conviertes se procesan en tu navegador. Tu archivo nunca abandona tu dispositivo. No existe ningún servidor que reciba, almacene ni procese tus documentos.',
-            },
-            {
-              icon: '🍪', color: '#f59e0b',
-              title: 'Sin cookies de seguimiento',
-              body: 'Esta web no usa cookies de analítica ni seguimiento de ningún tipo. Puede que el navegador almacene preferencias de sesión de forma local, pero no se transfieren a ningún servidor.',
-            },
-            {
-              icon: '🤝', color: '#a78bfa',
-              title: 'Sin terceros',
-              body: 'No compartimos datos con terceros porque no tenemos datos que compartir. No integramos Google Analytics, Mixpanel, Segment ni ningún otro servicio de analítica o publicidad.',
-            },
-            {
-              icon: '🌐', color: '#34d399',
-              title: 'Modo URL',
-              body: 'Cuando usas el modo URL, tu navegador realiza una petición fetch() directa a la URL que indiques. Esta petición no pasa por ningún proxy ni servidor intermediario nuestro.',
-            },
-            {
-              icon: '✉️', color: '#c084fc',
-              title: 'Contacto',
-              body: 'Si tienes alguna pregunta sobre privacidad, puedes escribir a correodefranciscovalero@gmail.com',
-            },
-          ].map(s => (
+          {sections.map((s, i) => (
             <div key={s.title} style={SECTION}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                <span style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{s.icon}</span>
+                <span style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{ITEMS[i].icon}</span>
                 <div>
                   <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>{s.title}</p>
                   <p style={{ fontSize: '12px', color: '#94a3b8', lineHeight: 1.65 }}>{s.body}</p>

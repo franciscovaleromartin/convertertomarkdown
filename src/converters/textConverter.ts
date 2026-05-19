@@ -1,4 +1,5 @@
 import Papa from 'papaparse'
+import { getT } from '../lib/i18n'
 
 export async function convertText(file: File): Promise<string> {
   return file.text()
@@ -90,7 +91,7 @@ export async function convertJson(file: File): Promise<string> {
   try {
     JSON.parse(text)
   } catch {
-    throw new Error('JSON inválido: el archivo no puede parsearse.')
+    throw new Error(getT().errJsonInvalid)
   }
   return `\`\`\`json\n${text}\n\`\`\``
 }

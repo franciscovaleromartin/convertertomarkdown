@@ -1,5 +1,6 @@
 import { TopBar } from '../components/TopBar'
 import { LandingFooter } from '../components/LandingFooter'
+import { useT } from '../lib/i18n'
 
 interface Props { navigate: (path: string) => void }
 
@@ -16,6 +17,25 @@ const TECH_ROW = {
 }
 
 export function ComoFunciona({ navigate }: Props) {
+  const t = useT()
+
+  const steps = [
+    { n: '01', icon: '📁', color: '#38bdf8', title: t.howStep1Title, body: t.howStep1Body },
+    { n: '02', icon: '⚙️', color: '#c084fc', title: t.howStep2Title, body: t.howStep2Body },
+    { n: '03', icon: '✓',  color: '#34d399', title: t.howStep3Title, body: t.howStep3Body },
+  ]
+
+  const techRows = [
+    { fmt: 'DOCX',     lib: 'mammoth.js',          desc: t.techDocx },
+    { fmt: 'PDF',      lib: 'pdf.js',               desc: t.techPdf  },
+    { fmt: 'XLSX / XLS', lib: 'SheetJS',            desc: t.techXlsx },
+    { fmt: 'HTML',     lib: 'DOMParser + Turndown', desc: t.techHtml },
+    { fmt: 'CSV',      lib: 'PapaParse',            desc: t.techCsv  },
+    { fmt: 'TXT / MD', lib: 'Native',               desc: t.techTxt  },
+    { fmt: 'JSON',     lib: 'Native',               desc: t.techJson },
+    { fmt: 'XML',      lib: 'Native',               desc: t.techXml  },
+  ]
+
   return (
     <div style={{ minHeight: '100vh', background: '#09090b', color: '#f1f5f9', fontFamily: 'Inter, sans-serif' }}>
       <TopBar />
@@ -27,35 +47,18 @@ export function ComoFunciona({ navigate }: Props) {
           onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = '#94a3b8')}
           onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#64748b')}
         >
-          ← Volver
+          {t.back}
         </button>
 
         <h1 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '8px' }}>
-          Cómo funciona
+          {t.howTitle}
         </h1>
         <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '40px', lineHeight: 1.6 }}>
-          En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.
+          {t.howSubtitle}
         </p>
 
-        {/* Pasos */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '48px' }}>
-          {[
-            {
-              n: '01', icon: '📁', color: '#38bdf8',
-              title: 'Elige tu archivo o URL',
-              body: 'Arrastra un archivo al área de conversión, haz clic para seleccionarlo desde tu sistema, o cambia al modo URL y pega el enlace de cualquier archivo público (PDF en un CDN, DOCX en un servidor, etc.).',
-            },
-            {
-              n: '02', icon: '⚙️', color: '#c084fc',
-              title: 'El navegador lo procesa',
-              body: 'El archivo se convierte completamente en tu navegador usando librerías JavaScript (mammoth, pdf.js, SheetJS, Turndown, PapaParse). Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños.',
-            },
-            {
-              n: '03', icon: '✓', color: '#34d399',
-              title: 'Edita, copia o descarga',
-              body: 'El Markdown resultante aparece en un editor. Puedes modificarlo, copiarlo al portapapeles con un clic o descargarlo como fichero .md listo para usar en GitHub, Notion, Obsidian o cualquier editor.',
-            },
-          ].map(step => (
+          {steps.map(step => (
             <div key={step.n} style={STEP_CARD}>
               <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: `radial-gradient(circle, ${step.color}22 0%, transparent 70%)`, pointerEvents: 'none' }} />
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
@@ -71,21 +74,11 @@ export function ComoFunciona({ navigate }: Props) {
           ))}
         </div>
 
-        {/* Detalle técnico */}
         <h2 style={{ fontSize: '16px', fontWeight: 600, color: '#f1f5f9', marginBottom: '16px' }}>
-          Detalle por formato
+          {t.howTechTitle}
         </h2>
         <div style={{ marginBottom: '48px' }}>
-          {[
-            { fmt: 'DOCX', lib: 'mammoth.js', desc: 'Convierte a HTML intermedio, luego a Markdown con Turndown.' },
-            { fmt: 'PDF', lib: 'pdf.js', desc: 'Extrae el texto de cada página. No interpreta imágenes ni fórmulas.' },
-            { fmt: 'XLSX / XLS', lib: 'SheetJS', desc: 'Convierte cada hoja del libro en una tabla Markdown separada.' },
-            { fmt: 'HTML', lib: 'DOMParser + Turndown', desc: 'Limpia estilos, scripts y ruido visual antes de convertir.' },
-            { fmt: 'CSV', lib: 'PapaParse', desc: 'Detecta automáticamente tablas normales y hojas tipo formulario.' },
-            { fmt: 'TXT / MD', lib: 'Nativo', desc: 'Devuelve el texto plano sin transformación.' },
-            { fmt: 'JSON', lib: 'Nativo', desc: 'Valida y envuelve en bloque de código con sintaxis resaltada.' },
-            { fmt: 'XML', lib: 'Nativo', desc: 'Envuelve en bloque de código preservando la estructura.' },
-          ].map(row => (
+          {techRows.map(row => (
             <div key={row.fmt} style={TECH_ROW}>
               <code style={{ fontSize: '11px', fontWeight: 700, color: '#38bdf8', minWidth: '90px', flexShrink: 0, paddingTop: '1px' }}>{row.fmt}</code>
               <div>
