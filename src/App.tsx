@@ -87,7 +87,11 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
       const response = await fetch(proxyUrl)
       if (!response.ok) throw new Error(`${t.errUrl}: ${response.statusText}`)
       const blob = await response.blob()
-      const name = new URL(url).pathname.split('/').pop() || 'document.html'
+
+      const rawName = new URL(url).pathname.split('/').pop() || 'document'
+      const hasExt = rawName.includes('.')
+      const name = hasExt ? rawName : rawName + mimeToExt(response.headers.get('content-type') ?? blob.type)
+
       await processFile(new File([blob], name, { type: blob.type || 'text/html' }))
     } catch (err) {
       setError(err instanceof Error ? err.message : t.errUrl)
@@ -272,6 +276,27 @@ function AuthorSection() {
       </div>
     </div>
   )
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function mimeToExt(contentType: string): string {
+  const mime = contentType.split(';')[0].trim().toLowerCase()
+  const map: Record<string, string> = {
+    'text/html':                                                        '.html',
+    'application/xhtml+xml':                                            '.html',
+    'application/pdf':                                                  '.pdf',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': '.docx',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':       '.xlsx',
+    'application/vnd.ms-excel':                                         '.xls',
+    'text/plain':                                                        '.txt',
+    'text/markdown':                                                     '.md',
+    'text/csv':                                                          '.csv',
+    'application/json':                                                  '.json',
+    'text/xml':                                                          '.xml',
+    'application/xml':                                                   '.xml',
+  }
+  return map[mime] ?? '.html'
 }
 
 // ── Pequeños componentes ──────────────────────────────────────────────────────
