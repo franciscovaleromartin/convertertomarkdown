@@ -69,19 +69,8 @@ const translations = {
     pageLicenseTitle: 'Licencia — ConverterToMarkdown',
     pageLicenseDesc: 'ConverterToMarkdown es de uso libre y código abierto bajo licencia MIT.',
 
-    // ── WhatIsMarkdown card ───────────────────────────────────────────────
-    whatIsMarkdownTag: 'Markdown',
-    whatIsMarkdownTitle: '¿Qué es Markdown?',
-    whatIsMarkdownBody: 'Markdown es un formato de texto que usa símbolos simples para estructurar documentos. Se lee como texto plano, es compatible con control de versiones y está soportado de forma nativa por GitHub, Notion, Obsidian, VS Code y la mayoría de herramientas de IA.',
-    whatIsMarkdownRaw: 'Markdown',
-    whatIsMarkdownRendered: 'Resultado',
-    whatIsMarkdownTools: 'Compatible con GitHub · Notion · Obsidian · VS Code · ChatGPT · Claude · Gemini',
-    whatIsMarkdownExH1: 'Título',
-    whatIsMarkdownExBold: 'negrita',
-    whatIsMarkdownExItalic: 'cursiva',
-    whatIsMarkdownExItem1: 'Elemento uno',
-    whatIsMarkdownExItem2: 'Elemento dos',
-    whatIsMarkdownExCode: 'código',
+    faqQ10: '¿Qué es Markdown?',
+    faqA10: 'Markdown es un formato de texto ligero que usa símbolos simples para estructurar documentos: # para encabezados, **texto** para negrita, *texto* para cursiva, - para listas y `texto` para código. Se lee como texto plano pero se renderiza como contenido formateado. Es el formato estándar en GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude y la mayoría de herramientas de IA.',
 
     // ── LandingCards ──────────────────────────────────────────────────────
     cardsFormatsTag: 'Formatos',
@@ -287,19 +276,8 @@ const translations = {
     pageLicenseTitle: 'License — ConverterToMarkdown',
     pageLicenseDesc: 'ConverterToMarkdown is free and open source under the MIT License.',
 
-    // ── WhatIsMarkdown card ───────────────────────────────────────────────
-    whatIsMarkdownTag: 'Markdown',
-    whatIsMarkdownTitle: 'What is Markdown?',
-    whatIsMarkdownBody: 'Markdown is a text format that uses simple symbols to structure documents. It reads as plain text — human-readable, version-control friendly, and natively supported by GitHub, Notion, Obsidian, VS Code and most AI tools.',
-    whatIsMarkdownRaw: 'Markdown',
-    whatIsMarkdownRendered: 'Result',
-    whatIsMarkdownTools: 'Supported by GitHub · Notion · Obsidian · VS Code · ChatGPT · Claude · Gemini',
-    whatIsMarkdownExH1: 'Title',
-    whatIsMarkdownExBold: 'bold',
-    whatIsMarkdownExItalic: 'italic',
-    whatIsMarkdownExItem1: 'Item one',
-    whatIsMarkdownExItem2: 'Item two',
-    whatIsMarkdownExCode: 'code',
+    faqQ10: 'What is Markdown?',
+    faqA10: 'Markdown is a lightweight text format that uses simple symbols to structure documents: # for headings, **text** for bold, *text* for italic, - for lists, and `text` for code. It reads as plain text but renders as formatted content. It is the standard format in GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude and most AI tools.',
 
     // ── LandingCards ──────────────────────────────────────────────────────
     cardsFormatsTag: 'Formats',

@@ -27,6 +27,14 @@ const routeSchemas = {
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "What is Markdown?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Markdown is a lightweight text format that uses simple symbols to structure documents: # for headings, **text** for bold, *text* for italic, - for lists, and backtick-text for code. It reads as plain text but renders as formatted content. It is the standard format in GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude and most AI tools."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "How many file formats are supported?",
         "acceptedAnswer": {
           "@type": "Answer",

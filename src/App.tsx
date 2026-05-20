@@ -188,9 +188,6 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
           <OutputPanel markdown={markdown} fileName={file?.name ?? 'output'} onClear={handleClear} />
         )}
 
-        {/* ── ¿Qué es Markdown? ── */}
-        <WhatIsMarkdownCard />
-
         {/* ── Tarjetas informativas ── */}
         <LandingCards />
 
@@ -213,66 +210,12 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
   )
 }
 
-// ── What Is Markdown Card ─────────────────────────────────────────────────
-
-function WhatIsMarkdownCard() {
-  const t = useT()
-  return (
-    <div style={{
-      borderRadius: '14px', border: '1px solid #1e293b',
-      background: '#0c111d', padding: '18px 20px',
-      marginTop: '10px', position: 'relative', overflow: 'hidden',
-    }}>
-      <div style={{ position: 'absolute', top: '-30px', right: '-30px', width: '110px', height: '110px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(56,189,248,.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <span style={{ display: 'inline-flex', fontSize: '9px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' as const, padding: '3px 9px', borderRadius: '6px', marginBottom: '8px', background: 'rgba(56,189,248,.08)', color: '#38bdf8', border: '1px solid rgba(56,189,248,.18)' }}>
-        {t.whatIsMarkdownTag}
-      </span>
-      <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
-        {t.whatIsMarkdownTitle}
-      </p>
-      <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.65, marginBottom: '14px' }}>
-        {t.whatIsMarkdownBody}
-      </p>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '12px' }}>
-        <div>
-          <p style={{ fontSize: '9px', fontWeight: 700, color: '#475569', letterSpacing: '.08em', textTransform: 'uppercase' as const, marginBottom: '5px' }}>
-            {t.whatIsMarkdownRaw}
-          </p>
-          <pre style={{ fontSize: '10px', color: '#94a3b8', background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.06)', borderRadius: '8px', padding: '10px 12px', margin: 0, fontFamily: 'monospace', lineHeight: 1.7, overflowX: 'auto' as const, whiteSpace: 'pre' as const }}>
-{`# ${t.whatIsMarkdownExH1}
-**${t.whatIsMarkdownExBold}**, *${t.whatIsMarkdownExItalic}*
-- ${t.whatIsMarkdownExItem1}
-- ${t.whatIsMarkdownExItem2}
-\`${t.whatIsMarkdownExCode}\``}
-          </pre>
-        </div>
-        <div>
-          <p style={{ fontSize: '9px', fontWeight: 700, color: '#475569', letterSpacing: '.08em', textTransform: 'uppercase' as const, marginBottom: '5px' }}>
-            {t.whatIsMarkdownRendered}
-          </p>
-          <div style={{ fontSize: '10px', background: 'rgba(255,255,255,.03)', border: '1px solid rgba(255,255,255,.06)', borderRadius: '8px', padding: '10px 12px', lineHeight: 1.7, color: '#e2e8f0', height: 'calc(100% - 20px)' }}>
-            <p style={{ fontSize: '12px', fontWeight: 700, color: '#f1f5f9', margin: '0 0 3px' }}>{t.whatIsMarkdownExH1}</p>
-            <p style={{ margin: '0 0 3px' }}><strong style={{ color: '#f1f5f9' }}>{t.whatIsMarkdownExBold}</strong>, <em style={{ color: '#c4b5fd' }}>{t.whatIsMarkdownExItalic}</em></p>
-            <ul style={{ margin: '0 0 3px', paddingLeft: '14px' }}>
-              <li>{t.whatIsMarkdownExItem1}</li>
-              <li>{t.whatIsMarkdownExItem2}</li>
-            </ul>
-            <code style={{ background: 'rgba(56,189,248,.12)', color: '#38bdf8', padding: '1px 5px', borderRadius: '3px', fontSize: '10px' }}>{t.whatIsMarkdownExCode}</code>
-          </div>
-        </div>
-      </div>
-      <p style={{ fontSize: '10px', color: '#334155', lineHeight: 1.5 }}>
-        {t.whatIsMarkdownTools}
-      </p>
-    </div>
-  )
-}
-
 // ── FAQ Section ───────────────────────────────────────────────────────────────
 
 function FaqSection() {
   const t = useT()
   const faqs = [
+    { q: t.faqQ10, a: t.faqA10 },
     { q: t.faqQ1, a: t.faqA1 },
     { q: t.faqQ2, a: t.faqA2 },
     { q: t.faqQ3, a: t.faqA3 },
