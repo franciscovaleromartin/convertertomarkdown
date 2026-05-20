@@ -1,8 +1,5 @@
 import { convertText, convertCsv, convertJson, convertXml } from './textConverter'
-import { convertDocx } from './docxConverter'
-import { convertXlsx } from './xlsxConverter'
 import { convertHtml } from './htmlConverter'
-import { convertPdf } from './pdfConverter'
 
 export function getExtension(filename: string): string {
   const idx = filename.lastIndexOf('.')
@@ -14,10 +11,19 @@ export async function convertFile(file: File): Promise<string> {
   const ext = getExtension(file.name)
 
   switch (ext) {
-    case '.docx':             return convertDocx(file)
-    case '.pdf':              return convertPdf(file)
+    case '.docx': {
+      const { convertDocx } = await import('./docxConverter')
+      return convertDocx(file)
+    }
+    case '.pdf': {
+      const { convertPdf } = await import('./pdfConverter')
+      return convertPdf(file)
+    }
     case '.xlsx':
-    case '.xls':              return convertXlsx(file)
+    case '.xls': {
+      const { convertXlsx } = await import('./xlsxConverter')
+      return convertXlsx(file)
+    }
     case '.html':
     case '.htm':              return convertHtml(file)
     case '.txt':
