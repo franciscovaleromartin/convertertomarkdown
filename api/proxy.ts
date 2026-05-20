@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 // Block loopback, link-local (AWS/GCP metadata at 169.254.169.254), and RFC-1918 ranges
