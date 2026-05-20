@@ -70,8 +70,44 @@ const routeSchemas = {
           "@type": "Answer",
           "text": "Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Works in Chrome, Safari and Firefox on Android and iOS. You can select files from your device storage or from cloud apps like Google Drive or iCloud."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens with scanned PDFs or image-based PDFs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only text is extracted. Scanned PDFs require OCR, which this tool does not perform. Best results come from text-based PDFs — documents exported from Word or generated digitally."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert multiple files at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Currently one file per conversion. Each conversion is independent and instant, so you can process several files in a row without reloading the page."
+        }
       }
     ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "ConverterToMarkdown — demo",
+    "description": "See how ConverterToMarkdown converts a DOCX file to Markdown in seconds, directly in the browser. No installation, no upload.",
+    "contentUrl": "https://convertertomarkdown.com/demo.mp4",
+    "thumbnailUrl": "https://convertertomarkdown.com/og-image.png",
+    "uploadDate": "2026-05-01",
+    "publisher": { "@id": "https://convertertomarkdown.com/#org" }
   }
   </script>`,
 
@@ -180,3 +216,24 @@ for (const url of routes) {
 }
 
 console.log(`\nPre-rendering complete — ${routes.length} routes`)
+
+// Ping IndexNow so Bing and other engines pick up updated content immediately
+const INDEXNOW_KEY = '019dc048525741c6a39036a5d62f22ea'
+const INDEXNOW_HOST = 'convertertomarkdown.com'
+const urlsToIndex = routes.map(r => `https://${INDEXNOW_HOST}${r}`)
+
+try {
+  const res = await fetch('https://api.indexnow.org/indexnow', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({
+      host: INDEXNOW_HOST,
+      key: INDEXNOW_KEY,
+      keyLocation: `https://${INDEXNOW_HOST}/${INDEXNOW_KEY}.txt`,
+      urlList: urlsToIndex,
+    }),
+  })
+  console.log(`\nIndexNow ping: HTTP ${res.status}`)
+} catch (e) {
+  console.warn(`\nIndexNow ping failed (non-critical): ${e.message}`)
+}

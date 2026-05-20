@@ -108,11 +108,17 @@ const translations = {
     faqA5: 'Sí. El resultado aparece en un editor de texto donde puedes modificarlo directamente. Luego puedes copiarlo al portapapeles o descargarlo como archivo .md.',
     faqQ6: '¿Funciona sin conexión a internet?',
     faqA6: 'Sí. Una vez cargada la página, el conversor funciona completamente sin conexión. No se requiere internet para procesar archivos.',
+    faqQ7: '¿Funciona en móvil?',
+    faqA7: 'Sí. Funciona en Chrome, Safari y Firefox para Android e iOS. Puedes seleccionar archivos desde el almacenamiento de tu dispositivo o desde apps de nube como Google Drive o iCloud.',
+    faqQ8: '¿Qué ocurre con los PDFs escaneados o con imágenes?',
+    faqA8: 'Solo se extrae el texto. Los PDFs escaneados (imágenes de texto) requieren OCR, que esta herramienta no realiza. Obtén mejores resultados con PDFs basados en texto, como documentos exportados desde Word o generados digitalmente.',
+    faqQ9: '¿Puedo convertir varios archivos a la vez?',
+    faqA9: 'Actualmente un archivo por conversión. Cada conversión es independiente e instantánea, por lo que puedes procesar varios archivos seguidos sin recargar la página.',
 
     // ── Author section ────────────────────────────────────────────────────
     authorTitle: 'Sobre el creador',
     authorName: 'Francisco Valero',
-    authorBio: 'Soy desarrollador independiente. Construí ConverterToMarkdown para resolver un problema recurrente: convertir documentos de distintos formatos a Markdown sin instalar nada ni subir archivos a ningún servidor. Si te resulta útil, también puedes ver mi otro proyecto,',
+    authorBio: 'Soy desarrollador independiente especializado en herramientas web de productividad. Construí ConverterToMarkdown porque necesitaba convertir documentación, PDFs y hojas de cálculo a Markdown de forma recurrente —para repos de GitHub, notas en Obsidian y contexto para LLMs— y no encontraba ninguna herramienta gratuita y sin subida de archivos que funcionara completamente en el navegador. Si te resulta útil, también puedes ver mi otro proyecto,',
     authorOtherProject: 'GraphMyCode — visualiza la arquitectura de tu código',
 
     // ── LandingFooter ─────────────────────────────────────────────────────
@@ -306,11 +312,17 @@ const translations = {
     faqA5: 'Yes. The result appears in a text editor where you can modify it directly. You can then copy it to the clipboard or download it as a .md file.',
     faqQ6: 'Does it work offline?',
     faqA6: 'Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files.',
+    faqQ7: 'Does it work on mobile?',
+    faqA7: 'Yes. Works in Chrome, Safari and Firefox on Android and iOS. You can select files from your device storage or from cloud apps like Google Drive or iCloud.',
+    faqQ8: 'What happens with scanned PDFs or image-based PDFs?',
+    faqA8: 'Only text is extracted. Scanned PDFs (images of text) require OCR, which this tool does not perform. Best results come from text-based PDFs — documents exported from Word or generated digitally.',
+    faqQ9: 'Can I convert multiple files at once?',
+    faqA9: 'Currently one file per conversion. Each conversion is independent and instant, so you can process several files in a row without reloading the page.',
 
     // ── Author section ────────────────────────────────────────────────────
     authorTitle: 'About the creator',
     authorName: 'Francisco Valero',
-    authorBio: "I'm an independent developer. I built ConverterToMarkdown to solve a recurring problem: converting documents from different formats to Markdown without installing anything or uploading files to any server. If you find it useful, also check out my other project,",
+    authorBio: "I'm an independent developer focused on web productivity tools. I built ConverterToMarkdown because I kept needing to convert documentation, PDFs and spreadsheets to Markdown — for GitHub repos, Obsidian notes and LLM context — and couldn't find a free, privacy-first tool that worked entirely in the browser. If you find it useful, also check out my other project,",
     authorOtherProject: 'GraphMyCode — visualize your code architecture',
 
     // ── LandingFooter ─────────────────────────────────────────────────────

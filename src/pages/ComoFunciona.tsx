@@ -55,6 +55,12 @@ export function ComoFunciona({ navigate }: Props) {
         <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={t.pageHowTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.pageHowTitle} />
+        <meta name="twitter:description" content={t.pageHowDesc} />
+        <meta name="twitter:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image:alt" content={t.pageHowTitle} />
       </Helmet>
 
       <TopBar />

@@ -114,10 +114,12 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={t.pageHomeTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.pageHomeTitle} />
         <meta name="twitter:description" content={t.pageHomeDesc} />
         <meta name="twitter:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image:alt" content={t.pageHomeTitle} />
       </Helmet>
 
       <TopBar />
@@ -150,6 +152,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             src="/demo.mp4"
             controls
             playsInline
+            style={{ aspectRatio: '16/9' }}
             className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
           />
         </div>
@@ -217,6 +220,9 @@ function FaqSection() {
     { q: t.faqQ4, a: t.faqA4 },
     { q: t.faqQ5, a: t.faqA5 },
     { q: t.faqQ6, a: t.faqA6 },
+    { q: t.faqQ7, a: t.faqA7 },
+    { q: t.faqQ8, a: t.faqA8 },
+    { q: t.faqQ9, a: t.faqA9 },
   ]
 
   return (
@@ -230,9 +236,9 @@ function FaqSection() {
             borderRadius: '12px', border: '1px solid #1e293b',
             background: '#0c111d', padding: '14px 18px',
           }}>
-            <p style={{ fontSize: '12px', fontWeight: 600, color: '#e2e8f0', marginBottom: '6px', lineHeight: 1.4, margin: '0 0 6px' }}>
+            <h3 style={{ fontSize: '12px', fontWeight: 600, color: '#e2e8f0', lineHeight: 1.4, margin: '0 0 6px' }}>
               {faq.q}
-            </p>
+            </h3>
             <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.65, margin: 0 }}>
               {faq.a}
             </p>
