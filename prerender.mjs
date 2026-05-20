@@ -223,7 +223,7 @@ for (const url of routes) {
 console.log(`\nPre-rendering complete — ${routes.length} routes`)
 
 // Ping IndexNow so Bing and other engines pick up updated content immediately
-const INDEXNOW_KEY = '019dc048525741c6a39036a5d62f22ea'
+const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? '019dc048525741c6a39036a5d62f22ea'
 const INDEXNOW_HOST = 'convertertomarkdown.com'
 const urlsToIndex = routes.map(r => `https://${INDEXNOW_HOST}${r}`)
 
