@@ -4,12 +4,21 @@
 
 ## Tool
 
-- [Converter](https://convertertomarkdown.com/): Upload or paste a URL. Get clean Markdown output instantly.
+- [Converter](https://convertertomarkdown.com/): Upload or paste a URL. Get clean Markdown output instantly. 10 formats supported, 20 MB max, works offline.
 
 ## Documentation
 
+- [Full documentation](https://convertertomarkdown.com/llms-full.txt): Complete reference for AI systems — all formats, use cases, FAQs, technical details.
 - [How it works](https://convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, SheetJS, Turndown, PapaParse).
 - [Use cases](https://convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
+
+## Key Facts
+
+- Converts: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML → Markdown
+- Processing: 100% client-side JavaScript, no server, no upload
+- Privacy: files never leave the user's device
+- Cost: free, no registration required
+- Offline: works after first page load
 
 ## Legal
 
@@ -18,4 +27,7 @@
 
 ## Author
 
-Francisco Valero — https://francisco-valero.com — https://www.linkedin.com/in/francisco-valero/
+Francisco Valero — Independent Developer
+- https://francisco-valero.com
+- https://www.linkedin.com/in/francisco-valero/
+- https://github.com/franciscovaleromartin

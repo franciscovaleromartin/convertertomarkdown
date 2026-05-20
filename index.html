@@ -24,7 +24,7 @@
     <meta name="twitter:image" content="https://convertertomarkdown.com/logo.png" />
     <!-- HelmetEnd -->
 
-    <!-- Schema.org JSON-LD (static, same on every page) -->
+    <!-- Schema.org JSON-LD (global — present on every page) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,31 +37,52 @@
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "isAccessibleForFree": true,
-          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "softwareVersion": "1.0",
+          "browserRequirements": "Requires JavaScript. Compatible with Chrome, Firefox, Safari, and Edge.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
           "featureList": [
             "DOCX to Markdown", "PDF to Markdown", "XLSX to Markdown", "XLS to Markdown",
             "HTML to Markdown", "CSV to Markdown", "JSON to Markdown", "XML to Markdown",
             "TXT to Markdown", "MD passthrough", "No file upload required",
-            "100% client-side processing"
+            "100% client-side processing", "Works offline after first load"
           ],
           "author": {
             "@type": "Person",
             "name": "Francisco Valero",
             "url": "https://francisco-valero.com",
+            "jobTitle": "Independent Developer",
+            "knowsAbout": ["Markdown", "Document Conversion", "Web Development", "JavaScript", "TypeScript"],
             "sameAs": [
               "https://www.linkedin.com/in/francisco-valero/",
               "https://github.com/franciscovaleromartin"
             ]
           },
           "datePublished": "2026-05-01",
-          "dateModified": "2026-05-19",
-          "inLanguage": ["es", "en"]
+          "dateModified": "2026-05-20",
+          "inLanguage": ["es", "en"],
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", "p"]
+          }
         },
         {
           "@type": "Organization",
           "@id": "https://convertertomarkdown.com/#org",
           "name": "ConverterToMarkdown",
           "url": "https://convertertomarkdown.com",
+          "description": "Free browser-based tool to convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown. No file upload — all processing happens locally in your browser.",
+          "foundingDate": "2026",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://convertertomarkdown.com/logo.png",
+            "width": 512,
+            "height": 512
+          },
           "sameAs": ["https://github.com/franciscovaleromartin/convertertomarkdown"]
         },
         {
@@ -70,56 +91,6 @@
           "url": "https://convertertomarkdown.com",
           "name": "ConverterToMarkdown",
           "publisher": { "@id": "https://convertertomarkdown.com/#org" }
-        }
-      ]
-    }
-    </script>
-
-    <!-- FAQPage schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How many file formats are supported?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "10 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is my file uploaded to a server?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is it free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, completely free with no registration. No account or credit card required."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the maximum file size?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "20 MB per file. Since all processing happens locally in your browser, performance depends on your device."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I edit the generated Markdown?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. The result appears in an editor where you can modify it directly, then copy or download it as a .md file."
-          }
         }
       ]
     }

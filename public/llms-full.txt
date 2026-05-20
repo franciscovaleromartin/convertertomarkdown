@@ -1,0 +1,130 @@
+# ConverterToMarkdown — Full Documentation
+
+> Free browser-based tool to convert DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, and XML files to Markdown. No upload, no server — 100% client-side processing.
+
+## What It Is
+
+ConverterToMarkdown is a free, open-source web application that converts documents and data files to Markdown format entirely within the user's browser. No files are uploaded to any server. All processing happens locally using JavaScript libraries.
+
+**URL:** https://convertertomarkdown.com
+**Author:** Francisco Valero — https://francisco-valero.com
+**License:** MIT
+**Version:** 1.0
+**Languages:** English, Spanish (auto-detected from browser)
+
+## Supported Formats (10 total)
+
+| Format | Library | Notes |
+|--------|---------|-------|
+| DOCX | mammoth.js | Preserves headings, bold, italic, tables, lists |
+| PDF | pdf.js (Mozilla) | Text-based PDFs only; no OCR for scanned images |
+| XLSX / XLS | SheetJS | Each sheet becomes a separate Markdown table |
+| HTML | DOMParser + Turndown | Cleans styles and scripts; preserves semantic structure |
+| TXT | Native | Plain text passthrough |
+| MD | Native | Markdown passthrough |
+| CSV | PapaParse | Auto-detects delimiter; outputs Markdown table |
+| JSON | Native | Validates and wraps in fenced code block |
+| XML | Native | Wraps in fenced code block preserving structure |
+
+## How It Works
+
+### Step 1: Choose your file or URL
+Drag a file to the conversion area, click to select it from the filesystem, or switch to URL mode and paste a link to any public file. Maximum file size: 20 MB.
+
+### Step 2: The browser processes it
+The file is converted entirely in the browser using specialized JavaScript libraries. No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.
+
+### Step 3: Edit, copy or download
+The resulting Markdown appears in a text editor on screen. The user can modify the output, copy it to the clipboard, or download it as a `.md` file.
+
+## Key Features
+
+- **Zero server dependency** — all processing is client-side
+- **No registration** — no account, no email, no credit card required
+- **Privacy-first** — files never leave the user's device
+- **Works offline** — once loaded, no internet connection required
+- **Editable output** — Markdown can be edited before copying or downloading
+- **URL conversion** — paste a URL to a public file and convert without downloading
+- **10 supported formats** — documents, spreadsheets, web pages, structured data
+- **Bilingual** — full English and Spanish interface, auto-detected
+
+## Use Cases
+
+### Developers — Documentation
+Convert Word or PDF specifications to Markdown to publish on GitHub, GitLab, Docusaurus or an internal wiki. Preserves headings, bold, tables and lists. Useful for README files, PR descriptions, API docs and changelogs.
+
+### Writers & Bloggers — Content Migration
+Migrate Word articles to Markdown to publish on Jekyll, Hugo, Ghost or Astro without rewriting. Keeps headings, emphasis, links and paragraphs intact. Export from Google Docs or Word and get a `.md` ready to commit.
+
+### Students — Notes & Study
+Convert PDF notes, presentations or Word documents to Markdown to organize in Obsidian or Notion. Turn lecture slides into searchable plain text or import reading materials as structured Markdown.
+
+### Data Analysts — Tables & Data
+Transform Excel or CSV reports into Markdown tables to include in technical documentation or PR reports. Each sheet becomes a formatted table with aligned column headers for GitHub comments, README files or Confluence pages.
+
+### Teams & Companies — Standardization
+Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format. Store documentation in version control, diff changes like code, and share across tools that understand Markdown.
+
+### AI & LLMs — Context Preparation
+Convert documents to clean Markdown to include as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text. Feed API docs, research papers, internal specs or data exports directly into AI workflows.
+
+## Technical Libraries
+
+- **mammoth.js** (https://github.com/mwilliamson/mammoth.js) — DOCX to HTML conversion
+- **pdf.js** (https://mozilla.github.io/pdf.js/) — PDF text extraction
+- **SheetJS** (https://sheetjs.com) — XLSX/XLS reading
+- **Turndown** (https://github.com/mixmark-io/turndown) — HTML to Markdown
+- **PapaParse** (https://www.papaparse.com) — CSV parsing
+
+## Privacy Policy Summary
+
+- No data collection of any kind
+- No cookies, no analytics, no tracking
+- Files are never uploaded to any server
+- URL mode uses a direct browser fetch — no proxy
+- No third-party integrations (no Google Analytics, Mixpanel, etc.)
+
+Full policy: https://convertertomarkdown.com/privacidad
+
+## Pages
+
+- [Converter](https://convertertomarkdown.com/) — Main conversion tool
+- [How it works](https://convertertomarkdown.com/como-funciona) — Step-by-step guide with library breakdown
+- [Use cases](https://convertertomarkdown.com/casos-de-uso) — Audience-specific workflows
+- [Privacy policy](https://convertertomarkdown.com/privacidad) — Data handling details
+- [License](https://convertertomarkdown.com/licencia) — MIT License terms
+
+## Author
+
+Francisco Valero is an independent developer who built ConverterToMarkdown to solve a recurring problem: converting documents from different formats to Markdown without installing anything or uploading files to any server.
+
+- Portfolio: https://francisco-valero.com
+- LinkedIn: https://www.linkedin.com/in/francisco-valero/
+- GitHub: https://github.com/franciscovaleromartin
+- Other project: GraphMyCode (https://graphmycode.com) — visualize your code architecture
+
+## Frequently Asked Questions
+
+**How many file formats are supported?**
+10 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. More formats are added based on user demand.
+
+**Is my file uploaded to a server?**
+No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers.
+
+**Is it free?**
+Yes, completely free with no registration. No account or credit card required.
+
+**What is the maximum file size?**
+20 MB per file. Since all processing happens locally in your browser, performance depends on your device.
+
+**Can I edit the generated Markdown?**
+Yes. The result appears in a text editor where you can modify it directly. You can then copy it to the clipboard or download it as a `.md` file.
+
+**Does it work offline?**
+Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files.
+
+**What happens with scanned PDFs?**
+pdf.js extracts text from text-based PDFs only. Scanned PDFs (images of text) require OCR, which this tool does not perform.
+
+**Can I convert multiple files at once?**
+Currently one file at a time. Each conversion is independent and instant.

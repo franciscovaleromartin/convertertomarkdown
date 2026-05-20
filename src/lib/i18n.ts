@@ -106,6 +106,8 @@ const translations = {
     faqA4: '20 MB por archivo. Si tu documento es mayor, considera comprimirlo o dividir el contenido antes de convertirlo.',
     faqQ5: '¿Puedo editar el Markdown generado?',
     faqA5: 'Sí. El resultado aparece en un editor de texto donde puedes modificarlo directamente. Luego puedes copiarlo al portapapeles o descargarlo como archivo .md.',
+    faqQ6: '¿Funciona sin conexión a internet?',
+    faqA6: 'Sí. Una vez cargada la página, el conversor funciona completamente sin conexión. No se requiere internet para procesar archivos.',
 
     // ── Author section ────────────────────────────────────────────────────
     authorTitle: 'Sobre el creador',
@@ -128,45 +130,58 @@ const translations = {
       'En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.',
     howStep1Title: 'Elige tu archivo o URL',
     howStep1Body:
-      'Arrastra un archivo al área de conversión, haz clic para seleccionarlo desde tu sistema, o cambia al modo URL y pega el enlace de cualquier archivo público (PDF en un CDN, DOCX en un servidor, etc.).',
+      'Arrastra un archivo al área de conversión, haz clic para seleccionarlo desde tu sistema, o cambia al modo URL y pega el enlace de cualquier archivo público (PDF en un CDN, DOCX en un servidor, etc.). Compatible con DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON y XML. Tamaño máximo: 20 MB.',
     howStep2Title: 'El navegador lo procesa',
     howStep2Body:
-      'El archivo se convierte completamente en tu navegador usando librerías JavaScript (mammoth, pdf.js, SheetJS, Turndown, PapaParse). Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños.',
+      'El archivo se convierte completamente en tu navegador usando librerías JavaScript especializadas: mammoth.js para DOCX, pdf.js para PDF, SheetJS para Excel, Turndown para HTML y PapaParse para CSV. Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños y no requiere conexión a internet una vez que la página está cargada.',
     howStep3Title: 'Edita, copia o descarga',
     howStep3Body:
-      'El Markdown resultante aparece en un editor. Puedes modificarlo, copiarlo al portapapeles con un clic o descargarlo como fichero .md listo para usar en GitHub, Notion, Obsidian o cualquier editor.',
+      'El Markdown resultante aparece en un editor de texto directamente en pantalla. Puedes modificar el resultado antes de usarlo, copiarlo al portapapeles con un clic o descargarlo como fichero .md listo para usar en GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo o cualquier editor que entienda Markdown.',
     howTechTitle: 'Detalle por formato',
-    techDocx: 'Convierte a HTML intermedio, luego a Markdown con Turndown.',
-    techPdf: 'Extrae el texto de cada página. No interpreta imágenes ni fórmulas.',
-    techXlsx: 'Convierte cada hoja del libro en una tabla Markdown separada.',
-    techHtml: 'Limpia estilos, scripts y ruido visual antes de convertir.',
-    techCsv: 'Detecta automáticamente tablas normales y hojas tipo formulario.',
-    techTxt: 'Devuelve el texto plano sin transformación.',
-    techJson: 'Valida y envuelve en bloque de código con sintaxis resaltada.',
-    techXml: 'Envuelve en bloque de código preservando la estructura.',
+    techDocx:
+      'Convierte a HTML intermedio usando mammoth.js, preservando encabezados (h1–h6), negrita, cursiva, tablas y listas. El HTML se limpia y pasa a Markdown con Turndown. Las imágenes se omiten; solo se convierte el contenido de texto.',
+    techPdf:
+      'Extrae texto de cada página usando pdf.js (el motor de renderizado de PDF de Mozilla). Mejores resultados en PDFs basados en texto. Los documentos escaneados como imágenes requieren OCR, que esta herramienta no realiza. Cabeceras y pies de página pueden fusionarse con el cuerpo según la estructura del PDF.',
+    techXlsx:
+      'Lee el libro de trabajo con SheetJS y convierte cada hoja en una tabla Markdown separada con columnas delimitadas por barras verticales. Los archivos con múltiples hojas producen múltiples tablas, cada una etiquetada con el nombre de la hoja. Las fórmulas se resuelven a sus valores actuales.',
+    techHtml:
+      'Elimina estilos inline, scripts, elementos de navegación y ruido visual con DOMParser antes de pasar el HTML limpio a Turndown. Preserva la estructura semántica: encabezados, párrafos, enlaces, énfasis, citas en bloque y bloques de código.',
+    techCsv:
+      'Analiza archivos CSV con PapaParse, detectando automáticamente el delimitador (coma, punto y coma, tabulador). Genera una tabla Markdown con detección de fila de encabezado. Compatible con archivos grandes de cientos de filas.',
+    techTxt: 'Devuelve el texto plano sin transformación. Los saltos de línea se preservan tal cual.',
+    techJson:
+      'Valida la estructura JSON y envuelve la salida formateada en un bloque de código delimitado con resaltado de sintaxis json. Gestiona objetos anidados, arrays, JSON minificado y entrada malformada.',
+    techXml:
+      'Envuelve el contenido XML en un bloque de código delimitado preservando la indentación y estructura. Útil para inspección y propósitos de documentación.',
 
     // ── CasosDeUso page ───────────────────────────────────────────────────
     usecasesTitle: 'Casos de uso',
     usecasesSubtitle:
-      'ConverterToMarkdown.com es útil en cualquier flujo donde necesites transformar contenido a Markdown sin instalar nada.',
+      'ConverterToMarkdown.com es útil en cualquier flujo donde necesites transformar contenido a Markdown sin instalar nada ni subir archivos a ningún servidor.',
     uc1Title: 'Desarrolladores',
     uc1Tag: 'Documentación',
-    uc1Body: 'Convierte especificaciones en Word o PDF a Markdown para publicarlas en GitHub, GitLab, Docusaurus o un wiki interno.',
+    uc1Body:
+      'Convierte especificaciones en Word o PDF a Markdown para publicarlas en GitHub, GitLab, Docusaurus o un wiki interno. Arrastra el archivo, obtén Markdown al instante y preserva encabezados, negrita, tablas y listas. Sin necesidad de tener Word instalado ni perder formato en el copiar-pegar. Útil para archivos README, descripciones de PR, documentación de APIs y changelogs.',
     uc2Title: 'Escritores y bloggers',
     uc2Tag: 'Migración de contenido',
-    uc2Body: 'Migra artículos de Word a Markdown para publicarlos en Jekyll, Hugo, Ghost o Astro sin reescribir nada.',
+    uc2Body:
+      'Migra artículos de Word a Markdown para publicarlos en Jekyll, Hugo, Ghost o Astro sin reescribir nada. Conserva encabezados, énfasis, enlaces y párrafos intactos. Exporta desde Google Docs o Word, arrastra el archivo y obtén un .md listo para hacer commit. Ideal para migrar blogs enteros a generadores de sitios estáticos.',
     uc3Title: 'Estudiantes',
     uc3Tag: 'Apuntes y notas',
-    uc3Body: 'Convierte apuntes escaneados como PDF, presentaciones o documentos de Word a Markdown para organizarlos en Obsidian o Notion.',
+    uc3Body:
+      'Convierte apuntes en PDF, presentaciones o documentos de Word a Markdown para organizarlos en Obsidian o Notion. Transforma diapositivas de clases en texto plano con capacidad de búsqueda, crea notas enlazadas desde PDFs de cursos o importa materiales de lectura como Markdown estructurado para tu sistema de gestión del conocimiento.',
     uc4Title: 'Analistas de datos',
     uc4Tag: 'Tablas y datos',
-    uc4Body: 'Transforma informes en Excel o CSV en tablas Markdown para incluirlas en documentación técnica o informes de PR.',
+    uc4Body:
+      'Transforma informes en Excel o CSV en tablas Markdown para incluirlas en documentación técnica o informes de PR. Cada hoja se convierte en una tabla Markdown con encabezados de columna alineados. Pega directamente en comentarios de GitHub, archivos README o páginas de Confluence sin reformatear manualmente.',
     uc5Title: 'Equipos y empresas',
     uc5Tag: 'Estandarización',
-    uc5Body: 'Unifica documentos internos de múltiples formatos —Word, PDF, Excel, HTML— a un único formato de texto plano portable.',
+    uc5Body:
+      'Unifica documentos internos de múltiples formatos —Word, PDF, Excel, HTML— a un único formato de texto plano portable. No se requiere software propietario para leer el resultado. Almacena documentación en control de versiones, diferencia cambios como código y comparte en cualquier herramienta que entienda Markdown.',
     uc6Title: 'IA y LLMs',
     uc6Tag: 'Preparación de contexto',
-    uc6Body: 'Convierte documentos a Markdown limpio para incluirlos como contexto en prompts de ChatGPT, Claude, Gemini u otros LLMs.',
+    uc6Body:
+      'Convierte documentos a Markdown limpio para incluirlos como contexto en prompts de ChatGPT, Claude, Gemini u otros LLMs. El Markdown reduce el ruido de tokens comparado con HTML crudo o texto copiado. Introduce documentación de APIs, artículos de investigación, especificaciones internas o exportaciones de datos directamente en tu flujo de trabajo de IA.',
 
     // ── Privacidad page ───────────────────────────────────────────────────
     privPageTitle: 'Política de privacidad',
@@ -289,6 +304,8 @@ const translations = {
     faqA4: '20 MB per file. If your document is larger, consider compressing it or splitting the content before converting.',
     faqQ5: 'Can I edit the generated Markdown?',
     faqA5: 'Yes. The result appears in a text editor where you can modify it directly. You can then copy it to the clipboard or download it as a .md file.',
+    faqQ6: 'Does it work offline?',
+    faqA6: 'Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files.',
 
     // ── Author section ────────────────────────────────────────────────────
     authorTitle: 'About the creator',
@@ -311,45 +328,58 @@ const translations = {
       'Three steps from file to Markdown. No installation, no account, no data leaving your browser.',
     howStep1Title: 'Choose your file or URL',
     howStep1Body:
-      'Drag a file to the conversion area, click to select it from your system, or switch to URL mode and paste the link to any public file (PDF on a CDN, DOCX on a server, etc.).',
+      'Drag a file to the conversion area, click to select it from your system, or switch to URL mode and paste the link to any public file (PDF on a CDN, DOCX on a server, etc.). Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. Maximum file size: 20 MB.',
     howStep2Title: 'The browser processes it',
     howStep2Body:
-      'The file is converted entirely in your browser using JavaScript libraries (mammoth, pdf.js, SheetJS, Turndown, PapaParse). No bytes are sent to any server. The process is instant for small files.',
+      'The file is converted entirely in your browser using specialized JavaScript libraries: mammoth.js for DOCX, pdf.js for PDF, SheetJS for Excel, Turndown for HTML and PapaParse for CSV. No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.',
     howStep3Title: 'Edit, copy or download',
     howStep3Body:
-      'The resulting Markdown appears in an editor. You can modify it, copy it to the clipboard with one click, or download it as a .md file ready to use in GitHub, Notion, Obsidian or any editor.',
+      'The resulting Markdown appears in a text editor directly on screen. You can modify the output before using it, copy it to the clipboard with one click, or download it as a .md file ready to use in GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo or any Markdown-aware editor.',
     howTechTitle: 'Details by format',
-    techDocx: 'Converts to intermediate HTML, then to Markdown with Turndown.',
-    techPdf: 'Extracts text from each page. Does not interpret images or formulas.',
-    techXlsx: 'Converts each sheet of the workbook into a separate Markdown table.',
-    techHtml: 'Cleans up styles, scripts and visual noise before converting.',
-    techCsv: 'Automatically detects normal tables and form-style sheets.',
-    techTxt: 'Returns plain text without transformation.',
-    techJson: 'Validates and wraps in a code block with highlighted syntax.',
-    techXml: 'Wraps in a code block preserving the structure.',
+    techDocx:
+      'Converts to intermediate HTML using mammoth.js, preserving headings (h1–h6), bold, italic, tables and lists. The HTML is then cleaned and converted to Markdown with Turndown. Images are skipped; only text content is converted.',
+    techPdf:
+      "Extracts text from each page using pdf.js (Mozilla's PDF rendering engine). Best results on text-based PDFs. Scanned documents with images require OCR, which this tool does not perform. Headers and footers may merge with body text depending on the PDF structure.",
+    techXlsx:
+      'Reads the workbook with SheetJS and converts each sheet into a separate Markdown table with pipe-delimited columns. Multi-sheet files produce multiple tables, each labeled with the sheet name. Formulas are resolved to their current values.',
+    techHtml:
+      'Strips inline styles, scripts, navigation elements and visual noise with DOMParser before passing the cleaned HTML to Turndown. Preserves semantic structure: headings, paragraphs, links, emphasis, blockquotes and code blocks.',
+    techCsv:
+      'Parses CSV files with PapaParse, auto-detecting delimiter (comma, semicolon, tab). Outputs a Markdown table with header row detection. Supports large files with hundreds of rows.',
+    techTxt: 'Returns plain text without transformation. Line breaks are preserved as-is.',
+    techJson:
+      'Validates the JSON structure and wraps the formatted output in a fenced code block with json syntax highlighting. Handles nested objects, arrays, minified JSON and malformed input.',
+    techXml:
+      'Wraps the raw XML content in a fenced code block preserving indentation and structure. Useful for inspection and documentation purposes.',
 
     // ── CasosDeUso page ───────────────────────────────────────────────────
     usecasesTitle: 'Use cases',
     usecasesSubtitle:
-      'ConverterToMarkdown.com is useful in any workflow where you need to convert content to Markdown without installing anything.',
+      'ConverterToMarkdown.com is useful in any workflow where you need to convert content to Markdown without installing anything or uploading files to any server.',
     uc1Title: 'Developers',
     uc1Tag: 'Documentation',
-    uc1Body: 'Convert Word or PDF specifications to Markdown to publish them on GitHub, GitLab, Docusaurus or an internal wiki.',
+    uc1Body:
+      'Convert Word or PDF specifications to Markdown to publish them on GitHub, GitLab, Docusaurus or an internal wiki. Drop the file, get Markdown instantly — preserve headings, bold, tables and lists. No Word installed required, no formatting lost in copy-paste. Useful for README files, PR descriptions, API docs and changelogs.',
     uc2Title: 'Writers & bloggers',
     uc2Tag: 'Content migration',
-    uc2Body: 'Migrate Word articles to Markdown to publish them on Jekyll, Hugo, Ghost or Astro without rewriting anything.',
+    uc2Body:
+      'Migrate Word articles to Markdown to publish on Jekyll, Hugo, Ghost or Astro without rewriting anything. Keeps headings, emphasis, links and paragraphs intact. Export from Google Docs or Word, drop the file and get a .md ready to commit. Ideal for migrating entire blogs to static site generators.',
     uc3Title: 'Students',
     uc3Tag: 'Notes & study',
-    uc3Body: 'Convert scanned PDF notes, presentations or Word documents to Markdown to organize them in Obsidian or Notion.',
+    uc3Body:
+      'Convert PDF notes, presentations or Word documents to Markdown to organize them in Obsidian or Notion. Turn lecture slides into searchable plain text, create linked notes from course PDFs, or import reading materials as structured Markdown for your knowledge management system.',
     uc4Title: 'Data analysts',
     uc4Tag: 'Tables & data',
-    uc4Body: 'Transform Excel or CSV reports into Markdown tables to include them in technical documentation or PR reports.',
+    uc4Body:
+      'Transform Excel or CSV reports into Markdown tables to include in technical documentation or PR reports. Each sheet becomes a formatted Markdown table with aligned column headers. Paste directly into GitHub comments, README files or Confluence pages without manual reformatting.',
     uc5Title: 'Teams & companies',
     uc5Tag: 'Standardization',
-    uc5Body: 'Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format.',
+    uc5Body:
+      'Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format. No proprietary software required to read the output. Store documentation in version control, diff changes like code, and share across tools that understand Markdown.',
     uc6Title: 'AI & LLMs',
     uc6Tag: 'Context preparation',
-    uc6Body: 'Convert documents to clean Markdown to include them as context in ChatGPT, Claude, Gemini or other LLM prompts.',
+    uc6Body:
+      'Convert documents to clean Markdown to include them as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text. Feed API docs, research papers, internal specs or data exports directly into your AI workflow.',
 
     // ── Privacidad page ───────────────────────────────────────────────────
     privPageTitle: 'Privacy policy',
