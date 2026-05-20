@@ -152,6 +152,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             src="/demo.mp4"
             controls
             playsInline
+            poster="/og-image.png"
             style={{ aspectRatio: '16/9' }}
             className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
           />

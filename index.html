@@ -104,13 +104,25 @@
     }
     </script>
 
-    <!-- Fonts -->
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Fonts (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <style>body{margin:0;background:#09090b;color:#f1f5f9;font-family:system-ui,sans-serif}</style>
+      <div style="max-width:600px;margin:80px auto;padding:24px;text-align:center">
+        <h1 style="font-size:24px;font-weight:600;margin-bottom:12px">ConverterToMarkdown</h1>
+        <p style="color:#94a3b8;margin-bottom:16px;line-height:1.6">Free tool to convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown. All processing happens locally in your browser — no upload, no server.</p>
+        <p style="color:#64748b;font-size:14px">This tool requires JavaScript. Please enable JavaScript in your browser to use ConverterToMarkdown.</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

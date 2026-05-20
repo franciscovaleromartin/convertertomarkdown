@@ -49,6 +49,7 @@ export function ComoFunciona({ navigate }: Props) {
         <title>{t.pageHowTitle}</title>
         <meta name="description" content={t.pageHowDesc} />
         <link rel="canonical" href="https://convertertomarkdown.com/como-funciona" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://convertertomarkdown.com/como-funciona" />
         <meta property="og:title" content={t.pageHowTitle} />
         <meta property="og:description" content={t.pageHowDesc} />

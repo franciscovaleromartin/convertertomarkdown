@@ -8,6 +8,8 @@ const toAbs = p => path.resolve(__dirname, p)
 const template = fs.readFileSync(toAbs('dist/index.html'), 'utf-8')
 const { render } = await import('./dist-ssr/entry-server.js')
 
+const TODAY = new Date().toISOString().split('T')[0]
+
 const routes = [
   '/',
   '/como-funciona',
@@ -205,6 +207,9 @@ for (const url of routes) {
   if (routeSchemas[url]) {
     page = page.replace('</head>', `${routeSchemas[url]}\n  </head>`)
   }
+
+  page = page.replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/, `"dateModified": "${TODAY}"`)
+  page = page.replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${TODAY}</lastmod>`)
 
   const outPath = url === '/'
     ? toAbs('dist/index.html')

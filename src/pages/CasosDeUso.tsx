@@ -48,6 +48,7 @@ export function CasosDeUso({ navigate }: Props) {
         <title>{t.pageUsecasesTitle}</title>
         <meta name="description" content={t.pageUsecasesDesc} />
         <link rel="canonical" href="https://convertertomarkdown.com/casos-de-uso" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://convertertomarkdown.com/casos-de-uso" />
         <meta property="og:title" content={t.pageUsecasesTitle} />
         <meta property="og:description" content={t.pageUsecasesDesc} />
