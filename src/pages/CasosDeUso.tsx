@@ -80,7 +80,7 @@ export function CasosDeUso({ navigate }: Props) {
                   <span style={{ fontSize: '22px', flexShrink: 0, marginTop: '2px' }}>{ICONS[i]}</span>
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', flexWrap: 'wrap' }}>
-                      <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', lineHeight: 1.2, margin: 0 }}>{c.title}</p>
+                      <h2 style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', lineHeight: 1.2, margin: 0 }}>{c.title}</h2>
                       <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' as const, padding: '2px 7px', borderRadius: '5px', background: a.bg, color: a.color, border: `1px solid ${a.border}` }}>
                         {c.tag}
                       </span>

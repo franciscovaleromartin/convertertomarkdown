@@ -78,9 +78,9 @@ export function ComoFunciona({ navigate }: Props) {
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
                 <span style={{ fontSize: '10px', fontWeight: 700, color: step.color, letterSpacing: '.1em', minWidth: '24px', paddingTop: '3px' }}>{step.n}</span>
                 <div>
-                  <p style={{ fontSize: '14px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
+                  <h2 style={{ fontSize: '14px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
                     {step.icon} {step.title}
-                  </p>
+                  </h2>
                   <p style={{ fontSize: '12px', color: '#94a3b8', lineHeight: 1.65 }}>{step.body}</p>
                 </div>
               </div>
