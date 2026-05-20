@@ -51,7 +51,9 @@ export function CasosDeUso({ navigate }: Props) {
         <meta property="og:url" content="https://convertertomarkdown.com/casos-de-uso" />
         <meta property="og:title" content={t.pageUsecasesTitle} />
         <meta property="og:description" content={t.pageUsecasesDesc} />
-        <meta property="og:image" content="https://convertertomarkdown.com/logo.png" />
+        <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Helmet>
 
       <TopBar />

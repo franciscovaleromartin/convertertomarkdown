@@ -111,11 +111,13 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <meta property="og:url" content="https://convertertomarkdown.com" />
         <meta property="og:title" content={t.pageHomeTitle} />
         <meta property="og:description" content={t.pageHomeDesc} />
-        <meta property="og:image" content="https://convertertomarkdown.com/logo.png" />
+        <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.pageHomeTitle} />
         <meta name="twitter:description" content={t.pageHomeDesc} />
-        <meta name="twitter:image" content="https://convertertomarkdown.com/logo.png" />
+        <meta name="twitter:image" content="https://convertertomarkdown.com/og-image.png" />
       </Helmet>
 
       <TopBar />
