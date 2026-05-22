@@ -276,7 +276,6 @@ function AuthorSection() {
       </p>
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
         {[
-          { href: 'https://francisco-valero.com', label: 'Portfolio' },
           { href: 'https://www.linkedin.com/in/francisco-valero/', label: 'LinkedIn' },
         ].map(({ href, label }) => (
           <a key={label} href={href} target="_blank" rel="noopener noreferrer"
