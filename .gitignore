@@ -27,3 +27,4 @@ dist-ssr
 docs/superpowers/
 GEO-AUDIT-REPORT.md
 dist-ssr/
+.vercel
