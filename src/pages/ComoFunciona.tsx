@@ -41,6 +41,7 @@ export function ComoFunciona({ navigate }: Props) {
     { fmt: 'TXT / MD',  lib: 'Native',               href: null,                                            desc: t.techTxt  },
     { fmt: 'JSON',      lib: 'Native',               href: null,                                            desc: t.techJson },
     { fmt: 'XML',       lib: 'Native',               href: null,                                            desc: t.techXml  },
+    { fmt: 'JPG / PNG / WEBP / BMP / GIF', lib: 'Tesseract.js', href: 'https://tesseract.projectnaptha.com', desc: t.techImg  },
   ]
 
   return (

@@ -141,10 +141,10 @@ const translations = {
       'En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.',
     howStep1Title: 'Elige tu archivo o URL',
     howStep1Body:
-      'Arrastra un archivo al área de conversión, haz clic para seleccionarlo desde tu sistema, o cambia al modo URL y pega el enlace de cualquier archivo público (PDF en un CDN, DOCX en un servidor, etc.). Compatible con DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON y XML. Tamaño máximo: 20 MB.',
+      'Arrastra un archivo al área de conversión, haz clic para seleccionarlo desde tu sistema, o cambia al modo URL y pega el enlace de cualquier archivo público (PDF en un CDN, DOCX en un servidor, etc.). Compatible con DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML y con imágenes JPG, PNG, WEBP, BMP y GIF mediante OCR. Tamaño máximo: 20 MB.',
     howStep2Title: 'El navegador lo procesa',
     howStep2Body:
-      'El archivo se convierte completamente en tu navegador usando librerías JavaScript especializadas: mammoth.js para DOCX, pdf.js para PDF, SheetJS para Excel, Turndown para HTML y PapaParse para CSV. Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños y no requiere conexión a internet una vez que la página está cargada.',
+      'El archivo se convierte completamente en tu navegador usando librerías JavaScript especializadas: mammoth.js para DOCX, pdf.js para PDF, SheetJS para Excel, Turndown para HTML, PapaParse para CSV y Tesseract.js para imágenes (OCR). Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños y no requiere conexión a internet una vez que la página está cargada.',
     howStep3Title: 'Edita, copia o descarga',
     howStep3Body:
       'El Markdown resultante aparece en un editor de texto directamente en pantalla. Puedes modificar el resultado antes de usarlo, copiarlo al portapapeles con un clic o descargarlo como fichero .md listo para usar en GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo o cualquier editor que entienda Markdown.',
@@ -164,6 +164,8 @@ const translations = {
       'Valida la estructura JSON y envuelve la salida formateada en un bloque de código delimitado con resaltado de sintaxis json. Gestiona objetos anidados, arrays, JSON minificado y entrada malformada.',
     techXml:
       'Envuelve el contenido XML en un bloque de código delimitado preservando la indentación y estructura. Útil para inspección y propósitos de documentación.',
+    techImg:
+      'Ejecuta OCR (reconocimiento óptico de caracteres) en el navegador con Tesseract.js. Detecta el idioma automáticamente a partir de la configuración del navegador y usa el modelo correspondiente. Compatible con JPG, PNG, WEBP, BMP y GIF. El modelo de idioma (~4 MB) se descarga la primera vez y se cachea. Funciona bien con texto impreso; la escritura a mano puede tener menor precisión.',
 
     // ── CasosDeUso page ───────────────────────────────────────────────────
     usecasesTitle: 'Casos de uso',
@@ -350,10 +352,10 @@ const translations = {
       'Three steps from file to Markdown. No installation, no account, no data leaving your browser.',
     howStep1Title: 'Choose your file or URL',
     howStep1Body:
-      'Drag a file to the conversion area, click to select it from your system, or switch to URL mode and paste the link to any public file (PDF on a CDN, DOCX on a server, etc.). Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. Maximum file size: 20 MB.',
+      'Drag a file to the conversion area, click to select it from your system, or switch to URL mode and paste the link to any public file (PDF on a CDN, DOCX on a server, etc.). Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML and images (JPG, PNG, WEBP, BMP, GIF) via OCR. Maximum file size: 20 MB.',
     howStep2Title: 'The browser processes it',
     howStep2Body:
-      'The file is converted entirely in your browser using specialized JavaScript libraries: mammoth.js for DOCX, pdf.js for PDF, SheetJS for Excel, Turndown for HTML and PapaParse for CSV. No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.',
+      'The file is converted entirely in your browser using specialized JavaScript libraries: mammoth.js for DOCX, pdf.js for PDF, SheetJS for Excel, Turndown for HTML, PapaParse for CSV and Tesseract.js for images (OCR). No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.',
     howStep3Title: 'Edit, copy or download',
     howStep3Body:
       'The resulting Markdown appears in a text editor directly on screen. You can modify the output before using it, copy it to the clipboard with one click, or download it as a .md file ready to use in GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo or any Markdown-aware editor.',
@@ -373,6 +375,8 @@ const translations = {
       'Validates the JSON structure and wraps the formatted output in a fenced code block with json syntax highlighting. Handles nested objects, arrays, minified JSON and malformed input.',
     techXml:
       'Wraps the raw XML content in a fenced code block preserving indentation and structure. Useful for inspection and documentation purposes.',
+    techImg:
+      'Runs OCR (optical character recognition) in the browser using Tesseract.js. Automatically detects the language from browser settings and loads the matching language model. Supports JPG, PNG, WEBP, BMP and GIF. The language model (~4 MB) is downloaded once and cached. Works well with printed text; handwritten content may have lower accuracy.',
 
     // ── CasosDeUso page ───────────────────────────────────────────────────
     usecasesTitle: 'Use cases',
