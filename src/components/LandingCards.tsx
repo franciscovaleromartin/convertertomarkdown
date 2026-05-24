@@ -33,6 +33,7 @@ export function LandingCards() {
     { icon: '📈', name: 'CSV', desc: t.fmtCsvDesc },
     { icon: '🔧', name: 'JSON', desc: t.fmtJsonDesc },
     { icon: '🏷️', name: 'XML', desc: t.fmtXmlDesc },
+    { icon: '🖼️', name: 'JPG / PNG / WEBP', desc: t.fmtImgDesc },
   ]
 
   return (

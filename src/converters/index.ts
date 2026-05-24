@@ -7,7 +7,7 @@ export function getExtension(filename: string): string {
   return filename.slice(idx).toLowerCase()
 }
 
-export async function convertFile(file: File): Promise<string> {
+export async function convertFile(file: File, onProgress?: (pct: number) => void): Promise<string> {
   const ext = getExtension(file.name)
 
   switch (ext) {
@@ -31,9 +31,18 @@ export async function convertFile(file: File): Promise<string> {
     case '.csv':              return convertCsv(file)
     case '.json':             return convertJson(file)
     case '.xml':              return convertXml(file)
+    case '.jpg':
+    case '.jpeg':
+    case '.png':
+    case '.webp':
+    case '.bmp':
+    case '.gif': {
+      const { convertImage } = await import('./imageConverter')
+      return convertImage(file, onProgress)
+    }
     default:
       throw new Error(
-        'Formato no soportado. Formatos aceptados: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML.'
+        'Formato no soportado. Formatos aceptados: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, PNG, WEBP, BMP, GIF.'
       )
   }
 }

@@ -66,17 +66,19 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
   const [file, setFile] = useState<File | null>(null)
   const [markdown, setMarkdown] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [ocrProgress, setOcrProgress] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const processFile = async (f: File) => {
     if (f.size > MAX_FILE_SIZE) { setError(t.errFileTooLarge); return }
-    setFile(f); setError(null); setMarkdown(''); setIsLoading(true)
+    setFile(f); setError(null); setMarkdown(''); setIsLoading(true); setOcrProgress(null)
     try {
-      setMarkdown(await convertFile(f))
+      setMarkdown(await convertFile(f, (pct) => setOcrProgress(pct)))
     } catch (err) {
       setError(err instanceof Error ? err.message : t.errConvert)
     } finally {
       setIsLoading(false)
+      setOcrProgress(null)
     }
   }
 
@@ -139,7 +141,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
           </p>
           <p className="text-zinc-300 text-sm mt-5 leading-relaxed">{t.heroTagline}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
-            <StatPill value="10" label={t.statFormats} />
+            <StatPill value="15" label={t.statFormats} />
             <StatPill value="20 MB" label={t.statMax} />
             <StatPill value="0" label={t.statServers} />
             <StatPill label={t.statEdit} />
@@ -168,7 +170,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
 
         {/* ── Input ── */}
         {file ? (
-          <FileInfo file={file} isLoading={isLoading} onClear={handleClear} />
+          <FileInfo file={file} isLoading={isLoading} ocrProgress={ocrProgress} onClear={handleClear} />
         ) : inputMode === 'file' ? (
           <DropZone onFile={processFile} />
         ) : (

@@ -3,6 +3,7 @@ import { useT } from '../lib/i18n'
 interface Props {
   file: File
   isLoading: boolean
+  ocrProgress: number | null
   onClear: () => void
 }
 
@@ -12,14 +13,22 @@ function formatSize(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
-export default function FileInfo({ file, isLoading, onClear }: Props) {
+export default function FileInfo({ file, isLoading, ocrProgress, onClear }: Props) {
   const t = useT()
+  const isImage = file.type.startsWith('image/')
   return (
     <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4">
       {isLoading ? (
         <div className="flex flex-col items-center justify-center py-6 gap-3">
           <div className="w-8 h-8 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
-          <p className="text-sm text-zinc-400">{t.fileConverting}</p>
+          <p className="text-sm text-zinc-400">
+            {isImage && ocrProgress !== null
+              ? `OCR: ${ocrProgress}%`
+              : t.fileConverting}
+          </p>
+          {isImage && (
+            <p className="text-xs text-zinc-600 text-center max-w-xs">{t.ocrNote}</p>
+          )}
         </div>
       ) : (
         <div className="flex items-center justify-between gap-3">

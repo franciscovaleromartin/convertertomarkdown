@@ -40,6 +40,7 @@ const translations = {
     fileConverting: 'Convirtiendo…',
     fileChange: '✕ Cambiar',
     fileUnknownType: 'tipo desconocido',
+    ocrNote: 'El OCR extrae texto impreso de imágenes. La escritura a mano puede tener menor precisión.',
 
     // ── OutputPanel ───────────────────────────────────────────────────────
     outputLines: 'líneas',
@@ -74,8 +75,8 @@ const translations = {
 
     // ── LandingCards ──────────────────────────────────────────────────────
     cardsFormatsTag: 'Formatos',
-    cardsFormatsTitle: '10 tipos de archivo compatibles',
-    cardsFormatsSub: 'Documentos, hojas de cálculo, páginas web y datos estructurados.',
+    cardsFormatsTitle: '15 tipos de archivo compatibles',
+    cardsFormatsSub: 'Documentos, hojas de cálculo, páginas web, datos estructurados e imágenes.',
     fmtDocxDesc: 'Documentos Word',
     fmtPdfDesc: 'PDFs con texto extraíble',
     fmtXlsxDesc: 'Hojas de cálculo Excel',
@@ -84,6 +85,7 @@ const translations = {
     fmtCsvDesc: 'Tablas y formularios',
     fmtJsonDesc: 'Datos JSON formateados',
     fmtXmlDesc: 'Datos XML formateados',
+    fmtImgDesc: 'Extracción de texto por OCR',
     cardsPrivacyTag: 'Privacidad',
     cardsPrivacyTitle: 'Tu archivo nunca sale del navegador',
     cardsPrivacyBody:
@@ -100,7 +102,7 @@ const translations = {
     // ── FAQ ───────────────────────────────────────────────────────────────
     faqTitle: 'Preguntas frecuentes',
     faqQ1: '¿Cuántos formatos de archivo son compatibles?',
-    faqA1: '10 formatos: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON y XML. Se añaden más según la demanda de los usuarios.',
+    faqA1: '15 formatos: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, PNG, WEBP, BMP y GIF. Las imágenes se convierten mediante OCR (reconocimiento óptico de caracteres). Se añaden más según la demanda de los usuarios.',
     faqQ2: '¿Se sube mi archivo a algún servidor?',
     faqA2: 'No. Todo el procesamiento ocurre en tu navegador mediante JavaScript. Tu archivo nunca abandona tu dispositivo y ningún dato se envía a servidores externos.',
     faqQ3: '¿Es gratuito?',
@@ -114,7 +116,7 @@ const translations = {
     faqQ7: '¿Funciona en móvil?',
     faqA7: 'Sí. Funciona en Chrome, Safari y Firefox para Android e iOS. Puedes seleccionar archivos desde el almacenamiento de tu dispositivo o desde apps de nube como Google Drive o iCloud.',
     faqQ8: '¿Qué ocurre con los PDFs escaneados o con imágenes?',
-    faqA8: 'Solo se extrae el texto. Los PDFs escaneados (imágenes de texto) requieren OCR, que esta herramienta no realiza. Obtén mejores resultados con PDFs basados en texto, como documentos exportados desde Word o generados digitalmente.',
+    faqA8: 'Los PDFs se procesan extrayendo su texto directamente. Para imágenes (JPG, PNG, WEBP, BMP, GIF) la herramienta realiza OCR en el navegador con Tesseract.js. Funciona bien con texto impreso; la escritura a mano puede tener menor precisión.',
     faqQ9: '¿Puedo convertir varios archivos a la vez?',
     faqA9: 'Actualmente un archivo por conversión. Cada conversión es independiente e instantánea, por lo que puedes procesar varios archivos seguidos sin recargar la página.',
 
@@ -247,6 +249,7 @@ const translations = {
     fileConverting: 'Converting…',
     fileChange: '✕ Change',
     fileUnknownType: 'unknown type',
+    ocrNote: 'OCR extracts printed text from images. Handwriting may have lower accuracy.',
 
     // ── OutputPanel ───────────────────────────────────────────────────────
     outputLines: 'lines',
@@ -281,8 +284,8 @@ const translations = {
 
     // ── LandingCards ──────────────────────────────────────────────────────
     cardsFormatsTag: 'Formats',
-    cardsFormatsTitle: '10 compatible file types',
-    cardsFormatsSub: 'Documents, spreadsheets, web pages and structured data.',
+    cardsFormatsTitle: '15 compatible file types',
+    cardsFormatsSub: 'Documents, spreadsheets, web pages, structured data and images.',
     fmtDocxDesc: 'Word documents',
     fmtPdfDesc: 'PDFs with extractable text',
     fmtXlsxDesc: 'Excel spreadsheets',
@@ -291,6 +294,7 @@ const translations = {
     fmtCsvDesc: 'Tables and forms',
     fmtJsonDesc: 'Formatted JSON data',
     fmtXmlDesc: 'Formatted XML data',
+    fmtImgDesc: 'Text extraction via OCR',
     cardsPrivacyTag: 'Privacy',
     cardsPrivacyTitle: 'Your file never leaves the browser',
     cardsPrivacyBody:
@@ -307,7 +311,7 @@ const translations = {
     // ── FAQ ───────────────────────────────────────────────────────────────
     faqTitle: 'Frequently asked questions',
     faqQ1: 'How many file formats are supported?',
-    faqA1: '10 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. More formats are added based on user demand.',
+    faqA1: '15 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, PNG, WEBP, BMP and GIF. Images are processed using in-browser OCR. More formats are added based on user demand.',
     faqQ2: 'Is my file uploaded to a server?',
     faqA2: 'No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers.',
     faqQ3: 'Is it free?',
@@ -321,7 +325,7 @@ const translations = {
     faqQ7: 'Does it work on mobile?',
     faqA7: 'Yes. Works in Chrome, Safari and Firefox on Android and iOS. You can select files from your device storage or from cloud apps like Google Drive or iCloud.',
     faqQ8: 'What happens with scanned PDFs or image-based PDFs?',
-    faqA8: 'Only text is extracted. Scanned PDFs (images of text) require OCR, which this tool does not perform. Best results come from text-based PDFs — documents exported from Word or generated digitally.',
+    faqA8: 'PDFs are processed by extracting their embedded text directly. For images (JPG, PNG, WEBP, BMP, GIF), the tool runs OCR in your browser using Tesseract.js. Works well for printed text; handwritten content may have lower accuracy.',
     faqQ9: 'Can I convert multiple files at once?',
     faqA9: 'Currently one file per conversion. Each conversion is independent and instant, so you can process several files in a row without reloading the page.',
 
