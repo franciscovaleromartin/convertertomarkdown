@@ -45,9 +45,9 @@ export function LandingCards() {
           <span style={{ ...TAG, background: 'rgba(56,189,248,.08)', color: '#38bdf8', border: '1px solid rgba(56,189,248,.18)' }}>
             {t.cardsFormatsTag}
           </span>
-          <p style={{ fontSize: '15px', fontWeight: 600, color: '#f1f5f9', marginBottom: '4px', lineHeight: 1.35 }}>
+          <h2 style={{ fontSize: '15px', fontWeight: 600, color: '#f1f5f9', marginBottom: '4px', lineHeight: 1.35 }}>
             {t.cardsFormatsTitle}
-          </p>
+          </h2>
           <p style={{ fontSize: '12px', color: '#94a3b8', marginBottom: '16px', lineHeight: 1.5 }}>
             {t.cardsFormatsSub}
           </p>
@@ -60,7 +60,7 @@ export function LandingCards() {
               }}>
                 <span style={{ fontSize: '15px', flexShrink: 0, marginTop: '1px' }}>{f.icon}</span>
                 <div>
-                  <p style={{ fontSize: '11px', fontWeight: 600, color: '#e2e8f0', marginBottom: '3px', lineHeight: 1.2 }}>{f.name}</p>
+                  <h3 style={{ fontSize: '11px', fontWeight: 600, color: '#e2e8f0', marginBottom: '3px', lineHeight: 1.2 }}>{f.name}</h3>
                   <p style={{ fontSize: '10px', color: '#94a3b8', lineHeight: 1.4 }}>{f.desc}</p>
                 </div>
               </div>
@@ -76,9 +76,9 @@ export function LandingCards() {
         <span style={{ ...TAG, background: 'rgba(45,212,191,.08)', color: '#2dd4bf', border: '1px solid rgba(45,212,191,.18)' }}>
           {t.cardsPrivacyTag}
         </span>
-        <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
+        <h2 style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
           {t.cardsPrivacyTitle}
-        </p>
+        </h2>
         <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.6 }}>
           {t.cardsPrivacyBody}
         </p>
@@ -92,9 +92,9 @@ export function LandingCards() {
           <span style={{ ...TAG, background: 'rgba(167,139,250,.08)', color: '#c4b5fd', border: '1px solid rgba(196,181,253,.18)' }}>
             {t.cardsEditTag}
           </span>
-          <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
+          <h2 style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
             {t.cardsEditTitle}
-          </p>
+          </h2>
           <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.6 }}>
             {t.cardsEditBody}
           </p>
@@ -106,9 +106,9 @@ export function LandingCards() {
           <span style={{ ...TAG, background: 'rgba(56,189,248,.08)', color: '#38bdf8', border: '1px solid rgba(56,189,248,.18)' }}>
             {t.cardsUrlTag}
           </span>
-          <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
+          <h2 style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
             {t.cardsUrlTitle}
-          </p>
+          </h2>
           <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.6 }}>
             {t.cardsUrlBody}
           </p>

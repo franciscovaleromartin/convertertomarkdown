@@ -136,7 +136,7 @@ const translations = {
     back: '← Volver',
 
     // ── ComoFunciona page ─────────────────────────────────────────────────
-    howTitle: 'Cómo funciona',
+    howTitle: 'Cómo funciona ConverterToMarkdown',
     howSubtitle:
       'En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.',
     howStep1Title: 'Elige tu archivo o URL',
@@ -168,7 +168,7 @@ const translations = {
       'Ejecuta OCR (reconocimiento óptico de caracteres) en el navegador con Tesseract.js. Detecta el idioma automáticamente a partir de la configuración del navegador y usa el modelo correspondiente. Compatible con JPG, PNG, WEBP, BMP y GIF. El modelo de idioma (~4 MB) se descarga la primera vez y se cachea. Funciona bien con texto impreso; la escritura a mano puede tener menor precisión.',
 
     // ── CasosDeUso page ───────────────────────────────────────────────────
-    usecasesTitle: 'Casos de uso',
+    usecasesTitle: 'Casos de uso de ConverterToMarkdown',
     usecasesSubtitle:
       'ConverterToMarkdown.com es útil en cualquier flujo donde necesites transformar contenido a Markdown sin instalar nada ni subir archivos a ningún servidor.',
     uc1Title: 'Desarrolladores',
@@ -347,7 +347,7 @@ const translations = {
     back: '← Back',
 
     // ── ComoFunciona page ─────────────────────────────────────────────────
-    howTitle: 'How it works',
+    howTitle: 'How ConverterToMarkdown Works',
     howSubtitle:
       'Three steps from file to Markdown. No installation, no account, no data leaving your browser.',
     howStep1Title: 'Choose your file or URL',
@@ -379,7 +379,7 @@ const translations = {
       'Runs OCR (optical character recognition) in the browser using Tesseract.js. Automatically detects the language from browser settings and loads the matching language model. Supports JPG, PNG, WEBP, BMP and GIF. The language model (~4 MB) is downloaded once and cached. Works well with printed text; handwritten content may have lower accuracy.',
 
     // ── CasosDeUso page ───────────────────────────────────────────────────
-    usecasesTitle: 'Use cases',
+    usecasesTitle: 'ConverterToMarkdown Use Cases',
     usecasesSubtitle:
       'ConverterToMarkdown.com is useful in any workflow where you need to convert content to Markdown without installing anything or uploading files to any server.',
     uc1Title: 'Developers',

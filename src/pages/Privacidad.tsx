@@ -55,7 +55,7 @@ export function Privacidad({ navigate }: Props) {
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
                 <span style={{ fontSize: '18px', flexShrink: 0, marginTop: '1px' }}>{ICONS[i]}</span>
                 <div>
-                  <p style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>{s.title}</p>
+                  <h2 style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>{s.title}</h2>
                   <p style={{ fontSize: '12px', color: '#94a3b8', lineHeight: 1.65 }}>{s.body}</p>
                 </div>
               </div>

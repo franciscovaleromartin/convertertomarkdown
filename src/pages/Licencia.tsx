@@ -73,7 +73,7 @@ PARTICULAR PURPOSE AND NONINFRINGEMENT.`}
         </div>
 
         <div style={{ borderRadius: '14px', border: '1px solid #1e293b', background: '#0c111d', padding: '18px 20px', marginBottom: '48px' }}>
-          <p style={{ fontSize: '12px', fontWeight: 600, color: '#f1f5f9', marginBottom: '12px' }}>{t.licDepsTitle}</p>
+          <h2 style={{ fontSize: '12px', fontWeight: 600, color: '#f1f5f9', marginBottom: '12px' }}>{t.licDepsTitle}</h2>
           {deps.map(dep => (
             <div key={dep.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid rgba(255,255,255,.04)' }}>
               <div>
