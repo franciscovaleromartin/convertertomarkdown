@@ -17,7 +17,7 @@ export async function convertFile(file: File, onProgress?: (pct: number) => void
     }
     case '.pdf': {
       const { convertPdf } = await import('./pdfConverter')
-      return convertPdf(file)
+      return convertPdf(file, onProgress)
     }
     case '.xlsx':
     case '.xls': {

@@ -22,9 +22,7 @@ export default function FileInfo({ file, isLoading, ocrProgress, onClear }: Prop
         <div className="flex flex-col items-center justify-center py-6 gap-3">
           <div className="w-8 h-8 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
           <p className="text-sm text-zinc-400">
-            {isImage && ocrProgress !== null
-              ? `OCR: ${ocrProgress}%`
-              : t.fileConverting}
+            {ocrProgress !== null ? `OCR: ${ocrProgress}%` : t.fileConverting}
           </p>
           {isImage && (
             <p className="text-xs text-zinc-600 text-center max-w-xs">{t.ocrNote}</p>
