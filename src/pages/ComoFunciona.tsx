@@ -41,7 +41,7 @@ export function ComoFunciona({ navigate }: Props) {
     { fmt: 'TXT / MD',  lib: 'Native',               href: null,                                            desc: t.techTxt  },
     { fmt: 'JSON',      lib: 'Native',               href: null,                                            desc: t.techJson },
     { fmt: 'XML',       lib: 'Native',               href: null,                                            desc: t.techXml  },
-    { fmt: 'JPG / PNG / WEBP',             lib: 'Tesseract.js', href: 'https://tesseract.projectnaptha.com', desc: t.techImg  },
+    { fmt: 'JPG / PNG\nWEBP / BMP\nGIF',   lib: 'Tesseract.js', href: 'https://tesseract.projectnaptha.com', desc: t.techImg  },
   ]
 
   return (
@@ -104,7 +104,7 @@ export function ComoFunciona({ navigate }: Props) {
         <div style={{ marginBottom: '48px' }}>
           {techRows.map(row => (
             <div key={row.fmt} style={TECH_ROW}>
-              <code style={{ fontSize: '11px', fontWeight: 700, color: '#38bdf8', minWidth: '90px', flexShrink: 0, paddingTop: '1px' }}>{row.fmt}</code>
+              <code style={{ fontSize: '11px', fontWeight: 700, color: '#38bdf8', minWidth: '90px', flexShrink: 0, paddingTop: '1px', whiteSpace: 'pre-wrap' }}>{row.fmt}</code>
               <div>
                 {row.href ? (
                   <a href={row.href} target="_blank" rel="noopener noreferrer"
