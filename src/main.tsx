@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
+import { LangProvider } from './lib/i18n'
 import './index.css'
 import App from './App.tsx'
 
@@ -10,7 +11,9 @@ const container = document.getElementById('root')!
 const tree = (
   <StrictMode>
     <HelmetProvider>
-      <App />
+      <LangProvider>
+        <App />
+      </LangProvider>
     </HelmetProvider>
     <Analytics />
   </StrictMode>

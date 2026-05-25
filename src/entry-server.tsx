@@ -1,6 +1,7 @@
 import { renderToString } from 'react-dom/server'
 import { HelmetProvider } from 'react-helmet-async'
 import type { HelmetServerState } from 'react-helmet-async'
+import { LangProvider } from './lib/i18n'
 import App from './App'
 
 // react-helmet-async v3 renders head tags (title, meta, link) into the
@@ -14,7 +15,9 @@ export function render(url: string): { html: string; headTags: string } {
 
   const rawHtml = renderToString(
     <HelmetProvider context={ctx}>
-      <App ssrPath={url} />
+      <LangProvider>
+        <App ssrPath={url} />
+      </LangProvider>
     </HelmetProvider>
   )
 

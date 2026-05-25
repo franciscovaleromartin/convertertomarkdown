@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { useT } from '../lib/i18n'
 
 interface Props {
@@ -11,10 +11,6 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
   const t = useT()
   const [text, setText] = useState(markdown)
   const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    setText(markdown)
-  }, [markdown])
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(text)
@@ -33,8 +29,10 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
     URL.revokeObjectURL(url)
   }
 
-  const lines = text.split('\n').length
-  const chars = text.length
+  const { lines, chars } = useMemo(() => ({
+    lines: text.split('\n').length,
+    chars: text.length,
+  }), [text])
 
   return (
     <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">

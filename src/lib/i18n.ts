@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext, createContext, createElement } from 'react'
+import type { ReactNode } from 'react'
 
 export type Lang = 'es' | 'en'
 
@@ -444,14 +445,18 @@ const translations = {
 
 export type Translations = typeof translations.es
 
-/** Para componentes React — empieza en 'en' para compatibilidad SSR, cambia al idioma del navegador tras el primer render */
-export function useT(): Translations {
+const LangContext = createContext<Translations>(translations.en)
+
+/** Envuelve la app — detecta el idioma una vez y lo distribuye vía Context */
+export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('en')
-  useEffect(() => {
-    const detected = detectLang()
-    setLang(detected)
-  }, [])
-  return translations[lang] as Translations
+  useEffect(() => { setLang(detectLang()) }, [])
+  return createElement(LangContext.Provider, { value: translations[lang] as Translations }, children)
+}
+
+/** Para componentes React — lee del Context compartido, sin estado propio */
+export function useT(): Translations {
+  return useContext(LangContext)
 }
 
 /** Para código fuera de React (converters, utils) */

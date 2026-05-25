@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import type { ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useT } from './lib/i18n'
@@ -154,6 +154,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             src="/demo.mp4"
             controls
             playsInline
+            preload="none"
             poster="/og-image.png"
             style={{ aspectRatio: '16/9' }}
             className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
@@ -216,7 +217,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
 
 function FaqSection() {
   const t = useT()
-  const faqs = [
+  const faqs = useMemo(() => [
     { q: t.faqQ10, a: t.faqA10 },
     { q: t.faqQ1, a: t.faqA1 },
     { q: t.faqQ2, a: t.faqA2 },
@@ -227,7 +228,7 @@ function FaqSection() {
     { q: t.faqQ7, a: t.faqA7 },
     { q: t.faqQ8, a: t.faqA8 },
     { q: t.faqQ9, a: t.faqA9 },
-  ]
+  ], [t])
 
   return (
     <div style={{ marginTop: '32px' }}>

@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import type { CSSProperties } from 'react'
 import { useT } from '../lib/i18n'
 
@@ -24,7 +25,7 @@ const TAG: CSSProperties = {
 export function LandingCards() {
   const t = useT()
 
-  const formats = [
+  const formats = useMemo(() => [
     { icon: '📝', name: 'DOCX', desc: t.fmtDocxDesc },
     { icon: '📄', name: 'PDF', desc: t.fmtPdfDesc },
     { icon: '📊', name: 'XLSX / XLS', desc: t.fmtXlsxDesc },
@@ -34,7 +35,7 @@ export function LandingCards() {
     { icon: '🔧', name: 'JSON', desc: t.fmtJsonDesc },
     { icon: '🏷️', name: 'XML', desc: t.fmtXmlDesc },
     { icon: '🖼️', name: 'JPG / PNG / WEBP / BMP / GIF', desc: t.fmtImgDesc },
-  ]
+  ], [t])
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '8px' }}>
