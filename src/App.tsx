@@ -286,6 +286,12 @@ function AuthorSection() {
           </a>
         ))}
       </div>
+      <p style={{ fontSize: '11px', color: '#64748b', lineHeight: 1.65, marginTop: '12px' }}>
+        {t.authorStar}{' '}
+        <a href="https://github.com/franciscovaleromartin/convertertomarkdown" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8', textDecoration: 'none' }}>
+          github.com/franciscovaleromartin/convertertomarkdown
+        </a>
+      </p>
     </div>
   )
 }

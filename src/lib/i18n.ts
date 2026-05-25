@@ -116,7 +116,7 @@ const translations = {
     faqQ7: '¿Funciona en móvil?',
     faqA7: 'Sí. Funciona en Chrome, Safari y Firefox para Android e iOS. Puedes seleccionar archivos desde el almacenamiento de tu dispositivo o desde apps de nube como Google Drive o iCloud.',
     faqQ8: '¿Funcionan los PDFs escaneados?',
-    faqA8: 'Sí. La herramienta detecta automáticamente si un PDF no contiene texto extraíble y aplica OCR con Tesseract.js página a página. Los PDFs con texto digital se convierten directamente; los PDFs escaneados se procesan con reconocimiento óptico de caracteres en el propio navegador.',
+    faqA8: 'Sí. La herramienta detecta automáticamente si un PDF no contiene texto extraíble y aplica OCR página a página. Los PDFs con texto digital se convierten directamente; los PDFs escaneados se procesan con reconocimiento óptico de caracteres en el propio navegador.',
     faqQ9: '¿Puedo convertir varios archivos a la vez?',
     faqA9: 'Actualmente un archivo por conversión. Cada conversión es independiente e instantánea, por lo que puedes procesar varios archivos seguidos sin recargar la página.',
 
@@ -125,6 +125,7 @@ const translations = {
     authorName: 'Francisco Valero',
     authorBio: 'Soy desarrollador independiente especializado en herramientas web de productividad. Construí ConverterToMarkdown porque necesitaba convertir documentación, PDFs y hojas de cálculo a Markdown de forma recurrente —para repos de GitHub, notas en Obsidian y contexto para LLMs— y no encontraba ninguna herramienta gratuita y sin subida de archivos que funcionara completamente en el navegador. Si te resulta útil, también puedes ver mi otro proyecto,',
     authorOtherProject: 'GraphMyCode — visualiza la arquitectura de tu código',
+    authorStar: 'Si quieres agradecerme mi trabajo, puedes darme una estrella en GitHub, gracias.',
 
     // ── LandingFooter ─────────────────────────────────────────────────────
     footerHow: 'Cómo funciona',
@@ -327,7 +328,7 @@ const translations = {
     faqQ7: 'Does it work on mobile?',
     faqA7: 'Yes. Works in Chrome, Safari and Firefox on Android and iOS. You can select files from your device storage or from cloud apps like Google Drive or iCloud.',
     faqQ8: 'Do scanned PDFs work?',
-    faqA8: 'Yes. The tool automatically detects when a PDF contains no extractable text and applies OCR with Tesseract.js page by page. PDFs with digital text are converted directly; scanned PDFs are processed with optical character recognition entirely in your browser.',
+    faqA8: 'Yes. The tool automatically detects when a PDF contains no extractable text and applies OCR page by page. PDFs with digital text are converted directly; scanned PDFs are processed with optical character recognition entirely in your browser.',
     faqQ9: 'Can I convert multiple files at once?',
     faqA9: 'Currently one file per conversion. Each conversion is independent and instant, so you can process several files in a row without reloading the page.',
 
@@ -336,6 +337,7 @@ const translations = {
     authorName: 'Francisco Valero',
     authorBio: "I'm an independent developer focused on web productivity tools. I built ConverterToMarkdown because I kept needing to convert documentation, PDFs and spreadsheets to Markdown — for GitHub repos, Obsidian notes and LLM context — and couldn't find a free, privacy-first tool that worked entirely in the browser. If you find it useful, also check out my other project,",
     authorOtherProject: 'GraphMyCode — visualize your code architecture',
+    authorStar: 'If you find my work useful, a star on GitHub means a lot — thank you.',
 
     // ── LandingFooter ─────────────────────────────────────────────────────
     footerHow: 'How it works',
