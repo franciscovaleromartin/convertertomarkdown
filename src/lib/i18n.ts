@@ -125,7 +125,9 @@ const translations = {
     authorName: 'Francisco Valero',
     authorBio: 'Soy desarrollador independiente especializado en herramientas web de productividad. Construí ConverterToMarkdown porque necesitaba convertir documentación, PDFs y hojas de cálculo a Markdown de forma recurrente —para repos de GitHub, notas en Obsidian y contexto para LLMs— y no encontraba ninguna herramienta gratuita y sin subida de archivos que funcionara completamente en el navegador. Si te resulta útil, también puedes ver mi otro proyecto,',
     authorOtherProject: 'GraphMyCode — visualiza la arquitectura de tu código',
-    authorStar: 'Si quieres agradecerme mi trabajo, puedes darme una estrella en GitHub, gracias.',
+    authorStar: 'Si quieres agradecerme mi trabajo, puedes',
+    authorStarLink: 'darme una estrella en GitHub',
+    authorStarSuffix: '— gracias.',
 
     // ── LandingFooter ─────────────────────────────────────────────────────
     footerHow: 'Cómo funciona',
@@ -337,7 +339,9 @@ const translations = {
     authorName: 'Francisco Valero',
     authorBio: "I'm an independent developer focused on web productivity tools. I built ConverterToMarkdown because I kept needing to convert documentation, PDFs and spreadsheets to Markdown — for GitHub repos, Obsidian notes and LLM context — and couldn't find a free, privacy-first tool that worked entirely in the browser. If you find it useful, also check out my other project,",
     authorOtherProject: 'GraphMyCode — visualize your code architecture',
-    authorStar: 'If you find my work useful, a star on GitHub means a lot — thank you.',
+    authorStar: 'If you find my work useful, you can',
+    authorStarLink: 'give it a star on GitHub',
+    authorStarSuffix: '— thank you.',
 
     // ── LandingFooter ─────────────────────────────────────────────────────
     footerHow: 'How it works',
