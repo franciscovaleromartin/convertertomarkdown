@@ -155,7 +155,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             controls
             playsInline
             preload="none"
-            poster="/og-image.png"
+            poster="/video-poster.png"
             style={{ aspectRatio: '16/9' }}
             className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
           />
