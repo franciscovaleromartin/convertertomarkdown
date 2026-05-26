@@ -86,3 +86,7 @@ Full policy: [convertertomarkdown.com/privacidad](https://convertertomarkdown.co
 MIT — see [LICENSE](https://convertertomarkdown.com/licencia)
 
 Built by [Francisco Valero](https://francisco-valero.com) · [LinkedIn](https://www.linkedin.com/in/francisco-valero/)
+
+---
+
+If this tool saved you time, a ⭐ on GitHub means a lot — thank you!
