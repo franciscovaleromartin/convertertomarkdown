@@ -140,7 +140,11 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             {t.heroBy}
           </p>
           <p className="text-zinc-300 text-sm mt-5 leading-relaxed">{t.heroTagline}</p>
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div className="mt-3 flex flex-wrap justify-center gap-2">
+            <span className="flex items-center gap-1.5 bg-emerald-900/30 border border-emerald-700/40 rounded-full px-4 py-1 text-xs font-medium text-emerald-400">Free</span>
+            <span className="flex items-center gap-1.5 bg-sky-900/30 border border-sky-700/40 rounded-full px-4 py-1 text-xs font-medium text-sky-400">Open Source</span>
+          </div>
+          <div className="mt-3 flex flex-wrap justify-center gap-2">
             <StatPill value="15" label={t.statFormats} />
             <StatPill value="20 MB" label={t.statMax} />
             <StatPill value="0" label={t.statServers} />
