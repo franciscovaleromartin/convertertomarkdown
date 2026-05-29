@@ -21,7 +21,7 @@ const translations = {
     statFormats: 'formatos compatibles',
     statMax: 'máximo',
     statServers: 'servidores',
-    statEdit: 'Edita y descarga',
+    statEdit: 'Edita, previsualiza y descarga',
 
     // ── Tabs ──────────────────────────────────────────────────────────────
     tabFile: 'Archivo',
@@ -106,10 +106,10 @@ const translations = {
     cardsPrivacyTitle: 'Tu archivo nunca sale del navegador',
     cardsPrivacyBody:
       'Sin uploads, sin servidores, sin datos enviados a terceros. Todo el procesamiento ocurre localmente usando las APIs de tu navegador. Funciona incluso sin conexión una vez cargada la página.',
-    cardsEditTag: 'Edición',
-    cardsEditTitle: 'Markdown editable',
+    cardsEditTag: 'Editor',
+    cardsEditTitle: 'Editor .md con preview en vivo',
     cardsEditBody:
-      'Edita el resultado directamente en pantalla. Cópialo al portapapeles o descárgalo como .md.',
+      'Edita el Markdown resultante en el modo "editor .md" o cambia a "Preview" para ver el HTML renderizado con formato real. Los cambios se sincronizan en tiempo real entre ambos modos. Copia al portapapeles o descarga como .md.',
     cardsUrlTag: 'URL',
     cardsUrlTitle: 'Convierte desde URL',
     cardsUrlBody:
@@ -126,7 +126,7 @@ const translations = {
     faqQ4: '¿Cuál es el tamaño máximo de archivo?',
     faqA4: '20 MB por archivo. Si tu documento es mayor, considera comprimirlo o dividir el contenido antes de convertirlo.',
     faqQ5: '¿Puedo editar el Markdown generado?',
-    faqA5: 'Sí. El resultado aparece en un editor de texto donde puedes modificarlo directamente. Luego puedes copiarlo al portapapeles o descargarlo como archivo .md.',
+    faqA5: 'Sí. El resultado aparece en un editor integrado con dos modos: "editor .md" para editar la sintaxis Markdown directamente, y "Preview" para ver el resultado renderizado con encabezados, tablas y formato real. Ambos modos están sincronizados en tiempo real. Puedes copiar al portapapeles o descargar el archivo .md en cualquier momento.',
     faqQ6: '¿Funciona sin conexión a internet?',
     faqA6: 'Sí. Una vez cargada la página, el conversor funciona completamente sin conexión. No se requiere internet para procesar archivos.',
     faqQ7: '¿Funciona en móvil?',
@@ -134,7 +134,7 @@ const translations = {
     faqQ8: '¿Funcionan los PDFs escaneados?',
     faqA8: 'Sí. La herramienta detecta automáticamente si un PDF no contiene texto extraíble y aplica OCR página a página. Los PDFs con texto digital se convierten directamente; los PDFs escaneados se procesan con reconocimiento óptico de caracteres en el propio navegador.',
     faqQ9: '¿Puedo convertir varios archivos a la vez?',
-    faqA9: 'Actualmente un archivo por conversión. Cada conversión es independiente e instantánea, por lo que puedes procesar varios archivos seguidos sin recargar la página.',
+    faqA9: 'Sí. El modo "Múltiples archivos" permite arrastrar o seleccionar varios archivos de una vez. Se convierten secuencialmente para no saturar el navegador, y cada archivo tiene su propio botón de descarga en cuanto termina. Cuando todos están listos, un botón descarga todos los .md en un ZIP. Si solo hay un archivo exitoso, se descarga directamente sin comprimir.',
 
     // ── Author section ────────────────────────────────────────────────────
     authorTitle: 'Sobre el creador',
@@ -158,9 +158,9 @@ const translations = {
     howTitle: 'Cómo funciona ConverterToMarkdown',
     howSubtitle:
       'En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.',
-    howStep1Title: 'Elige tu archivo o URL',
+    howStep1Title: 'Elige cómo convertir',
     howStep1Body:
-      'Arrastra un archivo al área de conversión, haz clic para seleccionarlo desde tu sistema, o cambia al modo URL y pega el enlace de cualquier archivo público (PDF en un CDN, DOCX en un servidor, etc.). Compatible con DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML y con imágenes JPG, PNG, WEBP, BMP y GIF mediante OCR. Tamaño máximo: 20 MB.',
+      'Tres modos de entrada: "Archivo" para arrastrar o seleccionar un único archivo desde tu sistema; "URL" para pegar el enlace de cualquier archivo público accesible (PDF en un CDN, DOCX en un servidor, etc.); y "Múltiples archivos" para seleccionar varios documentos a la vez y convertirlos en lote. Compatible con DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML y con imágenes JPG, PNG, WEBP, BMP y GIF mediante OCR. Tamaño máximo: 20 MB por archivo.',
     howStep2Title: 'El navegador lo procesa',
     howStep2Body:
       'El archivo se convierte completamente en tu navegador usando librerías JavaScript especializadas: mammoth.js para DOCX, pdf.js para PDF, SheetJS para Excel, Turndown para HTML, PapaParse para CSV y Tesseract.js para imágenes (OCR). Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños y no requiere conexión a internet una vez que la página está cargada.',
@@ -193,11 +193,11 @@ const translations = {
     uc1Title: 'Desarrolladores',
     uc1Tag: 'Documentación',
     uc1Body:
-      'Convierte especificaciones en Word o PDF a Markdown para publicarlas en GitHub, GitLab, Docusaurus o un wiki interno. Arrastra el archivo, obtén Markdown al instante y preserva encabezados, negrita, tablas y listas. Sin necesidad de tener Word instalado ni perder formato en el copiar-pegar. Útil para archivos README, descripciones de PR, documentación de APIs y changelogs.',
+      'Convierte especificaciones en Word o PDF a Markdown para publicarlas en GitHub, GitLab, Docusaurus o un wiki interno. Arrastra el archivo, obtén Markdown al instante y preserva encabezados, negrita, tablas y listas. Sin necesidad de tener Word instalado ni perder formato en el copiar-pegar. Útil para archivos README, descripciones de PR, documentación de APIs y changelogs. Con el modo "Múltiples archivos" puedes convertir en lote una carpeta entera de especificaciones y descargarlos todos en un ZIP.',
     uc2Title: 'Escritores y bloggers',
     uc2Tag: 'Migración de contenido',
     uc2Body:
-      'Migra artículos de Word a Markdown para publicarlos en Jekyll, Hugo, Ghost o Astro sin reescribir nada. Conserva encabezados, énfasis, enlaces y párrafos intactos. Exporta desde Google Docs o Word, arrastra el archivo y obtén un .md listo para hacer commit. Ideal para migrar blogs enteros a generadores de sitios estáticos.',
+      'Migra artículos de Word a Markdown para publicarlos en Jekyll, Hugo, Ghost o Astro sin reescribir nada. Conserva encabezados, énfasis, enlaces y párrafos intactos. Exporta desde Google Docs o Word, arrastra el archivo y obtén un .md listo para hacer commit. Para migrar un blog completo, usa el modo "Múltiples archivos": selecciona todos los DOCX de una vez, descarga el ZIP y tendrás cada artículo como .md listo para commit.',
     uc3Title: 'Estudiantes',
     uc3Tag: 'Apuntes y notas',
     uc3Body:
@@ -209,11 +209,11 @@ const translations = {
     uc5Title: 'Equipos y empresas',
     uc5Tag: 'Estandarización',
     uc5Body:
-      'Unifica documentos internos de múltiples formatos —Word, PDF, Excel, HTML— a un único formato de texto plano portable. No se requiere software propietario para leer el resultado. Almacena documentación en control de versiones, diferencia cambios como código y comparte en cualquier herramienta que entienda Markdown.',
+      'Unifica documentos internos de múltiples formatos —Word, PDF, Excel, HTML— a un único formato de texto plano portable. No se requiere software propietario para leer el resultado. Almacena documentación en control de versiones, diferencia cambios como código y comparte en cualquier herramienta que entienda Markdown. El modo "Múltiples archivos" convierte un lote completo en una sola operación y descarga todos los .md en un ZIP listo para importar al repositorio.',
     uc6Title: 'IA y LLMs',
     uc6Tag: 'Preparación de contexto',
     uc6Body:
-      'Convierte documentos a Markdown limpio para incluirlos como contexto en prompts de ChatGPT, Claude, Gemini u otros LLMs. El Markdown reduce el ruido de tokens comparado con HTML crudo o texto copiado. Introduce documentación de APIs, artículos de investigación, especificaciones internas o exportaciones de datos directamente en tu flujo de trabajo de IA.',
+      'Convierte documentos a Markdown limpio para incluirlos como contexto en prompts de ChatGPT, Claude, Gemini u otros LLMs. El Markdown reduce el ruido de tokens comparado con HTML crudo o texto copiado. Introduce documentación de APIs, artículos de investigación, especificaciones internas o exportaciones de datos directamente en tu flujo de trabajo de IA. Con el modo "Múltiples archivos" puedes preparar un corpus completo de documentos en una sola pasada y descargarlos como .md listos para insertarlos como contexto.',
 
     // ── Privacidad page ───────────────────────────────────────────────────
     privPageTitle: 'Política de privacidad',
@@ -250,7 +250,7 @@ const translations = {
     statFormats: 'supported formats',
     statMax: 'maximum',
     statServers: 'servers',
-    statEdit: 'Edit & download',
+    statEdit: 'Edit, preview & download',
 
     // ── Tabs ──────────────────────────────────────────────────────────────
     tabFile: 'File',
@@ -335,10 +335,10 @@ const translations = {
     cardsPrivacyTitle: 'Your file never leaves the browser',
     cardsPrivacyBody:
       "No uploads, no servers, no data sent to third parties. All processing happens locally using your browser's APIs. Works offline once the page is loaded.",
-    cardsEditTag: 'Editing',
-    cardsEditTitle: 'Editable Markdown',
+    cardsEditTag: 'Editor',
+    cardsEditTitle: 'Editor .md with live preview',
     cardsEditBody:
-      'Edit the result directly on screen. Copy it to the clipboard or download it as .md.',
+      'Edit the resulting Markdown in "editor .md" mode or switch to "Preview" to see the rendered HTML with real formatting. Changes sync in real time between both modes. Copy to clipboard or download as .md.',
     cardsUrlTag: 'URL',
     cardsUrlTitle: 'Convert from URL',
     cardsUrlBody:
@@ -355,7 +355,7 @@ const translations = {
     faqQ4: 'What is the maximum file size?',
     faqA4: '20 MB per file. If your document is larger, consider compressing it or splitting the content before converting.',
     faqQ5: 'Can I edit the generated Markdown?',
-    faqA5: 'Yes. The result appears in a text editor where you can modify it directly. You can then copy it to the clipboard or download it as a .md file.',
+    faqA5: 'Yes. The result appears in a built-in editor with two modes: "editor .md" to edit the raw Markdown syntax directly, and "Preview" to see the rendered output with real headings, tables and formatting. Both modes are synced in real time. You can copy to clipboard or download the .md file at any time.',
     faqQ6: 'Does it work offline?',
     faqA6: 'Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files.',
     faqQ7: 'Does it work on mobile?',
@@ -363,7 +363,7 @@ const translations = {
     faqQ8: 'Do scanned PDFs work?',
     faqA8: 'Yes. The tool automatically detects when a PDF contains no extractable text and applies OCR page by page. PDFs with digital text are converted directly; scanned PDFs are processed with optical character recognition entirely in your browser.',
     faqQ9: 'Can I convert multiple files at once?',
-    faqA9: 'Currently one file per conversion. Each conversion is independent and instant, so you can process several files in a row without reloading the page.',
+    faqA9: 'Yes. The "Multiple files" mode lets you drag or select several files at once. They are converted sequentially to avoid overloading the browser, and each file gets its own download button as soon as it finishes. When all files are ready, a single button downloads all the .md files as a ZIP archive. If there is only one successful file, it downloads directly without compression.',
 
     // ── Author section ────────────────────────────────────────────────────
     authorTitle: 'About the creator',
@@ -387,9 +387,9 @@ const translations = {
     howTitle: 'How ConverterToMarkdown Works',
     howSubtitle:
       'Three steps from file to Markdown. No installation, no account, no data leaving your browser.',
-    howStep1Title: 'Choose your file or URL',
+    howStep1Title: 'Choose how to convert',
     howStep1Body:
-      'Drag a file to the conversion area, click to select it from your system, or switch to URL mode and paste the link to any public file (PDF on a CDN, DOCX on a server, etc.). Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML and images (JPG, PNG, WEBP, BMP, GIF) via OCR. Maximum file size: 20 MB.',
+      'Three input modes: "File" to drag or select a single file from your system; "URL" to paste the link to any publicly accessible file (PDF on a CDN, DOCX on a server, etc.); and "Multiple files" to select several documents at once and convert them in batch. Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML and images (JPG, PNG, WEBP, BMP, GIF) via OCR. Maximum file size: 20 MB per file.',
     howStep2Title: 'The browser processes it',
     howStep2Body:
       'The file is converted entirely in your browser using specialized JavaScript libraries: mammoth.js for DOCX, pdf.js for PDF, SheetJS for Excel, Turndown for HTML, PapaParse for CSV and Tesseract.js for images (OCR). No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.',
@@ -422,11 +422,11 @@ const translations = {
     uc1Title: 'Developers',
     uc1Tag: 'Documentation',
     uc1Body:
-      'Convert Word or PDF specifications to Markdown to publish them on GitHub, GitLab, Docusaurus or an internal wiki. Drop the file, get Markdown instantly — preserve headings, bold, tables and lists. No Word installed required, no formatting lost in copy-paste. Useful for README files, PR descriptions, API docs and changelogs.',
+      'Convert Word or PDF specifications to Markdown to publish them on GitHub, GitLab, Docusaurus or an internal wiki. Drop the file, get Markdown instantly — preserve headings, bold, tables and lists. No Word installed required, no formatting lost in copy-paste. Useful for README files, PR descriptions, API docs and changelogs. Use "Multiple files" mode to convert an entire folder of specs in one batch and download them all as a ZIP.',
     uc2Title: 'Writers & bloggers',
     uc2Tag: 'Content migration',
     uc2Body:
-      'Migrate Word articles to Markdown to publish on Jekyll, Hugo, Ghost or Astro without rewriting anything. Keeps headings, emphasis, links and paragraphs intact. Export from Google Docs or Word, drop the file and get a .md ready to commit. Ideal for migrating entire blogs to static site generators.',
+      'Migrate Word articles to Markdown to publish on Jekyll, Hugo, Ghost or Astro without rewriting anything. Keeps headings, emphasis, links and paragraphs intact. Export from Google Docs or Word, drop the file and get a .md ready to commit. To migrate an entire blog, use "Multiple files" mode: select all your DOCX files at once, download the ZIP, and every article is ready as a .md file.',
     uc3Title: 'Students',
     uc3Tag: 'Notes & study',
     uc3Body:
@@ -438,11 +438,11 @@ const translations = {
     uc5Title: 'Teams & companies',
     uc5Tag: 'Standardization',
     uc5Body:
-      'Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format. No proprietary software required to read the output. Store documentation in version control, diff changes like code, and share across tools that understand Markdown.',
+      'Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format. No proprietary software required to read the output. Store documentation in version control, diff changes like code, and share across tools that understand Markdown. The "Multiple files" mode converts an entire batch in one operation and downloads all .md files as a ZIP ready to import into the repository.',
     uc6Title: 'AI & LLMs',
     uc6Tag: 'Context preparation',
     uc6Body:
-      'Convert documents to clean Markdown to include them as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text. Feed API docs, research papers, internal specs or data exports directly into your AI workflow.',
+      'Convert documents to clean Markdown to include them as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text. Feed API docs, research papers, internal specs or data exports directly into your AI workflow. With "Multiple files" mode you can prepare an entire corpus in one pass and download all .md files ready to paste as context.',
 
     // ── Privacidad page ───────────────────────────────────────────────────
     privPageTitle: 'Privacy policy',
