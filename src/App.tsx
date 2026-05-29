@@ -332,7 +332,7 @@ function mimeToExt(contentType: string): string {
 
 function StatPill({ value, label }: { value?: string; label: string }) {
   return (
-    <div className="flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-1.5 text-sm">
+    <div className="flex items-center gap-1 bg-zinc-900 border border-zinc-800 rounded-full px-3 py-1 text-xs">
       {value && <span className="font-bold text-white">{value}</span>}
       <span className="text-zinc-400">{label}</span>
     </div>
