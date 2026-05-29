@@ -182,7 +182,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
       </div>
 
       {/* ── Panels ── */}
-      <div className="flex">
+      <div className="flex h-[420px]">
 
         {/* Editor panel */}
         <div
@@ -192,7 +192,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
           <textarea
             value={text}
             onChange={handleTextareaChange}
-            className="w-full p-4 font-mono text-sm text-zinc-200 bg-transparent leading-relaxed resize-y min-h-[300px] max-h-[600px] focus:outline-none"
+            className="w-full h-full p-4 font-mono text-sm text-zinc-200 bg-transparent leading-relaxed resize-none overflow-y-auto focus:outline-none"
             spellCheck={false}
           />
         </div>
@@ -207,7 +207,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
             contentEditable
             suppressContentEditableWarning
             onInput={handlePreviewInput}
-            className="markdown-preview p-4 text-sm text-zinc-200 min-h-[300px] max-h-[600px] overflow-y-auto focus:outline-none cursor-text"
+            className="markdown-preview h-full p-4 text-sm text-zinc-200 overflow-y-auto focus:outline-none cursor-text"
           />
         </div>
 
