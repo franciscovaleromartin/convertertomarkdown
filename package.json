@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "dompurify": "^3.4.7",
     "mammoth": "^1.12.0",
+    "marked": "^18.0.4",
     "papaparse": "^5.5.3",
     "pdfjs-dist": "3.11.174",
     "react": "^19.2.6",
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/dompurify": "^3.2.0",
     "@types/node": "^24.12.3",
     "@types/papaparse": "^5.5.2",
     "@types/react": "^19.2.14",
