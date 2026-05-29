@@ -128,16 +128,6 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
           {/* Desktop view-mode toggle */}
           <div className="hidden sm:flex items-center bg-zinc-800 rounded-md p-0.5">
             <button
-              onClick={() => setViewMode('split')}
-              className={`text-xs px-2 py-0.5 rounded transition-colors duration-100 ${
-                viewMode === 'split'
-                  ? 'bg-zinc-600 text-white'
-                  : 'text-zinc-400 hover:text-zinc-200'
-              }`}
-            >
-              Split
-            </button>
-            <button
               onClick={() => setViewMode('editor')}
               className={`text-xs px-2 py-0.5 rounded transition-colors duration-100 ${
                 viewMode === 'editor'
@@ -146,6 +136,16 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
               }`}
             >
               Editor
+            </button>
+            <button
+              onClick={() => setViewMode('split')}
+              className={`text-xs px-2 py-0.5 rounded transition-colors duration-100 ${
+                viewMode === 'split'
+                  ? 'bg-zinc-600 text-white'
+                  : 'text-zinc-400 hover:text-zinc-200'
+              }`}
+            >
+              Preview
             </button>
           </div>
 
