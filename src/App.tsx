@@ -143,6 +143,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <span className="flex items-center gap-1.5 bg-emerald-900/30 border border-emerald-700/40 rounded-full px-4 py-1 text-xs font-medium text-emerald-400">Free</span>
             <span className="flex items-center gap-1.5 bg-sky-900/30 border border-sky-700/40 rounded-full px-4 py-1 text-xs font-medium text-sky-400">Open Source</span>
+            <span className="flex items-center gap-1.5 bg-purple-900/30 border border-purple-700/40 rounded-full px-4 py-1 text-xs font-medium text-purple-400">OCR</span>
           </div>
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <StatPill value="15" label={t.statFormats} />

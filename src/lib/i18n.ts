@@ -149,9 +149,9 @@ const translations = {
     howStep2Title: 'El navegador lo procesa',
     howStep2Body:
       'El archivo se convierte completamente en tu navegador usando librerías JavaScript especializadas: mammoth.js para DOCX, pdf.js para PDF, SheetJS para Excel, Turndown para HTML, PapaParse para CSV y Tesseract.js para imágenes (OCR). Ningún byte se envía a ningún servidor. El proceso es instantáneo para archivos pequeños y no requiere conexión a internet una vez que la página está cargada.',
-    howStep3Title: 'Edita, copia o descarga',
+    howStep3Title: 'Edita, previsualiza, copia o descarga',
     howStep3Body:
-      'El Markdown resultante aparece en un editor de texto directamente en pantalla. Puedes modificar el resultado antes de usarlo, copiarlo al portapapeles con un clic o descargarlo como fichero .md listo para usar en GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo o cualquier editor que entienda Markdown.',
+      'El Markdown resultante aparece en el editor integrado. Usa el control "editor .md" para editar el texto directamente en sintaxis Markdown, o cambia a "Preview" para ver el resultado renderizado —encabezados, negrita, tablas, bloques de código— y editar con formato visual. Los cambios se sincronizan en tiempo real entre los dos modos. Copia al portapapeles o descarga como fichero .md listo para GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo o cualquier herramienta que entienda Markdown.',
     howTechTitle: 'Detalle por formato',
     techDocx:
       'Convierte a HTML intermedio usando mammoth.js, preservando encabezados (h1–h6), negrita, cursiva, tablas y listas. El HTML se limpia y pasa a Markdown con Turndown. Las imágenes se omiten; solo se convierte el contenido de texto.',
@@ -363,9 +363,9 @@ const translations = {
     howStep2Title: 'The browser processes it',
     howStep2Body:
       'The file is converted entirely in your browser using specialized JavaScript libraries: mammoth.js for DOCX, pdf.js for PDF, SheetJS for Excel, Turndown for HTML, PapaParse for CSV and Tesseract.js for images (OCR). No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.',
-    howStep3Title: 'Edit, copy or download',
+    howStep3Title: 'Edit, preview, copy or download',
     howStep3Body:
-      'The resulting Markdown appears in a text editor directly on screen. You can modify the output before using it, copy it to the clipboard with one click, or download it as a .md file ready to use in GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo or any Markdown-aware editor.',
+      'The resulting Markdown appears in the built-in editor. Switch to "editor .md" to edit raw Markdown syntax directly, or switch to "Preview" to see the rendered output — headings, bold, tables, code blocks — and edit with visual formatting. Changes sync in real time between both modes. Copy to clipboard or download as a .md file ready for GitHub, GitLab, Notion, Obsidian, Docusaurus, Jekyll, Hugo or any Markdown-aware tool.',
     howTechTitle: 'Details by format',
     techDocx:
       'Converts to intermediate HTML using mammoth.js, preserving headings (h1–h6), bold, italic, tables and lists. The HTML is then cleaned and converted to Markdown with Turndown. Images are skipped; only text content is converted.',
