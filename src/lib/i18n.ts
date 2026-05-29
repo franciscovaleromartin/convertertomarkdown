@@ -26,7 +26,7 @@ const translations = {
     // ── Tabs ──────────────────────────────────────────────────────────────
     tabFile: 'Archivo',
     tabUrl: 'URL',
-    tabMulti: 'Múltiples archivos',
+    tabMulti: 'Múltiples Archivos',
 
     // ── MultiBatch ────────────────────────────────────────────────────────
     multiDropTitle: 'Arrastra los archivos aquí',
