@@ -125,24 +125,24 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
             Output · {chars} chars · {lines} {t.outputLines}
           </span>
 
-          {/* Desktop view-mode toggle */}
-          <div className="hidden sm:flex items-center gap-1">
+          {/* Desktop view-mode segmented control */}
+          <div className="hidden sm:flex items-center bg-zinc-800 border border-zinc-700/50 rounded-lg p-1 gap-1">
             <button
               onClick={() => setViewMode('editor')}
-              className={`text-xs px-3 py-1.5 rounded-md font-medium transition-colors duration-150 ${
+              className={`text-xs px-3 py-1 rounded-md font-medium transition-all duration-150 ${
                 viewMode === 'editor'
-                  ? 'bg-sky-600 hover:bg-sky-500 text-white'
-                  : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 border border-zinc-700/50'
+                  ? 'bg-sky-600 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
               editor .md
             </button>
             <button
               onClick={() => setViewMode('split')}
-              className={`text-xs px-3 py-1.5 rounded-md font-medium transition-colors duration-150 ${
+              className={`text-xs px-3 py-1 rounded-md font-medium transition-all duration-150 ${
                 viewMode === 'split'
-                  ? 'bg-purple-600 hover:bg-purple-500 text-white'
-                  : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 border border-zinc-700/50'
+                  ? 'bg-purple-600 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
               Preview
@@ -167,7 +167,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
           </button>
           <button
             onClick={handleDownload}
-            className="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-3 py-1.5 rounded-md transition-colors duration-150 border border-zinc-700/50"
+            className="text-xs bg-purple-600 hover:bg-purple-500 text-white px-3 py-1.5 rounded-md transition-colors duration-150 font-medium"
           >
             {t.outputDownload}
           </button>
