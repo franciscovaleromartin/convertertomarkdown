@@ -7,6 +7,7 @@ import { LandingCards } from './components/LandingCards'
 import { LandingFooter } from './components/LandingFooter'
 import DropZone from './components/DropZone'
 import UrlInput from './components/UrlInput'
+import MultiBatch from './components/MultiBatch'
 import FileInfo from './components/FileInfo'
 import OutputPanel from './components/OutputPanel'
 import { ComoFunciona } from './pages/ComoFunciona'
@@ -17,7 +18,7 @@ import { convertFile } from './converters'
 
 const MAX_FILE_SIZE = 20 * 1024 * 1024
 
-type InputMode = 'file' | 'url'
+type InputMode = 'file' | 'url' | 'multi'
 
 // ── Router mínimo, compatible con SSR ────────────────────────────────────────
 
@@ -169,8 +170,9 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         {/* ── Selector modo ── */}
         {!file && (
           <div className="flex mb-5 p-1 bg-zinc-900 border border-zinc-800 rounded-xl w-full gap-1">
-            <ModeTab active={inputMode === 'file'} onClick={() => setInputMode('file')}>{t.tabFile}</ModeTab>
-            <ModeTab active={inputMode === 'url'}  onClick={() => setInputMode('url')}>{t.tabUrl}</ModeTab>
+            <ModeTab active={inputMode === 'file'}  onClick={() => setInputMode('file')}>{t.tabFile}</ModeTab>
+            <ModeTab active={inputMode === 'url'}   onClick={() => setInputMode('url')}>{t.tabUrl}</ModeTab>
+            <ModeTab active={inputMode === 'multi'} onClick={() => setInputMode('multi')}>{t.tabMulti}</ModeTab>
           </div>
         )}
 
@@ -179,12 +181,14 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
           <FileInfo file={file} isLoading={isLoading} ocrProgress={ocrProgress} onClear={handleClear} />
         ) : inputMode === 'file' ? (
           <DropZone onFile={processFile} />
-        ) : (
+        ) : inputMode === 'url' ? (
           <UrlInput onUrl={handleUrl} isLoading={isLoading} />
+        ) : (
+          <MultiBatch />
         )}
 
         {/* ── Error ── */}
-        {error && (
+        {inputMode !== 'multi' && error && (
           <div className="mt-4 flex items-start gap-2 text-red-400 text-sm bg-red-950/40 border border-red-900/50 rounded-xl p-3.5">
             <span className="flex-shrink-0">⚠️</span>
             <span>{error}</span>
@@ -192,7 +196,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         )}
 
         {/* ── Output ── */}
-        {markdown && !isLoading && (
+        {inputMode !== 'multi' && markdown && !isLoading && (
           <OutputPanel markdown={markdown} fileName={file?.name ?? 'output'} onClear={handleClear} />
         )}
 

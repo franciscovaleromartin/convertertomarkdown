@@ -26,6 +26,21 @@ const translations = {
     // ── Tabs ──────────────────────────────────────────────────────────────
     tabFile: 'Archivo',
     tabUrl: 'URL',
+    tabMulti: 'Múltiples archivos',
+
+    // ── MultiBatch ────────────────────────────────────────────────────────
+    multiDropTitle: 'Arrastra los archivos aquí',
+    multiDropSubtitle: 'o haz clic para seleccionar · múltiples archivos · 20 MB máx por archivo',
+    multiStatusPending: 'Pendiente',
+    multiStatusConverting: 'Convirtiendo…',
+    multiStatusDone: 'Listo',
+    multiStatusError: 'Error',
+    multiDownload: '↓ Descargar',
+    multiDownloadAll: '↓ Descargar todos (.zip)',
+    multiReset: '← Nueva conversión',
+    multiFilesCount: 'archivos',
+    multiDoneCount: 'completados',
+    multiSuccessOf: 'convertidos con éxito',
 
     // ── DropZone ──────────────────────────────────────────────────────────
     dropTitle: 'Arrastra tu archivo aquí',
@@ -240,6 +255,21 @@ const translations = {
     // ── Tabs ──────────────────────────────────────────────────────────────
     tabFile: 'File',
     tabUrl: 'URL',
+    tabMulti: 'Multiple files',
+
+    // ── MultiBatch ────────────────────────────────────────────────────────
+    multiDropTitle: 'Drop your files here',
+    multiDropSubtitle: 'or click to select · multiple files · 20 MB max per file',
+    multiStatusPending: 'Pending',
+    multiStatusConverting: 'Converting…',
+    multiStatusDone: 'Done',
+    multiStatusError: 'Error',
+    multiDownload: '↓ Download',
+    multiDownloadAll: '↓ Download all (.zip)',
+    multiReset: '← New conversion',
+    multiFilesCount: 'files',
+    multiDoneCount: 'completed',
+    multiSuccessOf: 'converted successfully',
 
     // ── DropZone ──────────────────────────────────────────────────────────
     dropTitle: 'Drop your file here',
