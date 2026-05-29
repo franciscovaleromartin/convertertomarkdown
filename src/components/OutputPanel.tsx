@@ -35,7 +35,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
 
   const [text, setText] = useState(markdown)
   const [copied, setCopied] = useState(false)
-  const [viewMode, setViewMode] = useState<ViewMode>('split')
+  const [viewMode, setViewMode] = useState<ViewMode>('editor')
   const [mobileShowPreview, setMobileShowPreview] = useState(false)
 
   const previewRef = useRef<HTMLDivElement>(null)
@@ -126,23 +126,23 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
           </span>
 
           {/* Desktop view-mode toggle */}
-          <div className="hidden sm:flex items-center bg-zinc-800 rounded-md p-0.5">
+          <div className="hidden sm:flex items-center gap-1">
             <button
               onClick={() => setViewMode('editor')}
-              className={`text-xs px-2 py-0.5 rounded transition-colors duration-100 ${
+              className={`text-xs px-3 py-1.5 rounded-md font-medium transition-colors duration-150 ${
                 viewMode === 'editor'
-                  ? 'bg-zinc-600 text-white'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  ? 'bg-sky-600 hover:bg-sky-500 text-white'
+                  : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 border border-zinc-700/50'
               }`}
             >
-              Editor
+              editor .md
             </button>
             <button
               onClick={() => setViewMode('split')}
-              className={`text-xs px-2 py-0.5 rounded transition-colors duration-100 ${
+              className={`text-xs px-3 py-1.5 rounded-md font-medium transition-colors duration-150 ${
                 viewMode === 'split'
-                  ? 'bg-zinc-600 text-white'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  ? 'bg-zinc-600 hover:bg-zinc-500 text-white'
+                  : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 border border-zinc-700/50'
               }`}
             >
               Preview
