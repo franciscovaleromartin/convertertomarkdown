@@ -141,7 +141,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
               onClick={() => setViewMode('split')}
               className={`text-xs px-3 py-1.5 rounded-md font-medium transition-colors duration-150 ${
                 viewMode === 'split'
-                  ? 'bg-zinc-600 hover:bg-zinc-500 text-white'
+                  ? 'bg-purple-600 hover:bg-purple-500 text-white'
                   : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-200 border border-zinc-700/50'
               }`}
             >
