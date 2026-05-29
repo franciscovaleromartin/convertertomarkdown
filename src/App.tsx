@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useT } from './lib/i18n'
+import { useT, detectLang } from './lib/i18n'
 import { TopBar } from './components/TopBar'
 import { LandingCards } from './components/LandingCards'
 import { LandingFooter } from './components/LandingFooter'
@@ -155,7 +155,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         {/* ── Demo video ── */}
         <div className="mb-8">
           <video
-            src="/demo.mp4"
+            src={detectLang() === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}
             controls
             playsInline
             preload="none"
