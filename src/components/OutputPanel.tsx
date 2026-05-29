@@ -110,8 +110,8 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
     chars: text.length,
   }), [text])
 
-  const showSplit = !isMobile && viewMode === 'split'
-  const editorVisible = isMobile ? !mobileShowPreview : true
+  const showSplit = false
+  const editorVisible = isMobile ? !mobileShowPreview : viewMode === 'editor'
   const previewVisible = isMobile ? mobileShowPreview : viewMode === 'split'
 
   return (
