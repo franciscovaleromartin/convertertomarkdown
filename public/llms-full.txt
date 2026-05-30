@@ -1,23 +1,23 @@
 # ConverterToMarkdown — Full Documentation
 
-> Free browser-based tool to convert DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, and XML files to Markdown. No upload, no server — 100% client-side processing.
+> Free browser-based tool to convert DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML and image files (JPG, PNG, WEBP, BMP, GIF) to Markdown. Includes automatic OCR for scanned PDFs and images. No upload, no server — 100% client-side processing.
 
 ## What It Is
 
-ConverterToMarkdown is a free, open-source web application that converts documents and data files to Markdown format entirely within the user's browser. No files are uploaded to any server. All processing happens locally using JavaScript libraries.
+ConverterToMarkdown is a free, open-source web application that converts documents, spreadsheets, web pages, data files, and images to Markdown format entirely within the user's browser. No files are uploaded to any server. All processing happens locally using JavaScript libraries.
 
 **URL:** https://convertertomarkdown.com
 **Author:** Francisco Valero — https://francisco-valero.com
 **License:** MIT
-**Version:** 1.0
+**Version:** 2.0
 **Languages:** English, Spanish (auto-detected from browser)
 
-## Supported Formats (10 total)
+## Supported Formats (15 total)
 
 | Format | Library | Notes |
 |--------|---------|-------|
 | DOCX | mammoth.js | Preserves headings, bold, italic, tables, lists |
-| PDF | pdf.js (Mozilla) | Text-based PDFs only; no OCR for scanned images |
+| PDF | pdf.js (Mozilla) + Tesseract.js | Text-based PDFs via pdf.js; automatic OCR fallback for scanned PDFs |
 | XLSX / XLS | SheetJS | Each sheet becomes a separate Markdown table |
 | HTML | DOMParser + Turndown | Cleans styles and scripts; preserves semantic structure |
 | TXT | Native | Plain text passthrough |
@@ -25,17 +25,40 @@ ConverterToMarkdown is a free, open-source web application that converts documen
 | CSV | PapaParse | Auto-detects delimiter; outputs Markdown table |
 | JSON | Native | Validates and wraps in fenced code block |
 | XML | Native | Wraps in fenced code block preserving structure |
+| JPG / JPEG | Tesseract.js | OCR — extracts printed or typed text from images |
+| PNG | Tesseract.js | OCR — extracts printed or typed text from images |
+| WEBP | Tesseract.js | OCR — extracts printed or typed text from images |
+| BMP | Tesseract.js | OCR — extracts printed or typed text from images |
+| GIF | Tesseract.js | OCR — extracts printed or typed text from images |
+
+## Input Modes
+
+### Single File
+Drag a file to the conversion area or click to select it from the filesystem. Maximum file size: 20 MB.
+
+### URL
+Switch to URL mode and paste a link to any public file. The file is fetched via a serverless CORS proxy — the content is never stored.
+
+### Multiple Files (Batch Mode)
+Select or drop any number of files at once. Files are converted sequentially to avoid saturating the browser thread (important for OCR-heavy files). Each file shows its own status (pending, converting, done, error). Individual files can be downloaded as `.md` as soon as they finish; when all files are processed, a "Download all" button appears — 1 file downloads directly, 2+ files download as a ZIP archive.
 
 ## How It Works
 
-### Step 1: Choose your file or URL
-Drag a file to the conversion area, click to select it from the filesystem, or switch to URL mode and paste a link to any public file. Maximum file size: 20 MB.
+### Step 1: Choose your input mode
+Select Single file, URL, or Multiple files using the tab control at the top of the converter.
 
-### Step 2: The browser processes it
-The file is converted entirely in the browser using specialized JavaScript libraries. No bytes are sent to any server. The process is instant for small files and works offline once the page is loaded.
+### Step 2: Add your file(s) or URL
+Drag files to the drop zone, click to select from the filesystem, or paste a public URL. Maximum file size: 20 MB per file.
 
-### Step 3: Edit, copy or download
-The resulting Markdown appears in a text editor on screen. The user can modify the output, copy it to the clipboard, or download it as a `.md` file.
+### Step 3: The browser processes it
+The file is converted entirely in the browser. No bytes are sent to any server. For scanned PDFs and images, Tesseract.js runs OCR in a Web Worker in the background. The process shows a progress percentage for OCR-heavy files.
+
+### Step 4: Edit, preview, copy or download
+The resulting Markdown opens in a built-in editor. Use the segmented control to switch between:
+- **editor .md** — edit raw Markdown syntax directly in a textarea
+- **Preview** — see the rendered HTML output (headings, bold, tables, code blocks) and edit with visual formatting
+
+Both modes are synced in real time via bidirectional conversion: edits in the textarea update the preview instantly (150 ms debounce), and edits in the preview are converted back to Markdown using Turndown. Download as `.md` or copy to clipboard.
 
 ## Key Features
 
@@ -43,45 +66,60 @@ The resulting Markdown appears in a text editor on screen. The user can modify t
 - **No registration** — no account, no email, no credit card required
 - **Privacy-first** — files never leave the user's device
 - **Works offline** — once loaded, no internet connection required
-- **Editable output** — Markdown can be edited before copying or downloading
+- **OCR support** — automatic text extraction from scanned PDFs and image files via Tesseract.js
+- **Batch conversion** — convert multiple files at once, download individually or as ZIP
+- **Live editor with preview** — built-in Markdown editor with real-time HTML preview and bidirectional sync
 - **URL conversion** — paste a URL to a public file and convert without downloading
-- **10 supported formats** — documents, spreadsheets, web pages, structured data
-- **Bilingual** — full English and Spanish interface, auto-detected
+- **15 supported formats** — documents, spreadsheets, web pages, structured data, images
+- **Bilingual** — full English and Spanish interface, auto-detected from browser language
+
+## OCR Details
+
+Scanned PDFs and image files are processed with Tesseract.js, running entirely in the browser via a Web Worker:
+
+- **Scanned PDFs** — pdf.js first attempts text extraction; if a page yields no text it is rendered to a canvas and passed to Tesseract automatically.
+- **Images** (JPG, JPEG, PNG, WEBP, BMP, GIF) — the full image is passed to Tesseract, which extracts any printed or typed text and returns it as Markdown.
+
+The OCR engine auto-detects the browser language and loads the matching model. Supported OCR languages include: English, Spanish, French, German, Portuguese, Italian, Dutch, Russian, Japanese, Simplified Chinese, Polish, Korean, Arabic, Turkish, Swedish, and more.
 
 ## Use Cases
 
 ### Developers — Documentation
-Convert Word or PDF specifications to Markdown to publish on GitHub, GitLab, Docusaurus or an internal wiki. Preserves headings, bold, tables and lists. Useful for README files, PR descriptions, API docs and changelogs.
+Convert Word or PDF specifications to Markdown to publish on GitHub, GitLab, Docusaurus or an internal wiki. Use batch mode to convert an entire spec folder at once and download the ZIP. Preserves headings, bold, tables and lists.
 
 ### Writers & Bloggers — Content Migration
-Migrate Word articles to Markdown to publish on Jekyll, Hugo, Ghost or Astro without rewriting. Keeps headings, emphasis, links and paragraphs intact. Export from Google Docs or Word and get a `.md` ready to commit.
+Migrate Word articles to Markdown to publish on Jekyll, Hugo, Ghost or Astro without rewriting. Use batch mode to convert a whole blog archive in one pass. Export from Google Docs or Word and get a `.md` ready to commit.
 
 ### Students — Notes & Study
-Convert PDF notes, presentations or Word documents to Markdown to organize in Obsidian or Notion. Turn lecture slides into searchable plain text or import reading materials as structured Markdown.
+Convert PDF notes, presentations or Word documents to Markdown to organize in Obsidian or Notion. Turn lecture slides or scanned handwritten notes into searchable plain text via OCR.
 
 ### Data Analysts — Tables & Data
-Transform Excel or CSV reports into Markdown tables to include in technical documentation or PR reports. Each sheet becomes a formatted table with aligned column headers for GitHub comments, README files or Confluence pages.
+Transform Excel or CSV reports into Markdown tables to include in technical documentation or PR reports. Each sheet becomes a formatted table with aligned column headers.
 
 ### Teams & Companies — Standardization
-Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format. Store documentation in version control, diff changes like code, and share across tools that understand Markdown.
+Unify internal documents from multiple formats — Word, PDF, Excel, HTML — into a single portable plain-text format. Use batch mode for bulk conversion. Store documentation in version control, diff changes like code.
 
 ### AI & LLMs — Context Preparation
-Convert documents to clean Markdown to include as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text. Feed API docs, research papers, internal specs or data exports directly into AI workflows.
+Convert documents to clean Markdown to include as context in ChatGPT, Claude, Gemini or other LLM prompts. Use batch mode to convert a full document corpus and paste as context. Markdown reduces token noise compared to raw HTML or copy-pasted text.
 
 ## Technical Libraries
 
 - **mammoth.js** (https://github.com/mwilliamson/mammoth.js) — DOCX to HTML conversion
 - **pdf.js** (https://mozilla.github.io/pdf.js/) — PDF text extraction
+- **Tesseract.js** (https://tesseract.projectnaptha.com) — OCR for scanned PDFs and images, runs in a Web Worker
 - **SheetJS** (https://sheetjs.com) — XLSX/XLS reading
-- **Turndown** (https://github.com/mixmark-io/turndown) — HTML to Markdown
+- **Turndown** (https://github.com/mixmark-io/turndown) — HTML to Markdown (also used for preview→editor reverse sync)
 - **PapaParse** (https://www.papaparse.com) — CSV parsing
+- **marked** (https://marked.js.org) — Markdown to HTML rendering in the preview panel
+- **DOMPurify** (https://github.com/cure53/DOMPurify) — HTML sanitization before preview injection
+- **JSZip** (https://stuk.github.io/jszip/) — ZIP generation for batch downloads
 
 ## Privacy Policy Summary
 
 - No data collection of any kind
 - No cookies, no analytics, no tracking
 - Files are never uploaded to any server
-- URL mode uses a direct browser fetch — no proxy
+- URL mode fetches files via a serverless proxy to avoid CORS — the file content is never stored
 - No third-party integrations (no Google Analytics, Mixpanel, etc.)
 
 Full policy: https://convertertomarkdown.com/privacidad
@@ -106,7 +144,7 @@ Francisco Valero is an independent developer who built ConverterToMarkdown to so
 ## Frequently Asked Questions
 
 **How many file formats are supported?**
-10 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. More formats are added based on user demand.
+15 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, JPEG, PNG, WEBP, BMP and GIF.
 
 **Is my file uploaded to a server?**
 No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers.
@@ -118,13 +156,19 @@ Yes, completely free with no registration. No account or credit card required.
 20 MB per file. Since all processing happens locally in your browser, performance depends on your device.
 
 **Can I edit the generated Markdown?**
-Yes. The result appears in a text editor where you can modify it directly. You can then copy it to the clipboard or download it as a `.md` file.
+Yes. The result opens in a built-in editor where you can modify the raw Markdown or switch to a live HTML preview. Both modes are synced in real time. You can then copy to clipboard or download as a `.md` file.
 
 **Does it work offline?**
 Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files.
 
 **What happens with scanned PDFs?**
-pdf.js extracts text from text-based PDFs only. Scanned PDFs (images of text) require OCR, which this tool does not perform.
+Scanned PDFs are automatically processed with OCR using Tesseract.js. pdf.js first attempts text extraction; if a page yields no text, it is rendered to a canvas and passed to Tesseract. No manual action required — OCR is fully automatic.
 
 **Can I convert multiple files at once?**
-Currently one file at a time. Each conversion is independent and instant.
+Yes. Use the "Multiple files" tab to select or drop any number of files. They are converted sequentially and you can download each one individually or all together as a ZIP archive.
+
+**Can I convert images to Markdown?**
+Yes. JPG, JPEG, PNG, WEBP, BMP and GIF files are supported. Tesseract.js extracts any printed or typed text from the image and returns it as Markdown.
+
+**What is the live preview?**
+After conversion, the built-in editor has two modes: "editor .md" shows the raw Markdown textarea, and "Preview" renders the Markdown as formatted HTML (headings, bold, tables, code blocks). Edits in either panel are synced to the other in real time.

@@ -1,24 +1,28 @@
 # ConverterToMarkdown
 
-> Free browser-based tool to convert DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, and XML files to Markdown. No upload, no server — 100% client-side processing.
+> Free browser-based tool to convert DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, PNG, WEBP, BMP and GIF files to Markdown. Includes OCR for scanned PDFs and images. No upload, no server — 100% client-side processing.
 
 ## Tool
 
-- [Converter](https://convertertomarkdown.com/): Upload or paste a URL. Get clean Markdown output instantly. 10 formats supported, 20 MB max, works offline.
+- [Converter](https://convertertomarkdown.com/): Three input modes — single file, URL, or batch (multiple files at once). 15 formats supported, 20 MB max, works offline. Built-in editor with live preview.
 
 ## Documentation
 
 - [Full documentation](https://convertertomarkdown.com/llms-full.txt): Complete reference for AI systems — all formats, use cases, FAQs, technical details.
-- [How it works](https://convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, SheetJS, Turndown, PapaParse).
+- [How it works](https://convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, Tesseract.js, SheetJS, Turndown, PapaParse, marked, JSZip).
 - [Use cases](https://convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
 
 ## Key Facts
 
-- Converts: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML → Markdown
+- Converts: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, JPEG, PNG, WEBP, BMP, GIF → Markdown
+- OCR: automatic text extraction from scanned PDFs and images via Tesseract.js
+- Batch mode: convert multiple files at once, download individually or as a ZIP
+- Editor: built-in Markdown editor with live HTML preview and bidirectional sync
 - Processing: 100% client-side JavaScript, no server, no upload
 - Privacy: files never leave the user's device
 - Cost: free, no registration required
 - Offline: works after first page load
+- Open source: MIT license
 
 ## Legal
 

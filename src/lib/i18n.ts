@@ -76,7 +76,7 @@ const translations = {
 
     // ── Page meta (for Helmet + SSR) ──────────────────────────────────────
     pageHomeTitle: 'ConverterToMarkdown — Convertidor gratuito de archivos a Markdown',
-    pageHomeDesc: 'Convierte DOCX, PDF, XLSX, HTML, CSV, JSON, XML y más a Markdown en tu navegador. Sin subir archivos. Sin servidores. 100% gratis.',
+    pageHomeDesc: 'Convierte DOCX, PDF, XLSX, HTML, CSV, JSON, XML, imágenes y más a Markdown en tu navegador. OCR para PDFs escaneados e imágenes. Modo batch. Sin servidores.',
     pageHowTitle: 'Cómo funciona — ConverterToMarkdown',
     pageHowDesc: 'Tres pasos para convertir cualquier archivo a Markdown. Procesamiento local con mammoth, pdf.js, SheetJS, Turndown y PapaParse. Sin subida de archivos.',
     pageUsecasesTitle: 'Casos de uso — ConverterToMarkdown',
@@ -305,7 +305,7 @@ const translations = {
 
     // ── Page meta (for Helmet + SSR) ──────────────────────────────────────
     pageHomeTitle: 'ConverterToMarkdown — Free File to Markdown Converter',
-    pageHomeDesc: 'Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown directly in your browser. No upload, no server, 100% free.',
+    pageHomeDesc: 'Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML, images and more to Markdown in your browser. OCR for scanned PDFs and images. Batch mode. No server.',
     pageHowTitle: 'How it works — ConverterToMarkdown',
     pageHowDesc: 'Three steps from file to Markdown. Browser-side processing using mammoth, pdf.js, SheetJS, Turndown and PapaParse. No file upload required.',
     pageUsecasesTitle: 'Use cases — ConverterToMarkdown',

@@ -1,7 +1,7 @@
 {
   "name": "ConverterToMarkdown",
   "short_name": "CTMarkdown",
-  "description": "Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown in your browser. No upload, no server.",
+  "description": "Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML, images and more to Markdown in your browser. OCR for scanned PDFs and images. Batch mode. No upload, no server.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#09090b",
