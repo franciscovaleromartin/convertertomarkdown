@@ -38,7 +38,7 @@ const routeSchemas = {
         "name": "How many file formats are supported?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "10 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON and XML. More formats are added based on user demand."
+          "text": "15 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, JPEG, PNG, WEBP, BMP and GIF. Image files are processed with automatic OCR via Tesseract.js."
         }
       },
       {
@@ -94,7 +94,7 @@ const routeSchemas = {
         "name": "What happens with scanned PDFs or image-based PDFs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Only text is extracted. Scanned PDFs require OCR, which this tool does not perform. Best results come from text-based PDFs — documents exported from Word or generated digitally."
+          "text": "Scanned PDFs are processed automatically with OCR via Tesseract.js. pdf.js first attempts text extraction; if a page yields no text it is rendered to a canvas and passed to Tesseract. No manual action required — OCR is fully automatic and runs entirely in your browser."
         }
       },
       {
@@ -102,7 +102,7 @@ const routeSchemas = {
         "name": "Can I convert multiple files at once?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Currently one file per conversion. Each conversion is independent and instant, so you can process several files in a row without reloading the page."
+          "text": "Yes. Use the Multiple files tab to select or drop any number of files at once. They are converted sequentially and each file can be downloaded individually as .md as soon as it finishes. When all files are done, a Download all button appears — 1 file downloads directly, 2 or more files download as a ZIP archive."
         }
       }
     ]
@@ -113,7 +113,7 @@ const routeSchemas = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": "ConverterToMarkdown — demo",
-    "description": "See how ConverterToMarkdown converts a DOCX file to Markdown in seconds, directly in the browser. No installation, no upload.",
+    "description": "See how ConverterToMarkdown converts files to Markdown in seconds, directly in the browser. Supports DOCX, PDF, images with OCR, batch mode and live preview. No installation, no upload.",
     "contentUrl": "https://convertertomarkdown.com/demo.mp4",
     "thumbnailUrl": "https://convertertomarkdown.com/og-image.png",
     "uploadDate": "2026-05-01",
@@ -140,10 +140,11 @@ const routeSchemas = {
     "mainEntity": {
       "@type": "HowTo",
       "name": "How to convert a file to Markdown",
-      "description": "Convert any file to Markdown directly in your browser in three steps, with no installation or upload required.",
+      "description": "Convert any file to Markdown directly in your browser — DOCX, PDF, images and more. OCR for scanned PDFs and images. Batch mode with ZIP download. No installation, no upload.",
       "tool": [
         { "@type": "HowToTool", "name": "mammoth.js" },
         { "@type": "HowToTool", "name": "pdf.js" },
+        { "@type": "HowToTool", "name": "Tesseract.js" },
         { "@type": "HowToTool", "name": "SheetJS" },
         { "@type": "HowToTool", "name": "Turndown" },
         { "@type": "HowToTool", "name": "PapaParse" }
@@ -152,20 +153,20 @@ const routeSchemas = {
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Choose your file or URL",
-          "text": "Drag a file to the conversion area, click to select it from your system, or switch to URL mode and paste a link to any public file (PDF on a CDN, DOCX on a server, etc.)."
+          "name": "Choose how to convert",
+          "text": "Three input modes: File (drag & drop or select a single file), URL (paste a public link and convert without downloading), or Multiple files (select several files at once for batch conversion with ZIP download). Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML and images (JPG, PNG, WEBP, BMP, GIF) via OCR."
         },
         {
           "@type": "HowToStep",
           "position": 2,
           "name": "The browser processes it",
-          "text": "The file is converted entirely in your browser using JavaScript libraries (mammoth, pdf.js, SheetJS, Turndown, PapaParse). No bytes are sent to any server. The process is instant for small files."
+          "text": "The file is converted entirely in your browser. No bytes are sent to any server. Scanned PDFs and images are processed with automatic OCR via Tesseract.js running in a Web Worker. The process shows OCR progress percentage for image-heavy files."
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Edit, copy or download",
-          "text": "The resulting Markdown appears in an editor. You can modify it, copy it to the clipboard with one click, or download it as a .md file ready to use in GitHub, Notion, Obsidian or any editor."
+          "name": "Edit, preview, copy or download",
+          "text": "The Markdown opens in a built-in editor with a live HTML preview. Switch between editor .md mode (raw Markdown) and Preview mode (rendered headings, bold, tables, code blocks). Both modes sync in real time. Download as .md or copy to clipboard."
         }
       ]
     }
@@ -193,12 +194,12 @@ const routeSchemas = {
       "name": "Use cases for ConverterToMarkdown",
       "numberOfItems": 6,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Developers — Documentation", "description": "Convert Word or PDF specs to Markdown to publish on GitHub, GitLab, Docusaurus or an internal wiki." },
-        { "@type": "ListItem", "position": 2, "name": "Writers and bloggers — Content migration", "description": "Migrate Word articles to Markdown for Jekyll, Hugo, Ghost or Astro without rewriting." },
-        { "@type": "ListItem", "position": 3, "name": "Students — Notes and study", "description": "Convert PDF notes or Word documents to Markdown for Obsidian or Notion." },
-        { "@type": "ListItem", "position": 4, "name": "Data analysts — Tables and data", "description": "Transform Excel or CSV reports into Markdown tables for technical documentation." },
-        { "@type": "ListItem", "position": 5, "name": "Teams and companies — Standardization", "description": "Unify internal documents from Word, PDF, Excel, HTML into a single portable format." },
-        { "@type": "ListItem", "position": 6, "name": "AI and LLMs — Context preparation", "description": "Convert documents to clean Markdown as context for ChatGPT, Claude, Gemini or other LLMs." }
+        { "@type": "ListItem", "position": 1, "name": "Developers — Documentation", "description": "Convert Word or PDF specs to Markdown for GitHub, GitLab, Docusaurus or wikis. Batch-convert entire spec folders to ZIP in one pass." },
+        { "@type": "ListItem", "position": 2, "name": "Writers and bloggers — Content migration", "description": "Migrate Word articles to Markdown for Jekyll, Hugo, Ghost or Astro. Use batch mode to convert a full blog archive and download as ZIP." },
+        { "@type": "ListItem", "position": 3, "name": "Students — Notes and study", "description": "Convert PDF notes, presentations or Word documents to Markdown for Obsidian or Notion. OCR extracts text from scanned handouts and images." },
+        { "@type": "ListItem", "position": 4, "name": "Data analysts — Tables and data", "description": "Transform Excel or CSV reports into Markdown tables for documentation, GitHub comments or Confluence pages." },
+        { "@type": "ListItem", "position": 5, "name": "Teams and companies — Standardization", "description": "Unify Word, PDF, Excel, HTML into portable Markdown. Batch conversion with ZIP download for bulk imports into version control." },
+        { "@type": "ListItem", "position": 6, "name": "AI and LLMs — Context preparation", "description": "Convert documents to clean Markdown as context for ChatGPT, Claude, Gemini. Batch-convert a full corpus in one pass and download as ZIP." }
       ]
     }
   }
