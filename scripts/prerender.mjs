@@ -3,10 +3,11 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const toAbs = p => path.resolve(__dirname, p)
+const root = path.resolve(__dirname, '..')
+const toAbs = p => path.resolve(root, p)
 
 const template = fs.readFileSync(toAbs('dist/index.html'), 'utf-8')
-const { render } = await import('./dist-ssr/entry-server.js')
+const { render } = await import(toAbs('dist-ssr/entry-server.js'))
 
 const TODAY = new Date().toISOString().split('T')[0]
 
