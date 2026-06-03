@@ -129,7 +129,11 @@ export function LandingCards() {
               {t.cardsMcpTitle}
             </h2>
             <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>
-              {t.cardsMcpBody}
+              {t.cardsMcpBody.split('npx convertertomarkdown-mcp').map((part, i, arr) => (
+                i < arr.length - 1
+                  ? <span key={i}>{part}<code style={{ fontFamily: 'monospace', fontSize: '10px', background: 'rgba(251,146,60,.1)', color: '#fb923c', padding: '1px 5px', borderRadius: '4px' }}>npx convertertomarkdown-mcp</code></span>
+                  : <span key={i}>{part}</span>
+              ))}
             </p>
           </div>
         </div>
