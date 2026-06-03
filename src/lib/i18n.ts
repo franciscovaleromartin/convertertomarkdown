@@ -114,6 +114,11 @@ const translations = {
     cardsUrlTitle: 'Convierte desde URL',
     cardsUrlBody:
       'Pega la URL de cualquier archivo público y lo convierte al instante, sin descargarlo.',
+    cardsMcpTag: 'MCP',
+    cardsMcpTitle: '¿Quieres usarlo desde Claude Code, Cursor u otro agente?',
+    cardsMcpBody:
+      'Hay un servidor MCP disponible. Instálalo con npx y cualquier agente compatible podrá convertir archivos a Markdown directamente, sin abrir el navegador.',
+    cardsMcpLink: 'Ver en GitHub',
 
     // ── FAQ ───────────────────────────────────────────────────────────────
     faqTitle: 'Preguntas frecuentes',
@@ -343,6 +348,11 @@ const translations = {
     cardsUrlTitle: 'Convert from URL',
     cardsUrlBody:
       'Paste the URL of any public file and convert it instantly, without downloading it first.',
+    cardsMcpTag: 'MCP',
+    cardsMcpTitle: 'Want to use it from Claude Code, Cursor or another agent?',
+    cardsMcpBody:
+      'An MCP server is available. Install it with npx and any compatible agent can convert files to Markdown directly, without opening the browser.',
+    cardsMcpLink: 'View on GitHub',
 
     // ── FAQ ───────────────────────────────────────────────────────────────
     faqTitle: 'Frequently asked questions',

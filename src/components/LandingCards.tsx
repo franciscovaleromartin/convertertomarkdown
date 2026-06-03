@@ -116,6 +116,41 @@ export function LandingCards() {
         </div>
       </div>
 
+      {/* ── MCP (full width) ── */}
+      <div style={{ ...CARD, display: 'flex', alignItems: 'center', gap: '16px', justifyContent: 'space-between' }}>
+        <div style={{ ...GLOW, width: '120px', height: '120px', background: 'radial-gradient(circle, rgba(251,146,60,.12) 0%, transparent 70%)' }} />
+        <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', flex: 1, minWidth: 0 }}>
+          <div style={{ ...ICON_BOX, background: 'rgba(251,146,60,.1)', border: '1px solid rgba(251,146,60,.2)', flexShrink: 0 }}>⚡</div>
+          <div style={{ minWidth: 0 }}>
+            <span style={{ ...TAG, background: 'rgba(251,146,60,.08)', color: '#fb923c', border: '1px solid rgba(251,146,60,.2)' }}>
+              {t.cardsMcpTag}
+            </span>
+            <h2 style={{ fontSize: '13px', fontWeight: 600, color: '#f1f5f9', marginBottom: '4px', lineHeight: 1.35 }}>
+              {t.cardsMcpTitle}
+            </h2>
+            <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>
+              {t.cardsMcpBody}
+            </p>
+          </div>
+        </div>
+        <a
+          href="https://github.com/franciscovaleromartin/convertertomarkdown-mcp"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            flexShrink: 0,
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            fontSize: '11px', fontWeight: 600, color: '#fb923c',
+            padding: '7px 13px', borderRadius: '8px',
+            background: 'rgba(251,146,60,.08)', border: '1px solid rgba(251,146,60,.2)',
+            textDecoration: 'none', whiteSpace: 'nowrap',
+            transition: 'background .15s',
+          }}
+        >
+          {t.cardsMcpLink} →
+        </a>
+      </div>
+
     </div>
   )
 }
