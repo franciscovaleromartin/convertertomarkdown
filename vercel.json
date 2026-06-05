@@ -4,8 +4,8 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.convertertomarkdown.com" }],
-      "destination": "https://convertertomarkdown.com/$1",
+      "has": [{ "type": "host", "value": "convertertomarkdown.com" }],
+      "destination": "https://www.convertertomarkdown.com/$1",
       "permanent": true
     }
   ],
