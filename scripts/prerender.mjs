@@ -250,5 +250,5 @@ try {
   })
   console.log(`\nIndexNow ping: HTTP ${res.status}`)
 } catch (e) {
-  console.warn(`\nIndexNow ping failed (non-critical): ${e.message}`)
+  console.warn(`\nIndexNow ping failed (non-critical): ${e instanceof Error ? e.message : String(e)}`)
 }

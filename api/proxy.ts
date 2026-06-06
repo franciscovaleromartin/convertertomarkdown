@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 // Block loopback, link-local (AWS/GCP metadata at 169.254.169.254), and RFC-1918 ranges
@@ -50,6 +49,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader('Content-Type', contentType)
     res.setHeader('Access-Control-Allow-Origin', '*')
     res.status(response.status).send(Buffer.from(buffer))
+  } catch (err) {
+    if (err instanceof Error && err.name === 'AbortError') {
+      return res.status(504).json({ error: 'Upstream request timed out' })
+    }
+    return res.status(502).json({ error: 'Failed to fetch upstream resource' })
   } finally {
     clearTimeout(timeout)
   }
