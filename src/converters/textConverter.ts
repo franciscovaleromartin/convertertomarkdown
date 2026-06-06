@@ -64,7 +64,6 @@ export async function convertCsv(file: File): Promise<string> {
 
   if (nonEmptyColCount <= 7 && col0AllEmpty) {
     // Form-style: col 0 is ghost, col 1 = label, col 2 = value
-    console.log('form-style detected')
     strippedCols = colCount - nonEmptyColCount  // all-empty cols
     body = renderForm(nonEmptyRows)
   } else {

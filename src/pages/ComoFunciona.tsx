@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async'
-import { TopBar } from '../components/TopBar'
-import { LandingFooter } from '../components/LandingFooter'
+import { PageShell } from '../components/PageShell'
+import { BackButton } from '../components/BackButton'
 import { useT } from '../lib/i18n'
 
 interface Props { navigate: (path: string) => void }
@@ -15,12 +15,6 @@ const TECH_ROW = {
   padding: '12px 14px', borderRadius: '10px',
   background: 'rgba(255,255,255,.025)', border: '1px solid rgba(255,255,255,.055)',
   marginBottom: '8px',
-}
-
-const BACK_BTN = {
-  background: 'none', border: 'none', color: '#64748b', fontSize: '13px',
-  cursor: 'pointer', marginBottom: '32px', padding: 0,
-  display: 'flex', alignItems: 'center', gap: '6px',
 }
 
 export function ComoFunciona({ navigate }: Props) {
@@ -41,11 +35,11 @@ export function ComoFunciona({ navigate }: Props) {
     { fmt: 'TXT / MD',  lib: 'Native',               href: null,                                            desc: t.techTxt  },
     { fmt: 'JSON',      lib: 'Native',               href: null,                                            desc: t.techJson },
     { fmt: 'XML',       lib: 'Native',               href: null,                                            desc: t.techXml  },
-    { fmt: 'JPG / PNG\nWEBP / BMP\nGIF',   lib: 'Tesseract.js', href: 'https://tesseract.projectnaptha.com', desc: t.techImg  },
+    { fmt: 'JPG / PNG\nWEBP / BMP\nGIF', lib: 'Tesseract.js', href: 'https://tesseract.projectnaptha.com', desc: t.techImg  },
   ]
 
   return (
-    <div style={{ minHeight: '100vh', background: '#09090b', color: '#f1f5f9', fontFamily: 'Inter, sans-serif' }}>
+    <PageShell navigate={navigate}>
       <Helmet>
         <title>{t.pageHowTitle}</title>
         <meta name="description" content={t.pageHowDesc} />
@@ -65,63 +59,53 @@ export function ComoFunciona({ navigate }: Props) {
         <meta name="twitter:image:alt" content={t.pageHowTitle} />
       </Helmet>
 
-      <TopBar />
-      <div style={{ maxWidth: '640px', margin: '0 auto', padding: '80px 24px 0' }}>
+      <BackButton navigate={navigate} />
 
-        <button style={BACK_BTN} onClick={() => navigate('/')}
-          onMouseEnter={e => ((e.currentTarget as HTMLButtonElement).style.color = '#94a3b8')}
-          onMouseLeave={e => ((e.currentTarget as HTMLButtonElement).style.color = '#64748b')}>
-          {t.back}
-        </button>
+      <h1 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '8px' }}>
+        {t.howTitle}
+      </h1>
+      <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '40px', lineHeight: 1.6 }}>
+        {t.howSubtitle}
+      </p>
 
-        <h1 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '8px' }}>
-          {t.howTitle}
-        </h1>
-        <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '40px', lineHeight: 1.6 }}>
-          {t.howSubtitle}
-        </p>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '48px' }}>
-          {steps.map(step => (
-            <div key={step.n} style={STEP_CARD}>
-              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: `radial-gradient(circle, ${step.color}22 0%, transparent 70%)`, pointerEvents: 'none' }} />
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <span style={{ fontSize: '10px', fontWeight: 700, color: step.color, letterSpacing: '.1em', minWidth: '24px', paddingTop: '3px' }}>{step.n}</span>
-                <div>
-                  <h2 style={{ fontSize: '14px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
-                    {step.icon} {step.title}
-                  </h2>
-                  <p style={{ fontSize: '12px', color: '#94a3b8', lineHeight: 1.65 }}>{step.body}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h2 style={{ fontSize: '16px', fontWeight: 600, color: '#f1f5f9', marginBottom: '16px' }}>
-          {t.howTechTitle}
-        </h2>
-        <div style={{ marginBottom: '48px' }}>
-          {techRows.map(row => (
-            <div key={row.fmt} style={TECH_ROW}>
-              <code style={{ fontSize: '11px', fontWeight: 700, color: '#38bdf8', minWidth: '90px', flexShrink: 0, paddingTop: '1px', whiteSpace: 'pre-wrap' }}>{row.fmt}</code>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '48px' }}>
+        {steps.map(step => (
+          <div key={step.n} style={STEP_CARD}>
+            <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: `radial-gradient(circle, ${step.color}22 0%, transparent 70%)`, pointerEvents: 'none' }} />
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+              <span style={{ fontSize: '10px', fontWeight: 700, color: step.color, letterSpacing: '.1em', minWidth: '24px', paddingTop: '3px' }}>{step.n}</span>
               <div>
-                {row.href ? (
-                  <a href={row.href} target="_blank" rel="noopener noreferrer"
-                    style={{ fontSize: '10px', color: '#38bdf8', letterSpacing: '.05em', textDecoration: 'none', opacity: 0.7 }}>
-                    {row.lib} ↗
-                  </a>
-                ) : (
-                  <span style={{ fontSize: '10px', color: '#64748b', letterSpacing: '.05em' }}>{row.lib}</span>
-                )}
-                <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.5, marginTop: '2px' }}>{row.desc}</p>
+                <h2 style={{ fontSize: '14px', fontWeight: 600, color: '#f1f5f9', marginBottom: '6px', lineHeight: 1.35 }}>
+                  {step.icon} {step.title}
+                </h2>
+                <p style={{ fontSize: '12px', color: '#94a3b8', lineHeight: 1.65 }}>{step.body}</p>
               </div>
             </div>
-          ))}
-        </div>
-
+          </div>
+        ))}
       </div>
-      <LandingFooter navigate={navigate} />
-    </div>
+
+      <h2 style={{ fontSize: '16px', fontWeight: 600, color: '#f1f5f9', marginBottom: '16px' }}>
+        {t.howTechTitle}
+      </h2>
+      <div style={{ marginBottom: '48px' }}>
+        {techRows.map(row => (
+          <div key={row.fmt} style={TECH_ROW}>
+            <code style={{ fontSize: '11px', fontWeight: 700, color: '#38bdf8', minWidth: '90px', flexShrink: 0, paddingTop: '1px', whiteSpace: 'pre-wrap' }}>{row.fmt}</code>
+            <div>
+              {row.href ? (
+                <a href={row.href} target="_blank" rel="noopener noreferrer"
+                  style={{ fontSize: '10px', color: '#38bdf8', letterSpacing: '.05em', textDecoration: 'none', opacity: 0.7 }}>
+                  {row.lib} ↗
+                </a>
+              ) : (
+                <span style={{ fontSize: '10px', color: '#64748b', letterSpacing: '.05em' }}>{row.lib}</span>
+              )}
+              <p style={{ fontSize: '11px', color: '#94a3b8', lineHeight: 1.5, marginTop: '2px' }}>{row.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </PageShell>
   )
 }

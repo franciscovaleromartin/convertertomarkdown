@@ -15,8 +15,7 @@ import { CasosDeUso } from './pages/CasosDeUso'
 import { Privacidad } from './pages/Privacidad'
 import { Licencia } from './pages/Licencia'
 import { convertFile } from './converters'
-
-const MAX_FILE_SIZE = 20 * 1024 * 1024
+import { MAX_FILE_SIZE } from './lib/constants'
 
 type InputMode = 'file' | 'url' | 'multi'
 

@@ -64,13 +64,6 @@ describe('convertCsv', () => {
       expect(result).toContain('**Label A:** Value A')
     })
 
-    it('logs "form-style detected" to console', async () => {
-      const spy = vi.spyOn(console, 'log').mockImplementation(() => {})
-      await convertCsv(makeFile('form.csv', ',Key,Value'))
-      expect(spy).toHaveBeenCalledWith('form-style detected')
-      spy.mockRestore()
-    })
-
     it('does NOT trigger when col 0 has data', async () => {
       const result = await convertCsv(makeFile('data.csv', 'X,Key,Value\nX,Key2,Value2'))
       expect(result).toContain('|')

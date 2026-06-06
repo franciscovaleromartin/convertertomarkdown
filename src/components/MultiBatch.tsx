@@ -2,18 +2,7 @@ import { useState, useRef } from 'react'
 import type { DragEvent, ChangeEvent } from 'react'
 import { convertFile } from '../converters'
 import { useT } from '../lib/i18n'
-
-const ACCEPT_ATTR =
-  '.docx,.pdf,.xlsx,.xls,.html,.htm,.txt,.md,.csv,.json,.xml,' +
-  '.jpg,.jpeg,.png,.webp,.bmp,.gif,' +
-  'image/jpeg,image/png,image/webp,image/bmp,image/gif'
-
-const MAX_FILE_SIZE = 20 * 1024 * 1024
-
-const FORMAT_CHIPS = [
-  'DOCX','PDF','XLSX','XLS','HTML','TXT','MD',
-  'CSV','JSON','XML','JPG','PNG','WEBP','BMP','GIF',
-]
+import { ACCEPT_ATTR, FORMAT_CHIPS, MAX_FILE_SIZE } from '../lib/constants'
 
 type Status = 'pending' | 'converting' | 'done' | 'error'
 

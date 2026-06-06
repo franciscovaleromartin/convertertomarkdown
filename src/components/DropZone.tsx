@@ -1,10 +1,7 @@
 import { useRef, useState } from 'react'
 import type { DragEvent, ChangeEvent } from 'react'
 import { useT } from '../lib/i18n'
-
-const ACCEPTED_EXT = ['.docx','.pdf','.xlsx','.xls','.html','.htm','.txt','.md','.csv','.json','.xml','.jpg','.jpeg','.png','.webp','.bmp','.gif']
-const ACCEPT_ATTR = [...ACCEPTED_EXT, 'image/jpeg','image/png','image/webp','image/bmp','image/gif'].join(',')
-const FORMAT_CHIPS = ['DOCX','PDF','XLSX','XLS','HTML','TXT','MD','CSV','JSON','XML','JPG','PNG','WEBP','BMP','GIF']
+import { ACCEPT_ATTR, FORMAT_CHIPS } from '../lib/constants'
 
 interface Props {
   onFile: (file: File) => void

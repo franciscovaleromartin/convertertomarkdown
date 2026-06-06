@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
 import { LangProvider } from './lib/i18n'
 import './index.css'
-import App from './App.tsx'
+import App from './App'
 
 const container = document.getElementById('root')!
 

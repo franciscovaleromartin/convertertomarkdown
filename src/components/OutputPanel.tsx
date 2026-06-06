@@ -6,7 +6,7 @@ import { useT } from '../lib/i18n'
 
 marked.use({ gfm: true, breaks: false })
 
-type ViewMode = 'split' | 'editor'
+type ViewMode = 'preview' | 'editor'
 
 interface Props {
   markdown: string
@@ -110,9 +110,8 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
     chars: text.length,
   }), [text])
 
-  const showSplit = false
   const editorVisible = isMobile ? !mobileShowPreview : viewMode === 'editor'
-  const previewVisible = isMobile ? mobileShowPreview : viewMode === 'split'
+  const previewVisible = isMobile ? mobileShowPreview : viewMode === 'preview'
 
   return (
     <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
@@ -138,9 +137,9 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
               editor .md
             </button>
             <button
-              onClick={() => setViewMode('split')}
+              onClick={() => setViewMode('preview')}
               className={`text-xs px-3 py-1 rounded-md font-medium transition-all duration-150 ${
-                viewMode === 'split'
+                viewMode === 'preview'
                   ? 'bg-purple-600 text-white shadow-sm'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
@@ -186,7 +185,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
 
         {/* Editor panel */}
         <div
-          className={showSplit ? 'w-1/2 border-r border-zinc-800' : 'w-full'}
+          className="w-full"
           style={editorVisible ? undefined : { display: 'none' }}
         >
           <textarea
@@ -199,7 +198,7 @@ export default function OutputPanel({ markdown, fileName, onClear }: Props) {
 
         {/* Preview panel — always in DOM to keep the ref stable */}
         <div
-          className={showSplit ? 'w-1/2' : 'w-full'}
+          className="w-full"
           style={previewVisible ? undefined : { display: 'none' }}
         >
           <div
