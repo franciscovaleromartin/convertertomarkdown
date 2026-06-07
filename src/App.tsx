@@ -160,7 +160,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             controls
             playsInline
             preload="none"
-            poster="/video-poster.png"
+            poster="/video-poster.jpg"
             width={1920}
             height={1080}
             style={{ aspectRatio: '16/9' }}

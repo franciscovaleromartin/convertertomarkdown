@@ -205,6 +205,44 @@ const routeSchemas = {
     }
   }
   </script>`,
+
+  '/privacidad': `
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://www.convertertomarkdown.com/privacidad",
+    "name": "Privacy Policy — ConverterToMarkdown",
+    "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.convertertomarkdown.com" },
+        { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://www.convertertomarkdown.com/privacidad" }
+      ]
+    },
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", "p"] }
+  }
+  </script>`,
+
+  '/licencia': `
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://www.convertertomarkdown.com/licencia",
+    "name": "License — ConverterToMarkdown",
+    "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.convertertomarkdown.com" },
+        { "@type": "ListItem", "position": 2, "name": "License", "item": "https://www.convertertomarkdown.com/licencia" }
+      ]
+    },
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", "p"] }
+  }
+  </script>`,
 }
 
 for (const url of routes) {
