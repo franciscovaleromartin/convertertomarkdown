@@ -14,8 +14,8 @@
     <video:video>
       <video:thumbnail_loc>https://www.convertertomarkdown.com/og-image.png</video:thumbnail_loc>
       <video:title>ConverterToMarkdown — demo</video:title>
-      <video:description>See how ConverterToMarkdown converts a DOCX file to Markdown in seconds, directly in the browser. No installation, no upload.</video:description>
-      <video:content_loc>https://www.convertertomarkdown.com/demo.mp4</video:content_loc>
+      <video:description>See how ConverterToMarkdown converts files to Markdown in seconds, directly in the browser. Supports DOCX, PDF, images with OCR, batch mode and live preview. No installation, no upload.</video:description>
+      <video:content_loc>https://www.convertertomarkdown.com/demo_eng.mp4</video:content_loc>
       <video:publication_date>2026-05-01</video:publication_date>
     </video:video>
   </url>

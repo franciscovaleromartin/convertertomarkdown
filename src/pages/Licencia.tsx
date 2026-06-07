@@ -22,10 +22,19 @@ export function Licencia({ navigate }: Props) {
         <title>{t.pageLicenseTitle}</title>
         <meta name="description" content={t.pageLicenseDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/licencia" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.convertertomarkdown.com/licencia" />
         <meta property="og:title" content={t.pageLicenseTitle} />
         <meta property="og:description" content={t.pageLicenseDesc} />
         <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={t.pageLicenseTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.pageLicenseTitle} />
+        <meta name="twitter:description" content={t.pageLicenseDesc} />
+        <meta name="twitter:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image:alt" content={t.pageLicenseTitle} />
       </Helmet>
 
       <BackButton navigate={navigate} />

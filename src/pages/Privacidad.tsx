@@ -26,10 +26,19 @@ export function Privacidad({ navigate }: Props) {
         <title>{t.pagePrivacyTitle}</title>
         <meta name="description" content={t.pagePrivacyDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/privacidad" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.convertertomarkdown.com/privacidad" />
         <meta property="og:title" content={t.pagePrivacyTitle} />
         <meta property="og:description" content={t.pagePrivacyDesc} />
         <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={t.pagePrivacyTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t.pagePrivacyTitle} />
+        <meta name="twitter:description" content={t.pagePrivacyDesc} />
+        <meta name="twitter:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image:alt" content={t.pagePrivacyTitle} />
       </Helmet>
 
       <BackButton navigate={navigate} />
