@@ -3,42 +3,42 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://convertertomarkdown.com/</loc>
+    <loc>https://www.convertertomarkdown.com/</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://convertertomarkdown.com/og-image.png</image:loc>
+      <image:loc>https://www.convertertomarkdown.com/og-image.png</image:loc>
       <image:title>ConverterToMarkdown — Free File to Markdown Converter</image:title>
     </image:image>
     <video:video>
-      <video:thumbnail_loc>https://convertertomarkdown.com/og-image.png</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.convertertomarkdown.com/og-image.png</video:thumbnail_loc>
       <video:title>ConverterToMarkdown — demo</video:title>
       <video:description>See how ConverterToMarkdown converts a DOCX file to Markdown in seconds, directly in the browser. No installation, no upload.</video:description>
-      <video:content_loc>https://convertertomarkdown.com/demo.mp4</video:content_loc>
+      <video:content_loc>https://www.convertertomarkdown.com/demo.mp4</video:content_loc>
       <video:publication_date>2026-05-01</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://convertertomarkdown.com/como-funciona</loc>
+    <loc>https://www.convertertomarkdown.com/como-funciona</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://convertertomarkdown.com/casos-de-uso</loc>
+    <loc>https://www.convertertomarkdown.com/casos-de-uso</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://convertertomarkdown.com/privacidad</loc>
+    <loc>https://www.convertertomarkdown.com/privacidad</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://convertertomarkdown.com/licencia</loc>
+    <loc>https://www.convertertomarkdown.com/licencia</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>

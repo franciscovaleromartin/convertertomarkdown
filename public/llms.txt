@@ -4,13 +4,13 @@
 
 ## Tool
 
-- [Converter](https://convertertomarkdown.com/): Three input modes — single file, URL, or batch (multiple files at once). 15 formats supported, 20 MB max, works offline. Built-in editor with live preview.
+- [Converter](https://www.convertertomarkdown.com/): Three input modes — single file, URL, or batch (multiple files at once). 15 formats supported, 20 MB max, works offline. Built-in editor with live preview.
 
 ## Documentation
 
-- [Full documentation](https://convertertomarkdown.com/llms-full.txt): Complete reference for AI systems — all formats, use cases, FAQs, technical details.
-- [How it works](https://convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, Tesseract.js, SheetJS, Turndown, PapaParse, marked, JSZip).
-- [Use cases](https://convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
+- [Full documentation](https://www.convertertomarkdown.com/llms-full.txt): Complete reference for AI systems — all formats, use cases, FAQs, technical details.
+- [How it works](https://www.convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, Tesseract.js, SheetJS, Turndown, PapaParse, marked, JSZip).
+- [Use cases](https://www.convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
 
 ## Key Facts
 
@@ -26,8 +26,8 @@
 
 ## Legal
 
-- [Privacy Policy](https://convertertomarkdown.com/privacidad): No data collected. Files never leave the browser.
-- [License](https://convertertomarkdown.com/licencia): MIT License. Free to use, modify and distribute.
+- [Privacy Policy](https://www.convertertomarkdown.com/privacidad): No data collected. Files never leave the browser.
+- [License](https://www.convertertomarkdown.com/licencia): MIT License. Free to use, modify and distribute.
 
 ## Author
 

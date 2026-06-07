@@ -6,7 +6,7 @@
 
 ConverterToMarkdown is a free, open-source web application that converts documents, spreadsheets, web pages, data files, and images to Markdown format entirely within the user's browser. No files are uploaded to any server. All processing happens locally using JavaScript libraries.
 
-**URL:** https://convertertomarkdown.com
+**URL:** https://www.convertertomarkdown.com
 **Author:** Francisco Valero — https://francisco-valero.com
 **License:** MIT
 **Version:** 2.0
@@ -122,15 +122,15 @@ Convert documents to clean Markdown to include as context in ChatGPT, Claude, Ge
 - URL mode fetches files via a serverless proxy to avoid CORS — the file content is never stored
 - No third-party integrations (no Google Analytics, Mixpanel, etc.)
 
-Full policy: https://convertertomarkdown.com/privacidad
+Full policy: https://www.convertertomarkdown.com/privacidad
 
 ## Pages
 
-- [Converter](https://convertertomarkdown.com/) — Main conversion tool
-- [How it works](https://convertertomarkdown.com/como-funciona) — Step-by-step guide with library breakdown
-- [Use cases](https://convertertomarkdown.com/casos-de-uso) — Audience-specific workflows
-- [Privacy policy](https://convertertomarkdown.com/privacidad) — Data handling details
-- [License](https://convertertomarkdown.com/licencia) — MIT License terms
+- [Converter](https://www.convertertomarkdown.com/) — Main conversion tool
+- [How it works](https://www.convertertomarkdown.com/como-funciona) — Step-by-step guide with library breakdown
+- [Use cases](https://www.convertertomarkdown.com/casos-de-uso) — Audience-specific workflows
+- [Privacy policy](https://www.convertertomarkdown.com/privacidad) — Data handling details
+- [License](https://www.convertertomarkdown.com/licencia) — MIT License terms
 
 ## Author
 

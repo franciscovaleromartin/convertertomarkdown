@@ -41,19 +41,19 @@ export function CasosDeUso({ navigate }: Props) {
       <Helmet>
         <title>{t.pageUsecasesTitle}</title>
         <meta name="description" content={t.pageUsecasesDesc} />
-        <link rel="canonical" href="https://convertertomarkdown.com/casos-de-uso" />
+        <link rel="canonical" href="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://convertertomarkdown.com/casos-de-uso" />
+        <meta property="og:url" content="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:title" content={t.pageUsecasesTitle} />
         <meta property="og:description" content={t.pageUsecasesDesc} />
-        <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageUsecasesTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.pageUsecasesTitle} />
         <meta name="twitter:description" content={t.pageUsecasesDesc} />
-        <meta name="twitter:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image" content="https://www.convertertomarkdown.com/og-image.png" />
         <meta name="twitter:image:alt" content={t.pageUsecasesTitle} />
       </Helmet>
 

@@ -21,11 +21,11 @@ export function Licencia({ navigate }: Props) {
       <Helmet>
         <title>{t.pageLicenseTitle}</title>
         <meta name="description" content={t.pageLicenseDesc} />
-        <link rel="canonical" href="https://convertertomarkdown.com/licencia" />
-        <meta property="og:url" content="https://convertertomarkdown.com/licencia" />
+        <link rel="canonical" href="https://www.convertertomarkdown.com/licencia" />
+        <meta property="og:url" content="https://www.convertertomarkdown.com/licencia" />
         <meta property="og:title" content={t.pageLicenseTitle} />
         <meta property="og:description" content={t.pageLicenseDesc} />
-        <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
       </Helmet>
 
       <BackButton navigate={navigate} />

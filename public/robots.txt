@@ -49,4 +49,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://convertertomarkdown.com/sitemap.xml
+Sitemap: https://www.convertertomarkdown.com/sitemap.xml

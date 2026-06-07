@@ -108,19 +108,19 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
       <Helmet>
         <title>{t.pageHomeTitle}</title>
         <meta name="description" content={t.pageHomeDesc} />
-        <link rel="canonical" href="https://convertertomarkdown.com" />
+        <link rel="canonical" href="https://www.convertertomarkdown.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://convertertomarkdown.com" />
+        <meta property="og:url" content="https://www.convertertomarkdown.com" />
         <meta property="og:title" content={t.pageHomeTitle} />
         <meta property="og:description" content={t.pageHomeDesc} />
-        <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageHomeTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.pageHomeTitle} />
         <meta name="twitter:description" content={t.pageHomeDesc} />
-        <meta name="twitter:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image" content="https://www.convertertomarkdown.com/og-image.png" />
         <meta name="twitter:image:alt" content={t.pageHomeTitle} />
       </Helmet>
 
@@ -161,6 +161,8 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             playsInline
             preload="none"
             poster="/video-poster.png"
+            width={1920}
+            height={1080}
             style={{ aspectRatio: '16/9' }}
             className="w-full rounded-xl border border-zinc-800 bg-zinc-900"
           />

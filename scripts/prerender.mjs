@@ -115,10 +115,10 @@ const routeSchemas = {
     "@type": "VideoObject",
     "name": "ConverterToMarkdown — demo",
     "description": "See how ConverterToMarkdown converts files to Markdown in seconds, directly in the browser. Supports DOCX, PDF, images with OCR, batch mode and live preview. No installation, no upload.",
-    "contentUrl": "https://convertertomarkdown.com/demo.mp4",
-    "thumbnailUrl": "https://convertertomarkdown.com/og-image.png",
+    "contentUrl": "https://www.convertertomarkdown.com/demo.mp4",
+    "thumbnailUrl": "https://www.convertertomarkdown.com/og-image.png",
     "uploadDate": "2026-05-01",
-    "publisher": { "@id": "https://convertertomarkdown.com/#org" }
+    "publisher": { "@id": "https://www.convertertomarkdown.com/#org" }
   }
   </script>`,
 
@@ -127,14 +127,14 @@ const routeSchemas = {
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "https://convertertomarkdown.com/como-funciona",
+    "url": "https://www.convertertomarkdown.com/como-funciona",
     "name": "How it works — ConverterToMarkdown",
-    "isPartOf": { "@id": "https://convertertomarkdown.com/#website" },
+    "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://convertertomarkdown.com" },
-        { "@type": "ListItem", "position": 2, "name": "How it works", "item": "https://convertertomarkdown.com/como-funciona" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.convertertomarkdown.com" },
+        { "@type": "ListItem", "position": 2, "name": "How it works", "item": "https://www.convertertomarkdown.com/como-funciona" }
       ]
     },
     "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", "p"] },
@@ -179,14 +179,14 @@ const routeSchemas = {
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url": "https://convertertomarkdown.com/casos-de-uso",
+    "url": "https://www.convertertomarkdown.com/casos-de-uso",
     "name": "Use cases — ConverterToMarkdown",
-    "isPartOf": { "@id": "https://convertertomarkdown.com/#website" },
+    "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://convertertomarkdown.com" },
-        { "@type": "ListItem", "position": 2, "name": "Use cases", "item": "https://convertertomarkdown.com/casos-de-uso" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.convertertomarkdown.com" },
+        { "@type": "ListItem", "position": 2, "name": "Use cases", "item": "https://www.convertertomarkdown.com/casos-de-uso" }
       ]
     },
     "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", "p"] },
@@ -234,7 +234,7 @@ console.log(`\nPre-rendering complete — ${routes.length} routes`)
 
 // Ping IndexNow so Bing and other engines pick up updated content immediately
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? '019dc048525741c6a39036a5d62f22ea'
-const INDEXNOW_HOST = 'convertertomarkdown.com'
+const INDEXNOW_HOST = 'www.convertertomarkdown.com'
 const urlsToIndex = routes.map(r => `https://${INDEXNOW_HOST}${r}`)
 
 try {

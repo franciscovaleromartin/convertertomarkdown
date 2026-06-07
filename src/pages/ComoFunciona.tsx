@@ -43,19 +43,19 @@ export function ComoFunciona({ navigate }: Props) {
       <Helmet>
         <title>{t.pageHowTitle}</title>
         <meta name="description" content={t.pageHowDesc} />
-        <link rel="canonical" href="https://convertertomarkdown.com/como-funciona" />
+        <link rel="canonical" href="https://www.convertertomarkdown.com/como-funciona" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://convertertomarkdown.com/como-funciona" />
+        <meta property="og:url" content="https://www.convertertomarkdown.com/como-funciona" />
         <meta property="og:title" content={t.pageHowTitle} />
         <meta property="og:description" content={t.pageHowDesc} />
-        <meta property="og:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageHowTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.pageHowTitle} />
         <meta name="twitter:description" content={t.pageHowDesc} />
-        <meta name="twitter:image" content="https://convertertomarkdown.com/og-image.png" />
+        <meta name="twitter:image" content="https://www.convertertomarkdown.com/og-image.png" />
         <meta name="twitter:image:alt" content={t.pageHowTitle} />
       </Helmet>
 
