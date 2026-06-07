@@ -4,8 +4,12 @@ import type { ReactNode } from 'react'
 export type Lang = 'es' | 'en'
 
 export function detectLang(): Lang {
+  // `typeof window` se usa como guarda de entorno-navegador: Node.js 18+ expone un
+  // `navigator` global que refleja el locale del sistema de la máquina de build, no
+  // el del visitante. Sin esta guarda, el idioma detectado en SSR dependería del
+  // locale del servidor de build en lugar de ser determinista.
   const lang =
-    (typeof navigator !== 'undefined' && (navigator.language || navigator.languages?.[0])) || 'en'
+    (typeof window !== 'undefined' && typeof navigator !== 'undefined' && (navigator.language || navigator.languages?.[0])) || 'en'
   const detected: Lang = lang.startsWith('es') ? 'es' : 'en'
   if (typeof document !== 'undefined') {
     document.documentElement.lang = detected

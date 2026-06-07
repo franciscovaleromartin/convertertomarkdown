@@ -117,6 +117,11 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageHomeTitle} />
+        <meta property="og:video" content={`https://www.convertertomarkdown.com${detectLang() === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}`} />
+        <meta property="og:video:secure_url" content={`https://www.convertertomarkdown.com${detectLang() === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}`} />
+        <meta property="og:video:type" content="video/mp4" />
+        <meta property="og:video:width" content="1920" />
+        <meta property="og:video:height" content="1080" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.pageHomeTitle} />
         <meta name="twitter:description" content={t.pageHomeDesc} />
