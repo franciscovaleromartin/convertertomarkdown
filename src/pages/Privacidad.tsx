@@ -37,6 +37,7 @@ export function Privacidad({ navigate }: Props) {
         <meta property="og:title" content={t.pagePrivacyTitle} />
         <meta property="og:description" content={t.pagePrivacyDesc} />
         <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pagePrivacyTitle} />

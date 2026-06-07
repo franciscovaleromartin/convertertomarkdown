@@ -55,6 +55,7 @@ export function ComoFunciona({ navigate }: Props) {
         <meta property="og:title" content={t.pageHowTitle} />
         <meta property="og:description" content={t.pageHowDesc} />
         <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageHowTitle} />

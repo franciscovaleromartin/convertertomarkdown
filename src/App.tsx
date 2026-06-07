@@ -120,6 +120,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <meta property="og:title" content={t.pageHomeTitle} />
         <meta property="og:description" content={t.pageHomeDesc} />
         <meta property="og:image" content="https://www.convertertomarkdown.com/og-image.png" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageHomeTitle} />
