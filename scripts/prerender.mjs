@@ -129,6 +129,7 @@ const routeSchemas = {
     "@type": "WebPage",
     "url": "https://www.convertertomarkdown.com/como-funciona",
     "name": "How it works — ConverterToMarkdown",
+    "inLanguage": "en",
     "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -181,6 +182,7 @@ const routeSchemas = {
     "@type": "WebPage",
     "url": "https://www.convertertomarkdown.com/casos-de-uso",
     "name": "Use cases — ConverterToMarkdown",
+    "inLanguage": "en",
     "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -213,6 +215,7 @@ const routeSchemas = {
     "@type": "WebPage",
     "url": "https://www.convertertomarkdown.com/privacidad",
     "name": "Privacy Policy — ConverterToMarkdown",
+    "inLanguage": "en",
     "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -232,6 +235,7 @@ const routeSchemas = {
     "@type": "WebPage",
     "url": "https://www.convertertomarkdown.com/licencia",
     "name": "License — ConverterToMarkdown",
+    "inLanguage": "en",
     "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
