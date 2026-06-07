@@ -22,6 +22,7 @@ function IconLink({ href, title, children }: { href: string; title: string; chil
       target="_blank"
       rel="noopener noreferrer"
       title={title}
+      aria-label={title}
       className="flex items-center justify-center w-8 h-8 rounded-lg border border-white/[0.08] bg-white/[0.04] text-slate-400 no-underline transition-colors duration-150 hover:text-slate-100 hover:bg-white/[0.08]"
     >
       {children}
@@ -63,6 +64,7 @@ function GitHubStars() {
       target="_blank"
       rel="noopener noreferrer"
       title="GitHub"
+      aria-label={`GitHub — ${stars !== null ? stars + ' stars' : 'repository'}`}
       className="flex items-center gap-[5px] px-[10px] h-8 rounded-lg border border-white/[0.08] bg-white/[0.04] text-slate-400 no-underline transition-colors duration-150 text-xs font-medium hover:text-slate-100 hover:bg-white/[0.08]"
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

@@ -82,9 +82,9 @@ const translations = {
     pageUsecasesTitle: 'Casos de uso — ConverterToMarkdown',
     pageUsecasesDesc: 'Cómo usan ConverterToMarkdown desarrolladores, escritores, estudiantes, analistas de datos y equipos de IA para preparar contexto.',
     pagePrivacyTitle: 'Política de privacidad — ConverterToMarkdown',
-    pagePrivacyDesc: 'Sin recopilación de datos. Todo el procesamiento ocurre en tu navegador. Tus archivos nunca salen de tu dispositivo.',
+    pagePrivacyDesc: 'Sin recopilación de datos ni cuentas. Todo el procesamiento de archivos ocurre en tu navegador: tus documentos nunca salen de tu dispositivo.',
     pageLicenseTitle: 'Licencia — ConverterToMarkdown',
-    pageLicenseDesc: 'ConverterToMarkdown es de uso libre y código abierto bajo licencia MIT.',
+    pageLicenseDesc: 'ConverterToMarkdown es de código abierto bajo licencia MIT: úsalo, modifícalo y redistribúyelo libremente, sin coste ni restricciones. Código en GitHub.',
 
     faqQ10: '¿Qué es Markdown?',
     faqA10: 'Markdown es un formato de texto ligero que usa símbolos simples para estructurar documentos: # para encabezados, **texto** para negrita, *texto* para cursiva, - para listas y `texto` para código. Se lee como texto plano pero se renderiza como contenido formateado. Es el formato estándar en GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude y la mayoría de herramientas de IA.',
@@ -316,9 +316,9 @@ const translations = {
     pageUsecasesTitle: 'Use cases — ConverterToMarkdown',
     pageUsecasesDesc: 'How developers, writers, students, data analysts and AI teams use ConverterToMarkdown to convert documents to Markdown.',
     pagePrivacyTitle: 'Privacy Policy — ConverterToMarkdown',
-    pagePrivacyDesc: 'No data collected. All file processing happens locally in your browser. Your files never leave your device.',
+    pagePrivacyDesc: 'No data collection, no accounts, no tracking. All file processing happens locally in your browser — your documents never leave your device or touch a server.',
     pageLicenseTitle: 'License — ConverterToMarkdown',
-    pageLicenseDesc: 'ConverterToMarkdown is free and open source under the MIT License.',
+    pageLicenseDesc: 'ConverterToMarkdown is open source under the MIT License — use, modify and redistribute it freely, at no cost and with no restrictions. Source on GitHub.',
 
     faqQ10: 'What is Markdown?',
     faqA10: 'Markdown is a lightweight text format that uses simple symbols to structure documents: # for headings, **text** for bold, *text* for italic, - for lists, and `text` for code. It reads as plain text but renders as formatted content. It is the standard format in GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude and most AI tools.',
