@@ -109,6 +109,9 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <title>{t.pageHomeTitle}</title>
         <meta name="description" content={t.pageHomeDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com" />
+        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/" />
+        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.convertertomarkdown.com" />
         <meta property="og:title" content={t.pageHomeTitle} />

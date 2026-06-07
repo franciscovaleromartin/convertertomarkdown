@@ -44,6 +44,9 @@ export function ComoFunciona({ navigate }: Props) {
         <title>{t.pageHowTitle}</title>
         <meta name="description" content={t.pageHowDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/como-funciona" />
+        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/como-funciona" />
+        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/como-funciona" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/como-funciona" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.convertertomarkdown.com/como-funciona" />
         <meta property="og:title" content={t.pageHowTitle} />

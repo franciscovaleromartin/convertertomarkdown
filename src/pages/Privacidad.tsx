@@ -26,6 +26,9 @@ export function Privacidad({ navigate }: Props) {
         <title>{t.pagePrivacyTitle}</title>
         <meta name="description" content={t.pagePrivacyDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/privacidad" />
+        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/privacidad" />
+        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/privacidad" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/privacidad" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.convertertomarkdown.com/privacidad" />
         <meta property="og:title" content={t.pagePrivacyTitle} />

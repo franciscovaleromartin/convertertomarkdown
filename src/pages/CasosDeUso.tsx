@@ -42,6 +42,9 @@ export function CasosDeUso({ navigate }: Props) {
         <title>{t.pageUsecasesTitle}</title>
         <meta name="description" content={t.pageUsecasesDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/casos-de-uso" />
+        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/casos-de-uso" />
+        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/casos-de-uso" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:title" content={t.pageUsecasesTitle} />
