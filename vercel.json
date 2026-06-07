@@ -26,6 +26,12 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
+    },
+    {
+      "source": "/(demo\\.mp4|demo_eng\\.mp4|favicon\\.ico|favicon\\.svg|icons\\.svg|logo\\.png|og-image\\.png|video-poster\\.jpg|manifest\\.json)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
     }
   ]
 }
