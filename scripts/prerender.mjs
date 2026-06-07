@@ -261,7 +261,6 @@ for (const url of routes) {
   }
 
   page = page.replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/, `"dateModified": "${TODAY}"`)
-  page = page.replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${TODAY}</lastmod>`)
 
   const outPath = url === '/'
     ? toAbs('dist/index.html')
@@ -273,6 +272,13 @@ for (const url of routes) {
 }
 
 console.log(`\nPre-rendering complete — ${routes.length} routes`)
+
+// Refresh sitemap.xml lastmod dates so search engines see accurate crawl-freshness signals
+const sitemapPath = toAbs('dist/sitemap.xml')
+const sitemap = fs.readFileSync(sitemapPath, 'utf-8')
+  .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${TODAY}</lastmod>`)
+fs.writeFileSync(sitemapPath, sitemap)
+console.log(`✓ sitemap.xml lastmod refreshed to ${TODAY}`)
 
 // Ping IndexNow so Bing and other engines pick up updated content immediately
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY ?? '019dc048525741c6a39036a5d62f22ea'
