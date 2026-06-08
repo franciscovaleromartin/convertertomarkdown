@@ -18,6 +18,7 @@
     <!-- HelmetStart -->
     <title>ConverterToMarkdown — Free File to Markdown Converter</title>
     <meta name="description" content="Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown directly in your browser. No upload, no server, 100% free." />
+    <meta name="keywords" content="markdown converter, convert to markdown, file to markdown, document to markdown, DOCX to markdown, PDF to markdown, XLSX to markdown, HTML to markdown, convert PDF to markdown, free markdown converter, browser-based markdown converter, markdown conversion tool, convertertomarkdown" />
     <link rel="canonical" href="https://www.convertertomarkdown.com" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ConverterToMarkdown" />
@@ -79,12 +80,23 @@
           ],
           "author": { "@id": "https://www.convertertomarkdown.com/#person" },
           "datePublished": "2026-05-01",
-          "dateModified": "2026-05-30",
+          "dateModified": "2026-06-08",
           "inLanguage": ["es", "en"],
           "speakable": {
             "@type": "SpeakableSpecification",
             "cssSelector": ["h1", "h2", "p"]
-          }
+          },
+          "alternativeHeadline": "Free Document to Markdown Converter — DOCX, PDF, XLSX, HTML, Images",
+          "softwareHelp": {
+            "@type": "CreativeWork",
+            "url": "https://www.convertertomarkdown.com/llms-full.txt",
+            "name": "Full ConverterToMarkdown Documentation"
+          },
+          "sameAs": [
+            "https://github.com/franciscovaleromartin/convertertomarkdown",
+            "https://www.producthunt.com/products/convertertomarkdown",
+            "https://news.ycombinator.com/item?id=48205518"
+          ]
         },
         {
           "@type": "Person",
@@ -125,6 +137,92 @@
           "name": "ConverterToMarkdown",
           "inLanguage": ["en", "es"],
           "publisher": { "@id": "https://www.convertertomarkdown.com/#org" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.convertertomarkdown.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Markdown is a lightweight text format that uses simple symbols to structure documents: # for headings, **text** for bold, *text* for italic, - for lists, and `text` for code. It reads as plain text but renders as formatted content. It is the standard format in GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude and most AI tools."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many file formats are supported for Markdown conversion?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "15 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, PNG, WEBP, BMP and GIF. Images are processed using in-browser OCR. More formats are added based on user demand."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my file uploaded to a server during Markdown conversion?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is ConverterToMarkdown free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, completely free with no registration. No account or credit card required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the maximum file size for conversion to Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "20 MB per file. If your document is larger, consider compressing it or splitting the content before converting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I edit the generated Markdown after conversion?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The result appears in a built-in editor with two modes: editor .md to edit the raw Markdown syntax directly, and Preview to see the rendered output with real headings, tables and formatting. Both modes are synced in real time. You can copy to clipboard or download the .md file at any time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the Markdown converter work offline?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do scanned PDFs convert to Markdown correctly?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The tool automatically detects when a PDF contains no extractable text and applies OCR page by page. PDFs with digital text are converted directly; scanned PDFs are processed with optical character recognition entirely in your browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I convert multiple files to Markdown at once?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The Multiple files mode lets you drag or select several files at once. They are converted sequentially to avoid overloading the browser, and each file gets its own download button as soon as it finishes. When all files are ready, a single button downloads all the .md files as a ZIP archive."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is there a Model Context Protocol (MCP) server for AI agent integration?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. A Model Context Protocol (MCP) server is available via npx convertertomarkdown-mcp. Compatible with Claude Code, Cursor, and any MCP-compatible agent. The agent can convert files to Markdown directly without opening a browser. See https://github.com/franciscovaleromartin/convertertomarkdown-mcp for details."
+              }
+            }
+          ]
         }
       ]
     }

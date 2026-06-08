@@ -32,6 +32,17 @@
 - Offline: works after first page load
 - Open source: MIT license
 
+## Frequently Asked Questions
+
+**What file formats can be converted to Markdown?**
+15 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, PNG, WEBP, BMP and GIF. Images use OCR via Tesseract.js.
+
+**Is it free and does it upload my files?**
+Completely free, no registration. Files never leave your browser — all conversion happens client-side with no server upload.
+
+**Is there an MCP server for AI agent integration?**
+Yes. Run `npx convertertomarkdown-mcp` to use it from Claude Code, Cursor, or any Model Context Protocol compatible agent.
+
 ## Legal
 
 - [Privacy Policy](https://www.convertertomarkdown.com/privacidad): No data collected. Files never leave the browser.

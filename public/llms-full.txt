@@ -191,3 +191,6 @@ Yes. JPG, JPEG, PNG, WEBP, BMP and GIF files are supported. Tesseract.js extract
 
 **What is the live preview?**
 After conversion, the built-in editor has two modes: "editor .md" shows the raw Markdown textarea, and "Preview" renders the Markdown as formatted HTML (headings, bold, tables, code blocks). Edits in either panel are synced to the other in real time.
+
+**Is there a Model Context Protocol (MCP) server for AI agent integration?**
+Yes. A Model Context Protocol (MCP) server is available. Run `npx convertertomarkdown-mcp` and add it to your MCP client (Claude Code, Cursor, or any compatible agent). The agent can then convert files to Markdown directly without opening a browser. Note: this option consumes tokens from your agent. GitHub: https://github.com/franciscovaleromartin/convertertomarkdown-mcp
