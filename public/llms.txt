@@ -12,6 +12,14 @@
 - [How it works](https://www.convertertomarkdown.com/como-funciona): Step-by-step guide and library breakdown (mammoth, pdf.js, Tesseract.js, SheetJS, Turndown, PapaParse, marked, JSZip).
 - [Use cases](https://www.convertertomarkdown.com/casos-de-uso): Developers, writers, students, data teams, AI/LLM context preparation.
 
+## MCP Server (Model Context Protocol)
+
+- **Package:** `npx convertertomarkdown-mcp`
+- **GitHub:** https://github.com/franciscovaleromartin/convertertomarkdown-mcp
+- **Compatible with:** Claude Code, Cursor, and any MCP-compatible agent
+- **What it does:** Allows AI agents to convert files to Markdown directly without opening a browser
+- **Note:** Consumes tokens from the agent. No file upload — processing is local.
+
 ## Key Facts
 
 - Converts: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, JPEG, PNG, WEBP, BMP, GIF → Markdown

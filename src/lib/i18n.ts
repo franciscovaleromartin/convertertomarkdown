@@ -121,7 +121,7 @@ const translations = {
     cardsMcpTag: 'MCP',
     cardsMcpTitle: '¿Quieres usarlo desde Claude Code, Cursor u otro agente?',
     cardsMcpBody:
-      'Hay un servidor MCP disponible. Añade npx convertertomarkdown-mcp a tu cliente y cualquier agente compatible podrá convertir archivos a Markdown directamente, sin abrir el navegador. ⚠️ Esta opción sí consumirá tokens de tu agente.',
+      'Hay un servidor Model Context Protocol (MCP) disponible. Añade npx convertertomarkdown-mcp a tu cliente y cualquier agente compatible podrá convertir archivos a Markdown directamente, sin abrir el navegador. ⚠️ Esta opción sí consumirá tokens de tu agente.',
     cardsMcpLink: 'Ver en GitHub',
 
     // ── FAQ ───────────────────────────────────────────────────────────────
@@ -355,7 +355,7 @@ const translations = {
     cardsMcpTag: 'MCP',
     cardsMcpTitle: 'Want to use it from Claude Code, Cursor or another agent?',
     cardsMcpBody:
-      'An MCP server is available. Add npx convertertomarkdown-mcp to your client and any compatible agent can convert files to Markdown directly, without opening the browser. ⚠️ This option will consume tokens from your agent.',
+      'A Model Context Protocol (MCP) server is available. Add npx convertertomarkdown-mcp to your client and any compatible agent can convert files to Markdown directly, without opening the browser. ⚠️ This option will consume tokens from your agent.',
     cardsMcpLink: 'View on GitHub',
 
     // ── FAQ ───────────────────────────────────────────────────────────────

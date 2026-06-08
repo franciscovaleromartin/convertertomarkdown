@@ -60,6 +60,25 @@ The resulting Markdown opens in a built-in editor. Use the segmented control to 
 
 Both modes are synced in real time via bidirectional conversion: edits in the textarea update the preview instantly (150 ms debounce), and edits in the preview are converted back to Markdown using Turndown. Download as `.md` or copy to clipboard.
 
+## MCP Server (Model Context Protocol)
+
+ConverterToMarkdown provides an official **Model Context Protocol (MCP) server** that allows AI agents to convert files to Markdown directly, without opening a browser.
+
+**Installation:**
+```
+npx convertertomarkdown-mcp
+```
+
+Add this command to your MCP client configuration (Claude Code, Cursor, or any compatible agent).
+
+**Compatible clients:** Claude Code, Cursor, and any application that supports the Model Context Protocol standard.
+
+**How it works:** The MCP server exposes the same conversion capabilities as the web tool — DOCX, PDF, XLSX, HTML, images with OCR, and more — as tools that an AI agent can call directly. The agent passes a file path or URL; the server returns the Markdown.
+
+**Important:** This option consumes tokens from your agent since the converted content is returned as text in the conversation context.
+
+**GitHub repository:** https://github.com/franciscovaleromartin/convertertomarkdown-mcp
+
 ## Key Features
 
 - **Zero server dependency** — all processing is client-side
