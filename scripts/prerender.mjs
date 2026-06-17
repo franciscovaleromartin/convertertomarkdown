@@ -42,8 +42,10 @@ const routeSchemas = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "url": "https://www.convertertomarkdown.com/como-funciona",
-    "name": "How it works — ConverterToMarkdown",
+    "name": "How ConverterToMarkdown Converts Files to Markdown",
     "inLanguage": "en",
+    "datePublished": "2026-05-01",
+    "dateModified": "2026-06-17",
     "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
@@ -95,8 +97,10 @@ const routeSchemas = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "url": "https://www.convertertomarkdown.com/casos-de-uso",
-    "name": "Use cases — ConverterToMarkdown",
+    "name": "ConverterToMarkdown Use Cases — DOCX, PDF, Images to Markdown",
     "inLanguage": "en",
+    "datePublished": "2026-05-01",
+    "dateModified": "2026-06-17",
     "isPartOf": { "@id": "https://www.convertertomarkdown.com/#website" },
     "breadcrumb": {
       "@type": "BreadcrumbList",

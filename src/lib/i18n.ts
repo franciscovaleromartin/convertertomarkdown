@@ -166,7 +166,7 @@ const translations = {
     // ── ComoFunciona page ─────────────────────────────────────────────────
     howTitle: 'Cómo funciona ConverterToMarkdown',
     howSubtitle:
-      'En tres pasos, de archivo a Markdown. Sin instalación, sin cuenta, sin datos que salgan de tu navegador.',
+      'ConverterToMarkdown convierte cualquier archivo a Markdown directamente en el navegador usando librerías JavaScript especializadas — sin instalación, sin servidor, sin subida de archivos. Compatible con 15 formatos: DOCX, PDF, XLSX, HTML, CSV, JSON, XML e imágenes con OCR automático vía Tesseract.js.',
     howStep1Title: 'Elige cómo convertir',
     howStep1Body:
       'Tres modos de entrada: "Archivo" para arrastrar o seleccionar un único archivo desde tu sistema; "URL" para pegar el enlace de cualquier archivo público accesible (PDF en un CDN, DOCX en un servidor, etc.); y "Múltiples archivos" para seleccionar varios documentos a la vez y convertirlos en lote. Compatible con DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML y con imágenes JPG, PNG, WEBP, BMP y GIF mediante OCR. Tamaño máximo: 20 MB por archivo.',
@@ -210,11 +210,11 @@ const translations = {
     uc3Title: 'Estudiantes',
     uc3Tag: 'Apuntes y notas',
     uc3Body:
-      'Convierte apuntes en PDF, presentaciones o documentos de Word a Markdown para organizarlos en Obsidian o Notion. Transforma diapositivas de clases en texto plano con capacidad de búsqueda, crea notas enlazadas desde PDFs de cursos o importa materiales de lectura como Markdown estructurado para tu sistema de gestión del conocimiento.',
+      'Convierte apuntes en PDF, presentaciones o documentos de Word a Markdown para organizarlos en Obsidian o Notion. Transforma diapositivas de clases en texto plano con capacidad de búsqueda, crea notas enlazadas desde PDFs de cursos o importa materiales de lectura como Markdown estructurado para tu sistema de gestión del conocimiento. El OCR automático extrae texto de PDFs escaneados y apuntes fotograﬁados — útil para material de clases antiguo que no tiene versión digital. Todo ocurre en el navegador sin subir tus apuntes a ningún servidor.',
     uc4Title: 'Analistas de datos',
     uc4Tag: 'Tablas y datos',
     uc4Body:
-      'Transforma informes en Excel o CSV en tablas Markdown para incluirlas en documentación técnica o informes de PR. Cada hoja se convierte en una tabla Markdown con encabezados de columna alineados. Pega directamente en comentarios de GitHub, archivos README o páginas de Confluence sin reformatear manualmente.',
+      'Transforma informes en Excel o CSV en tablas Markdown para incluirlas en documentación técnica o informes de PR. Cada hoja del libro Excel se convierte en una tabla Markdown independiente con encabezados de columna alineados y delimitadores de barra vertical. Las fórmulas se resuelven a su valor actual. Pega directamente en comentarios de GitHub, archivos README, páginas de Confluence o documentación de APIs sin reformatear manualmente. Para informes con múltiples hojas, usa el modo "Múltiples archivos" para convertir todos los XLSX de una carpeta en un solo paso.',
     uc5Title: 'Equipos y empresas',
     uc5Tag: 'Estandarización',
     uc5Body:
@@ -400,7 +400,7 @@ const translations = {
     // ── ComoFunciona page ─────────────────────────────────────────────────
     howTitle: 'How ConverterToMarkdown Works',
     howSubtitle:
-      'Three steps from file to Markdown. No installation, no account, no data leaving your browser.',
+      'ConverterToMarkdown converts any file to Markdown directly in your browser using specialized JavaScript libraries — no installation, no server, no upload required. Supports 15 formats: DOCX, PDF, XLSX, HTML, CSV, JSON, XML and images with automatic OCR via Tesseract.js.',
     howStep1Title: 'Choose how to convert',
     howStep1Body:
       'Three input modes: "File" to drag or select a single file from your system; "URL" to paste the link to any publicly accessible file (PDF on a CDN, DOCX on a server, etc.); and "Multiple files" to select several documents at once and convert them in batch. Supports DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML and images (JPG, PNG, WEBP, BMP, GIF) via OCR. Maximum file size: 20 MB per file.',
@@ -444,11 +444,11 @@ const translations = {
     uc3Title: 'Students',
     uc3Tag: 'Notes & study',
     uc3Body:
-      'Convert PDF notes, presentations or Word documents to Markdown to organize them in Obsidian or Notion. Turn lecture slides into searchable plain text, create linked notes from course PDFs, or import reading materials as structured Markdown for your knowledge management system.',
+      'Convert PDF notes, presentations or Word documents to Markdown to organize them in Obsidian or Notion. Turn lecture slides into searchable plain text, create linked notes from course PDFs, or import reading materials as structured Markdown for your knowledge management system. The automatic OCR extracts text from scanned PDFs and photographed handouts — useful for older course material that has no digital version. Everything runs in the browser without uploading your notes to any server.',
     uc4Title: 'Data analysts',
     uc4Tag: 'Tables & data',
     uc4Body:
-      'Transform Excel or CSV reports into Markdown tables to include in technical documentation or PR reports. Each sheet becomes a formatted Markdown table with aligned column headers. Paste directly into GitHub comments, README files or Confluence pages without manual reformatting.',
+      'Transform Excel or CSV reports into Markdown tables to include in technical documentation or PR reports. Each sheet in the workbook becomes a separate Markdown table with aligned column headers and pipe delimiters. Formulas are resolved to their current values. Paste directly into GitHub comments, README files, Confluence pages or API documentation without manual reformatting. For reports with multiple sheets, use "Multiple files" mode to convert an entire folder of XLSX files in a single operation.',
     uc5Title: 'Teams & companies',
     uc5Tag: 'Standardization',
     uc5Body:
