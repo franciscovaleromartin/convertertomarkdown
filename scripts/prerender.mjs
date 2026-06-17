@@ -24,100 +24,14 @@ const routeSchemas = {
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Markdown?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Markdown is a lightweight text format that uses simple symbols to structure documents: # for headings, **text** for bold, *text* for italic, - for lists, and backtick-text for code. It reads as plain text but renders as formatted content. It is the standard format in GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude and most AI tools."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many file formats are supported?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "15 formats: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, JPEG, PNG, WEBP, BMP and GIF. Image files are processed with automatic OCR via Tesseract.js."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is my file uploaded to a server?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. All processing happens in your browser using JavaScript. Your file never leaves your device and no data is sent to external servers."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is it free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, completely free with no registration. No account or credit card required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the maximum file size?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "20 MB per file. Since all processing happens locally in your browser, performance depends on your device."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I edit the generated Markdown?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The result appears in an editor where you can modify it directly, then copy or download it as a .md file."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does it work offline?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Once the page is loaded, the converter works fully offline. No internet connection is required to process files."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does it work on mobile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Works in Chrome, Safari and Firefox on Android and iOS. You can select files from your device storage or from cloud apps like Google Drive or iCloud."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What happens with scanned PDFs or image-based PDFs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Scanned PDFs are processed automatically with OCR via Tesseract.js. pdf.js first attempts text extraction; if a page yields no text it is rendered to a canvas and passed to Tesseract. No manual action required — OCR is fully automatic and runs entirely in your browser."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I convert multiple files at once?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Use the Multiple files tab to select or drop any number of files at once. They are converted sequentially and each file can be downloaded individually as .md as soon as it finishes. When all files are done, a Download all button appears — 1 file downloads directly, 2 or more files download as a ZIP archive."
-        }
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": "ConverterToMarkdown — demo",
-    "description": "See how ConverterToMarkdown converts files to Markdown in seconds, directly in the browser. Supports DOCX, PDF, images with OCR, batch mode and live preview. No installation, no upload.",
+    "name": "ConverterToMarkdown — Free File to Markdown Converter Demo",
+    "description": "See how ConverterToMarkdown converts files to Markdown in seconds, directly in the browser. Supports DOCX, PDF, images with OCR, batch mode and live preview. No installation, no upload required.",
     "contentUrl": "https://www.convertertomarkdown.com/demo_eng.mp4",
+    "embedUrl": "https://www.convertertomarkdown.com/demo_eng.mp4",
     "thumbnailUrl": "https://www.convertertomarkdown.com/og-image.png",
     "uploadDate": "2026-05-01",
+    "duration": "PT49S",
     "publisher": { "@id": "https://www.convertertomarkdown.com/#org" }
   }
   </script>`,

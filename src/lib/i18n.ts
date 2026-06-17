@@ -81,10 +81,10 @@ const translations = {
     // ── Page meta (for Helmet + SSR) ──────────────────────────────────────
     pageHomeTitle: 'ConverterToMarkdown — Convertidor gratuito de archivos a Markdown',
     pageHomeDesc: 'Convierte DOCX, PDF, XLSX, HTML, CSV, JSON, XML, imágenes y más a Markdown en tu navegador. OCR para PDFs escaneados e imágenes. Modo batch. Sin servidores.',
-    pageHowTitle: 'Cómo funciona — ConverterToMarkdown',
-    pageHowDesc: 'Tres pasos para convertir cualquier archivo a Markdown. Procesamiento local con mammoth, pdf.js, SheetJS, Turndown y PapaParse. Sin subida de archivos.',
-    pageUsecasesTitle: 'Casos de uso — ConverterToMarkdown',
-    pageUsecasesDesc: 'Cómo usan ConverterToMarkdown desarrolladores, escritores, estudiantes, analistas de datos y equipos de IA para preparar contexto.',
+    pageHowTitle: 'Cómo convierte archivos a Markdown — ConverterToMarkdown',
+    pageHowDesc: 'Tres pasos para convertir cualquier archivo a Markdown en el navegador. Procesamiento local con mammoth, pdf.js, SheetJS, Turndown, PapaParse y Tesseract.js. Sin subida de archivos.',
+    pageUsecasesTitle: 'Casos de uso de ConverterToMarkdown — DOCX, PDF, imágenes a Markdown',
+    pageUsecasesDesc: 'Cómo usan ConverterToMarkdown desarrolladores, escritores, estudiantes, analistas de datos, equipos de empresa y flujos de IA para convertir documentos a Markdown sin instalar nada.',
     pagePrivacyTitle: 'Política de privacidad — ConverterToMarkdown',
     pagePrivacyDesc: 'Sin recopilación de datos ni cuentas. Todo el procesamiento de archivos ocurre en tu navegador: tus documentos nunca salen de tu dispositivo.',
     pageLicenseTitle: 'Licencia — ConverterToMarkdown',
@@ -222,7 +222,7 @@ const translations = {
     uc6Title: 'IA y LLMs',
     uc6Tag: 'Preparación de contexto',
     uc6Body:
-      'Convierte documentos a Markdown limpio para incluirlos como contexto en prompts de ChatGPT, Claude, Gemini u otros LLMs. El Markdown reduce el ruido de tokens comparado con HTML crudo o texto copiado. Introduce documentación de APIs, artículos de investigación, especificaciones internas o exportaciones de datos directamente en tu flujo de trabajo de IA. Con el modo "Múltiples archivos" puedes preparar un corpus completo de documentos en una sola pasada y descargarlos como .md listos para insertarlos como contexto.',
+      'Convierte documentos a Markdown limpio para incluirlos como contexto en prompts de ChatGPT, Claude, Gemini u otros LLMs. El Markdown reduce el ruido de tokens comparado con HTML crudo o texto copiado: un documento HTML típico de 5 páginas ocupa ~8.000 tokens, el mismo contenido en Markdown ocupa ~2.200 tokens. Introduce documentación de APIs, artículos de investigación, especificaciones internas o exportaciones de datos directamente en tu flujo de trabajo de IA. Con el modo "Múltiples archivos" puedes preparar un corpus completo de documentos en una sola pasada y descargarlos como .md listos para insertarlos como contexto.',
 
     // ── Privacidad page ───────────────────────────────────────────────────
     privPageTitle: 'Política de privacidad',
@@ -315,10 +315,10 @@ const translations = {
     // ── Page meta (for Helmet + SSR) ──────────────────────────────────────
     pageHomeTitle: 'ConverterToMarkdown — Free File to Markdown Converter',
     pageHomeDesc: 'Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML, images and more to Markdown in your browser. OCR for scanned PDFs and images. Batch mode. No server.',
-    pageHowTitle: 'How it works — ConverterToMarkdown',
-    pageHowDesc: 'Three steps from file to Markdown. Browser-side processing using mammoth, pdf.js, SheetJS, Turndown and PapaParse. No file upload required.',
-    pageUsecasesTitle: 'Use cases — ConverterToMarkdown',
-    pageUsecasesDesc: 'How developers, writers, students, data analysts and AI teams use ConverterToMarkdown to convert documents to Markdown.',
+    pageHowTitle: 'How ConverterToMarkdown Converts Files to Markdown',
+    pageHowDesc: 'Three steps from any file to Markdown in your browser. Uses mammoth, pdf.js, SheetJS, Turndown, PapaParse and Tesseract.js. No file upload, no server, no installation required.',
+    pageUsecasesTitle: 'ConverterToMarkdown Use Cases — DOCX, PDF, Images to Markdown',
+    pageUsecasesDesc: 'How developers, writers, students, data analysts, teams and AI workflows use ConverterToMarkdown to convert DOCX, PDF, Excel and images to Markdown without installing anything.',
     pagePrivacyTitle: 'Privacy Policy — ConverterToMarkdown',
     pagePrivacyDesc: 'No data collection, no accounts, no tracking. All file processing happens locally in your browser — your documents never leave your device or touch a server.',
     pageLicenseTitle: 'License — ConverterToMarkdown',
@@ -456,7 +456,7 @@ const translations = {
     uc6Title: 'AI & LLMs',
     uc6Tag: 'Context preparation',
     uc6Body:
-      'Convert documents to clean Markdown to include them as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text. Feed API docs, research papers, internal specs or data exports directly into your AI workflow. With "Multiple files" mode you can prepare an entire corpus in one pass and download all .md files ready to paste as context.',
+      'Convert documents to clean Markdown to include them as context in ChatGPT, Claude, Gemini or other LLM prompts. Markdown reduces token noise compared to raw HTML or copy-pasted text: a typical 5-page HTML document uses ~8,000 tokens, while the same content in Markdown uses ~2,200 tokens. Feed API docs, research papers, internal specs or data exports directly into your AI workflow. With "Multiple files" mode you can prepare an entire corpus in one pass and download all .md files ready to paste as context.',
 
     // ── Privacidad page ───────────────────────────────────────────────────
     privPageTitle: 'Privacy policy',

@@ -22,9 +22,6 @@ export function Licencia({ navigate }: Props) {
         <title>{t.pageLicenseTitle}</title>
         <meta name="description" content={t.pageLicenseDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/licencia" />
-        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/licencia" />
-        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/licencia" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/licencia" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ConverterToMarkdown" />
         <meta property="og:locale" content="en_US" />

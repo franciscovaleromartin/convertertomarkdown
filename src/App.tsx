@@ -109,9 +109,6 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <title>{t.pageHomeTitle}</title>
         <meta name="description" content={t.pageHomeDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com" />
-        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/" />
-        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ConverterToMarkdown" />
         <meta property="og:locale" content="en_US" />
@@ -147,6 +144,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
             <span className="text-zinc-500">To</span>
             <span className="text-purple-400">Markdown</span>
             <span className="text-zinc-600 text-sm font-normal">.com</span>
+            <span className="sr-only"> — Free File to Markdown Converter. Convert DOCX, PDF, XLSX, HTML and images to Markdown directly in your browser. No upload required.</span>
           </h1>
           <p className="text-zinc-600 text-xs mt-2.5 tracking-widest uppercase font-medium">
             {t.heroBy}

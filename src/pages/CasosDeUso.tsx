@@ -42,9 +42,6 @@ export function CasosDeUso({ navigate }: Props) {
         <title>{t.pageUsecasesTitle}</title>
         <meta name="description" content={t.pageUsecasesDesc} />
         <link rel="canonical" href="https://www.convertertomarkdown.com/casos-de-uso" />
-        <link rel="alternate" hrefLang="en" href="https://www.convertertomarkdown.com/casos-de-uso" />
-        <link rel="alternate" hrefLang="es" href="https://www.convertertomarkdown.com/casos-de-uso" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ConverterToMarkdown" />
         <meta property="og:locale" content="en_US" />
@@ -69,8 +66,11 @@ export function CasosDeUso({ navigate }: Props) {
       <h1 style={{ fontSize: '28px', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '8px' }}>
         {t.usecasesTitle}
       </h1>
-      <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '40px', lineHeight: 1.6 }}>
+      <p style={{ fontSize: '14px', color: '#94a3b8', marginBottom: '8px', lineHeight: 1.6 }}>
         {t.usecasesSubtitle}
+      </p>
+      <p style={{ fontSize: '12px', color: '#475569', marginBottom: '40px' }}>
+        <time dateTime="2026-06-08">Updated June 2026</time>
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '48px' }}>
