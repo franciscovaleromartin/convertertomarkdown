@@ -43,6 +43,8 @@ export function ComoFunciona({ navigate }: Props) {
       <Helmet>
         <title>{t.pageHowTitle}</title>
         <meta name="description" content={t.pageHowDesc} />
+        <meta name="keywords" content="how to convert PDF to markdown, how to convert DOCX to markdown, how to convert Excel to markdown, mammoth.js markdown, pdf.js markdown, tesseract.js OCR markdown, SheetJS markdown, file conversion browser, client-side markdown converter" />
+        <meta name="author" content="Francisco Valero" />
         <link rel="canonical" href="https://www.convertertomarkdown.com/como-funciona" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ConverterToMarkdown" />

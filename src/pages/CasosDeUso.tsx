@@ -41,6 +41,8 @@ export function CasosDeUso({ navigate }: Props) {
       <Helmet>
         <title>{t.pageUsecasesTitle}</title>
         <meta name="description" content={t.pageUsecasesDesc} />
+        <meta name="keywords" content="convert word to markdown developers, excel to markdown data analysts, PDF to markdown students, word to markdown bloggers, batch convert documents to markdown, AI context preparation markdown, LLM token reduction markdown, convert documents obsidian notion" />
+        <meta name="author" content="Francisco Valero" />
         <link rel="canonical" href="https://www.convertertomarkdown.com/casos-de-uso" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="ConverterToMarkdown" />
