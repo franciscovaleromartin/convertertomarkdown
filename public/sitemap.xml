@@ -16,7 +16,12 @@
       <video:title>ConverterToMarkdown — demo</video:title>
       <video:description>See how ConverterToMarkdown converts files to Markdown in seconds, directly in the browser. Supports DOCX, PDF, images with OCR, batch mode and live preview. No installation, no upload.</video:description>
       <video:content_loc>https://www.convertertomarkdown.com/demo_eng.mp4</video:content_loc>
+      <video:duration>49</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
+      <video:tag>markdown converter</video:tag>
+      <video:tag>DOCX to markdown</video:tag>
+      <video:tag>PDF to markdown</video:tag>
+      <video:tag>file conversion browser</video:tag>
     </video:video>
   </url>
   <url>
