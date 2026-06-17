@@ -18,7 +18,8 @@
     <!-- HelmetStart -->
     <title>ConverterToMarkdown — Free File to Markdown Converter</title>
     <meta name="description" content="Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and more to Markdown directly in your browser. No upload, no server, 100% free." />
-    <meta name="keywords" content="markdown converter, convert to markdown, file to markdown, document to markdown, DOCX to markdown, PDF to markdown, XLSX to markdown, HTML to markdown, convert PDF to markdown, free markdown converter, browser-based markdown converter, markdown conversion tool, convertertomarkdown" />
+    <meta name="keywords" content="markdown converter, convert to markdown, file to markdown, document to markdown, DOCX to markdown, PDF to markdown, XLSX to markdown, HTML to markdown, convert PDF to markdown, free markdown converter, browser-based markdown converter, markdown conversion tool, convertertomarkdown, excel to markdown, word to markdown, image to markdown, OCR markdown, convert word to markdown free" />
+    <meta name="author" content="Francisco Valero" />
     <link rel="canonical" href="https://www.convertertomarkdown.com" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ConverterToMarkdown" />
@@ -242,6 +243,30 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes. A Model Context Protocol (MCP) server is available via npx convertertomarkdown-mcp. Compatible with Claude Code, Cursor, and any MCP-compatible agent. The agent can convert files to Markdown directly without opening a browser. See https://github.com/franciscovaleromartin/convertertomarkdown-mcp for details."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I convert a PDF to Markdown for free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Go to ConverterToMarkdown.com and drag your PDF file onto the converter. The tool automatically extracts text from digital PDFs using pdf.js. If the PDF is scanned or image-only, OCR kicks in automatically via Tesseract.js — no manual action required. The result appears in the built-in editor where you can copy or download the Markdown file. Free, no upload, no registration."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I convert a Word document (DOCX) to Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Drag your .docx file onto ConverterToMarkdown.com. The tool uses mammoth.js to convert Word formatting to Markdown: headings become # symbols, bold text becomes **bold**, italic becomes *italic*, and tables are converted to Markdown pipe syntax. Lists, links and inline styles are preserved. The output appears instantly in a live editor. Free, no upload, works entirely in your browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I convert an Excel spreadsheet to Markdown?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Drag your .xlsx or .xls file onto ConverterToMarkdown.com. The tool uses SheetJS to parse each worksheet and converts it to a Markdown table with aligned column headers. If the workbook has multiple sheets, each sheet becomes a separate table in the output. The result is ready to paste into GitHub READMEs, Confluence, Notion, or any Markdown-aware tool. Free, no upload."
               }
             }
           ]

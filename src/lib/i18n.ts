@@ -21,7 +21,7 @@ const translations = {
   es: {
     // ── Hero ──────────────────────────────────────────────────────────────
     heroBy: 'por Francisco Valero',
-    heroTagline: 'Convierte archivos a Markdown directamente en tu navegador',
+    heroTagline: 'Convierte DOCX, PDF, Excel, HTML e imágenes a Markdown — gratis, en tu navegador, sin subir archivos',
     statFormats: 'formatos compatibles',
     statMax: 'máximo',
     statServers: 'servidores',
@@ -255,7 +255,7 @@ const translations = {
   en: {
     // ── Hero ──────────────────────────────────────────────────────────────
     heroBy: 'by Francisco Valero',
-    heroTagline: 'Convert files to Markdown directly in your browser',
+    heroTagline: 'Convert DOCX, PDF, Excel, HTML and images to Markdown — free, in your browser, no upload',
     statFormats: 'supported formats',
     statMax: 'maximum',
     statServers: 'servers',

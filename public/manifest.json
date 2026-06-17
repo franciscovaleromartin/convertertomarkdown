@@ -20,7 +20,9 @@
     {
       "src": "/og-image.png",
       "sizes": "1200x630",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ConverterToMarkdown — convert DOCX, PDF, Excel and images to Markdown in the browser"
     }
   ]
 }
