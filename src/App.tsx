@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useT, detectLang } from './lib/i18n'
+import { useT, useLang } from './lib/i18n'
 import { TopBar } from './components/TopBar'
 import { LandingCards } from './components/LandingCards'
 import { LandingFooter } from './components/LandingFooter'
@@ -62,6 +62,7 @@ export default function App({ ssrPath }: { ssrPath?: string } = {}) {
 
 function HomePage({ navigate }: { navigate: (p: string) => void }) {
   const t = useT()
+  const lang = useLang()
   const [inputMode, setInputMode] = useState<InputMode>('file')
   const [file, setFile] = useState<File | null>(null)
   const [markdown, setMarkdown] = useState('')
@@ -121,8 +122,8 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={t.pageHomeTitle} />
-        <meta property="og:video" content={`https://www.convertertomarkdown.com${detectLang() === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}`} />
-        <meta property="og:video:secure_url" content={`https://www.convertertomarkdown.com${detectLang() === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}`} />
+        <meta property="og:video" content={`https://www.convertertomarkdown.com${lang === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}`} />
+        <meta property="og:video:secure_url" content={`https://www.convertertomarkdown.com${lang === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}`} />
         <meta property="og:video:type" content="video/mp4" />
         <meta property="og:video:width" content="1920" />
         <meta property="og:video:height" content="1080" />
@@ -166,7 +167,7 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
         {/* ── Demo video ── */}
         <div className="mb-8">
           <video
-            src={detectLang() === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}
+            src={lang === 'en' ? '/demo_eng.mp4' : '/demo.mp4'}
             controls
             playsInline
             preload="none"

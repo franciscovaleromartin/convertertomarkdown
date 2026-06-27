@@ -490,17 +490,27 @@ const translations = {
 export type Translations = typeof translations.es
 
 const LangContext = createContext<Translations>(translations.en)
+const LangKeyContext = createContext<Lang>('en')
 
 /** Envuelve la app — detecta el idioma una vez y lo distribuye vía Context */
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>('en')
   useEffect(() => { setLang(detectLang()) }, [])
-  return createElement(LangContext.Provider, { value: translations[lang] as Translations }, children)
+  return createElement(
+    LangKeyContext.Provider,
+    { value: lang },
+    createElement(LangContext.Provider, { value: translations[lang] as Translations }, children)
+  )
 }
 
 /** Para componentes React — lee del Context compartido, sin estado propio */
 export function useT(): Translations {
   return useContext(LangContext)
+}
+
+/** Devuelve el código de idioma actual reactivo ('es' | 'en') */
+export function useLang(): Lang {
+  return useContext(LangKeyContext)
 }
 
 /** Para código fuera de React (converters, utils) */
