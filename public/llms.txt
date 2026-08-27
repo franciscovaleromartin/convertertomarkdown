@@ -20,6 +20,12 @@
 - **What it does:** Allows AI agents to convert files to Markdown directly without opening a browser
 - **Note:** Consumes tokens from the agent. No file upload — processing is local.
 
+## WebMCP (browser tools)
+
+With the site open, two tools are registered via `navigator.modelContext` for agents operating the page:
+- `convert_text_to_markdown` — convert an HTML, CSV, JSON, XML, MD or TXT snippet.
+- `convert_url_to_markdown` — fetch a public URL (page, PDF, DOCX, XLSX, CSV, image) and convert it.
+
 ## Key Facts
 
 - Converts: DOCX, PDF, XLSX, XLS, HTML, TXT, MD, CSV, JSON, XML, JPG, JPEG, PNG, WEBP, BMP, GIF → Markdown

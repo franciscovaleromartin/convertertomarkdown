@@ -15,6 +15,7 @@ import { CasosDeUso } from './pages/CasosDeUso'
 import { Privacidad } from './pages/Privacidad'
 import { Licencia } from './pages/Licencia'
 import { convertFile } from './converters'
+import { fetchUrlAsFile } from './lib/fetchUrl'
 import { MAX_FILE_SIZE } from './lib/constants'
 
 type InputMode = 'file' | 'url' | 'multi'
@@ -86,18 +87,9 @@ function HomePage({ navigate }: { navigate: (p: string) => void }) {
   const handleUrl = async (url: string) => {
     setError(null); setMarkdown(''); setIsLoading(true)
     try {
-      const proxyUrl = `/api/proxy?url=${encodeURIComponent(url)}`
-      const response = await fetch(proxyUrl)
-      if (!response.ok) throw new Error(`${t.errUrl}: ${response.statusText}`)
-      const blob = await response.blob()
-
-      const rawName = new URL(url).pathname.split('/').pop() || 'document'
-      const hasExt = rawName.includes('.')
-      const name = hasExt ? rawName : rawName + mimeToExt(response.headers.get('content-type') ?? blob.type)
-
-      await processFile(new File([blob], name, { type: blob.type || 'text/html' }))
+      await processFile(await fetchUrlAsFile(url))
     } catch (err) {
-      setError(err instanceof Error ? err.message : t.errUrl)
+      setError(err instanceof Error ? `${t.errUrl}: ${err.message}` : t.errUrl)
       setIsLoading(false)
     }
   }
@@ -321,24 +313,6 @@ function AuthorSection() {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function mimeToExt(contentType: string): string {
-  const mime = contentType.split(';')[0].trim().toLowerCase()
-  const map: Record<string, string> = {
-    'text/html':                                                        '.html',
-    'application/xhtml+xml':                                            '.html',
-    'application/pdf':                                                  '.pdf',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document': '.docx',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':       '.xlsx',
-    'application/vnd.ms-excel':                                         '.xls',
-    'text/plain':                                                        '.txt',
-    'text/markdown':                                                     '.md',
-    'text/csv':                                                          '.csv',
-    'application/json':                                                  '.json',
-    'text/xml':                                                          '.xml',
-    'application/xml':                                                   '.xml',
-  }
-  return map[mime] ?? '.html'
-}
 
 // ── Pequeños componentes ──────────────────────────────────────────────────────
 

@@ -45,7 +45,19 @@ Note: the converted Markdown is returned into the conversation, so it consumes
 context tokens. For very large files, convert in the browser instead and hand
 the agent only the part it needs.
 
-### Option B — Browser
+### Option B — WebMCP (agent operating the page)
+
+With https://www.convertertomarkdown.com open, the page registers two tools via
+`navigator.modelContext`:
+
+- `convert_text_to_markdown` — `{ content, format }` where format is one of
+  `html`, `csv`, `json`, `xml`, `md`, `txt`.
+- `convert_url_to_markdown` — `{ url }`, a public http(s) link to a page, PDF,
+  DOCX, XLSX, CSV or image (OCR applies). Maximum 20 MB.
+
+Both run in the browser tab; no file is uploaded.
+
+### Option C — Browser
 
 Open https://www.convertertomarkdown.com and use one of three input modes:
 

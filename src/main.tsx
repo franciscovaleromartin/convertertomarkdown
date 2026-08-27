@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from '@vercel/analytics/react'
 import { LangProvider } from './lib/i18n'
+import { registerWebMcpTools } from './lib/webmcp'
 import './index.css'
 import App from './App'
 
@@ -25,3 +26,6 @@ if (container.innerHTML.trim()) {
 } else {
   createRoot(container).render(tree)
 }
+
+// Expone la conversión como herramientas WebMCP para agentes que operan la página
+registerWebMcpTools()
