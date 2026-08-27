@@ -63,38 +63,6 @@
       ]
     },
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "source": "/:page(como-funciona|casos-de-uso|privacidad|licencia)",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/markdown; charset=utf-8"
-        }
-      ]
-    },
-    {
       "source": "/(.*).md",
       "headers": [
         {
@@ -104,37 +72,22 @@
       ]
     },
     {
-      "source": "/(|como-funciona|casos-de-uso|privacidad|licencia)",
+      "source": "/",
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\", </llms-full.txt>; rel=\"service-doc\"; type=\"text/plain\""
+          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\", </llms-full.txt>; rel=\"service-doc\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\""
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "destination": "/index.md"
     },
     {
       "source": "/:page(como-funciona|casos-de-uso|privacidad|licencia)",
-      "has": [
+      "headers": [
         {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\", </llms-full.txt>; rel=\"service-doc\"; type=\"text/plain\", </:page.md>; rel=\"alternate\"; type=\"text/markdown\""
         }
-      ],
-      "destination": "/:page.md"
+      ]
     }
   ]
 }
