@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
+import crypto from 'crypto'
 import { fileURLToPath } from 'url'
+import TurndownService from 'turndown'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
@@ -190,6 +192,38 @@ for (const url of routes) {
 }
 
 console.log(`\nPre-rendering complete — ${routes.length} routes`)
+
+// Markdown representation of each page, served on `Accept: text/markdown` (see vercel.json).
+// Lets agents read the content without parsing the HTML shell.
+const turndown = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced' })
+const SITE = 'https://www.convertertomarkdown.com'
+
+for (const url of routes) {
+  const { html: appHtml } = render(url)
+  const body = turndown.turndown(appHtml)
+    .replace(/\[\s*\]\([^)]*\)/g, '')   // icon-only links render as empty anchors
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+  const markdown = `<!-- ${SITE}${url === '/' ? '' : url} -->\n\n${body}\n`
+  const mdPath = toAbs(url === '/' ? 'dist/index.md' : `dist${url}.md`)
+  fs.writeFileSync(mdPath, markdown)
+  console.log(`✓ ${path.basename(mdPath)}`)
+}
+
+// Agent Skills discovery index — digest computed from the file so it can never go stale
+const skillDir = '.well-known/agent-skills/convert-to-markdown'
+const skillBody = fs.readFileSync(toAbs(`dist/${skillDir}/SKILL.md`))
+fs.writeFileSync(toAbs('dist/.well-known/agent-skills/index.json'), JSON.stringify({
+  $schema: 'https://schemas.agentskills.io/discovery/0.2.0/schema.json',
+  skills: [{
+    name: 'convert-to-markdown',
+    type: 'skill-md',
+    description: 'Convert DOCX, PDF, XLSX, HTML, CSV, JSON, XML and images (OCR) to clean Markdown locally, without uploading files.',
+    url: `${SITE}/${skillDir}/SKILL.md`,
+    digest: `sha256:${crypto.createHash('sha256').update(skillBody).digest('hex')}`,
+  }],
+}, null, 2) + '\n')
+console.log('✓ .well-known/agent-skills/index.json')
 
 // Refresh sitemap.xml lastmod dates so search engines see accurate crawl-freshness signals
 const sitemapPath = toAbs('dist/sitemap.xml')
