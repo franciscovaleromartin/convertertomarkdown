@@ -50,4 +50,5 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+Agentmap: https://www.convertertomarkdown.com/.well-known/ai-catalog.json
 Sitemap: https://www.convertertomarkdown.com/sitemap.xml

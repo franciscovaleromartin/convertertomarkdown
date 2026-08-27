@@ -1,0 +1,68 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "ConverterToMarkdown",
+    "identifier": "did:web:www.convertertomarkdown.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:convertertomarkdown.com:skill:convert-to-markdown",
+      "displayName": "Convert files to Markdown — Agent Skill",
+      "description": "Instructions for converting DOCX, PDF, XLSX, HTML, CSV, JSON, XML and images (OCR) to clean Markdown without uploading files.",
+      "type": "text/markdown",
+      "url": "https://www.convertertomarkdown.com/.well-known/agent-skills/convert-to-markdown/SKILL.md",
+      "representativeQueries": [
+        "convert this Word document to Markdown",
+        "turn a PDF into Markdown I can paste into GitHub",
+        "extract the text from a scanned document",
+        "how do I convert files to Markdown without uploading them"
+      ]
+    },
+    {
+      "identifier": "urn:air:convertertomarkdown.com:server:mcp",
+      "displayName": "ConverterToMarkdown MCP server",
+      "description": "Model Context Protocol server exposing local file conversion to Markdown. Runs over stdio via npx; no hosted endpoint.",
+      "type": "application/json",
+      "data": {
+        "transport": "stdio",
+        "command": "npx",
+        "args": ["convertertomarkdown-mcp"],
+        "package": "https://www.npmjs.com/package/convertertomarkdown-mcp",
+        "source": "https://github.com/franciscovaleromartin/convertertomarkdown-mcp"
+      },
+      "representativeQueries": [
+        "convert a local file to Markdown from my agent",
+        "add a Markdown conversion tool to Claude Code",
+        "MCP server that reads DOCX and PDF"
+      ]
+    },
+    {
+      "identifier": "urn:air:convertertomarkdown.com:tools:webmcp",
+      "displayName": "ConverterToMarkdown browser tools (WebMCP)",
+      "description": "Tools registered on navigator.modelContext when https://www.convertertomarkdown.com is open, for agents operating the page.",
+      "type": "application/json",
+      "data": {
+        "protocol": "WebMCP",
+        "page": "https://www.convertertomarkdown.com",
+        "tools": [
+          {
+            "name": "convert_text_to_markdown",
+            "description": "Convert an HTML, CSV, JSON, XML, Markdown or plain-text snippet into clean Markdown.",
+            "arguments": ["content", "format"]
+          },
+          {
+            "name": "convert_url_to_markdown",
+            "description": "Fetch a public http(s) URL — page, PDF, DOCX, XLSX, CSV or image — and convert it to Markdown. Maximum 20 MB.",
+            "arguments": ["url"]
+          }
+        ]
+      },
+      "representativeQueries": [
+        "convert this HTML snippet to Markdown",
+        "turn this CSV into a Markdown table",
+        "read that web page as Markdown",
+        "convert the linked PDF to Markdown"
+      ]
+    }
+  ]
+}
