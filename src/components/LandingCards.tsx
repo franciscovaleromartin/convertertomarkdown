@@ -48,20 +48,24 @@ export function LandingCards() {
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           flexWrap: 'wrap', gap: '18px',
-          borderRadius: '16px', background: '#f97a00', color: '#101f60',
+          borderRadius: '16px', background: '#fc7300', color: '#0d225b',
           padding: '22px 24px', textDecoration: 'none',
         }}
       >
         <div style={{ minWidth: '220px', flex: '1 1 320px' }}>
-          <div style={{ fontSize: '19px', fontWeight: 800, letterSpacing: '.02em', color: '#101f60', marginBottom: '14px' }}>
-            SAPINN
-          </div>
-          <h2 style={{ fontSize: '15px', fontWeight: 700, color: '#101f60', lineHeight: 1.35, marginBottom: '8px' }}>
+          <img
+            src="/sapinn-logo.svg"
+            alt="Sapinn"
+            width={100}
+            height={22}
+            style={{ display: 'block', height: '22px', width: 'auto', marginBottom: '14px' }}
+          />
+          <h2 style={{ fontSize: '15px', fontWeight: 700, color: '#0d225b', lineHeight: 1.35, marginBottom: '8px' }}>
             {t.cardsSapinnTitle1}
             <br />
             {t.cardsSapinnTitle2}
           </h2>
-          <p style={{ fontSize: '11.5px', color: '#101f60', lineHeight: 1.6, margin: 0, opacity: .9 }}>
+          <p style={{ fontSize: '11.5px', color: '#0d225b', lineHeight: 1.6, margin: 0, opacity: .9 }}>
             {t.cardsSapinnBody}
           </p>
         </div>
@@ -69,12 +73,12 @@ export function LandingCards() {
           <span style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             fontSize: '12px', fontWeight: 600, color: '#ffffff',
-            background: '#101f60', borderRadius: '999px', padding: '11px 24px',
+            background: '#0d225b', borderRadius: '999px', padding: '11px 24px',
             whiteSpace: 'nowrap',
           }}>
             {t.cardsSapinnCta}
           </span>
-          <span style={{ fontSize: '10px', color: '#101f60', opacity: .85, whiteSpace: 'nowrap' }}>
+          <span style={{ fontSize: '10px', color: '#0d225b', opacity: .85, whiteSpace: 'nowrap' }}>
             {t.cardsSapinnNote}
           </span>
         </div>
