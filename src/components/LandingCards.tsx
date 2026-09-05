@@ -40,6 +40,46 @@ export function LandingCards() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '8px' }}>
 
+      {/* ── Sapinn (full width, enlace externo) ── */}
+      <a
+        href="https://sapinn.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          flexWrap: 'wrap', gap: '18px',
+          borderRadius: '16px', background: '#f97a00', color: '#101f60',
+          padding: '22px 24px', textDecoration: 'none',
+        }}
+      >
+        <div style={{ minWidth: '220px', flex: '1 1 320px' }}>
+          <div style={{ fontSize: '19px', fontWeight: 800, letterSpacing: '.02em', color: '#101f60', marginBottom: '14px' }}>
+            SAPINN
+          </div>
+          <h2 style={{ fontSize: '15px', fontWeight: 700, color: '#101f60', lineHeight: 1.35, marginBottom: '8px' }}>
+            {t.cardsSapinnTitle1}
+            <br />
+            {t.cardsSapinnTitle2}
+          </h2>
+          <p style={{ fontSize: '11.5px', color: '#101f60', lineHeight: 1.6, margin: 0, opacity: .9 }}>
+            {t.cardsSapinnBody}
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+          <span style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '12px', fontWeight: 600, color: '#ffffff',
+            background: '#101f60', borderRadius: '999px', padding: '11px 24px',
+            whiteSpace: 'nowrap',
+          }}>
+            {t.cardsSapinnCta}
+          </span>
+          <span style={{ fontSize: '10px', color: '#101f60', opacity: .85, whiteSpace: 'nowrap' }}>
+            {t.cardsSapinnNote}
+          </span>
+        </div>
+      </a>
+
       {/* ── Featured: formatos ── */}
       <div style={{ borderRadius: '16px', border: '1px solid #1e293b', background: '#0c111d', overflow: 'hidden' }}>
         <div style={{ padding: '22px' }}>

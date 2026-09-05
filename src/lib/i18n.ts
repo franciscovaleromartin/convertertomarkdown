@@ -94,6 +94,12 @@ const translations = {
     faqA10: 'Markdown es un formato de texto ligero que usa símbolos simples para estructurar documentos: # para encabezados, **texto** para negrita, *texto* para cursiva, - para listas y `texto` para código. Se lee como texto plano pero se renderiza como contenido formateado. Es el formato estándar en GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude y la mayoría de herramientas de IA.',
 
     // ── LandingCards ──────────────────────────────────────────────────────
+    cardsSapinnTitle1: 'Ya preparas tus documentos para la IA.',
+    cardsSapinnTitle2: 'Ahora haz que los use toda tu empresa.',
+    cardsSapinnBody:
+      'Sapinn implanta IA generativa en empresas: diagnóstico de madurez, formación al equipo y automatización de procesos. Barcelona y Madrid.',
+    cardsSapinnCta: 'Habla con Sapinn',
+    cardsSapinnNote: 'Primera sesión de 45 min, sin compromiso',
     cardsFormatsTag: 'Formatos',
     cardsFormatsTitle: '15 tipos de archivo compatibles',
     cardsFormatsSub: 'Documentos, hojas de cálculo, páginas web, datos estructurados e imágenes.',
@@ -328,6 +334,12 @@ const translations = {
     faqA10: 'Markdown is a lightweight text format that uses simple symbols to structure documents: # for headings, **text** for bold, *text* for italic, - for lists, and `text` for code. It reads as plain text but renders as formatted content. It is the standard format in GitHub, Notion, Obsidian, VS Code, ChatGPT, Claude and most AI tools.',
 
     // ── LandingCards ──────────────────────────────────────────────────────
+    cardsSapinnTitle1: 'You already prepare your documents for AI.',
+    cardsSapinnTitle2: 'Now make your whole company use them.',
+    cardsSapinnBody:
+      'Sapinn rolls out generative AI in companies: maturity assessment, team training and process automation. Barcelona and Madrid.',
+    cardsSapinnCta: 'Talk to Sapinn',
+    cardsSapinnNote: 'First 45-min session, no commitment',
     cardsFormatsTag: 'Formats',
     cardsFormatsTitle: '15 compatible file types',
     cardsFormatsSub: 'Documents, spreadsheets, web pages, structured data and images.',
